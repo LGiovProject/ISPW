@@ -56,7 +56,6 @@ public class GUISearchedBookItemController extends Subject {
 
             bookBean=elementBean.getBookBean();
             panel= elementBean.getPane();
-            System.out.println(bookBean.getTypeOfDisponibilityString());
             typeOfInsert.setText("Put in "+bookBean.getTypeOfDisponibilityString());
             author.setText(this.bookBean.getAuthor());
             title.setText(this.bookBean.getTitle());

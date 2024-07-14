@@ -105,8 +105,6 @@ public class BookBean {
     public Arguments getArgument(){return argument;}
 
     public String getArgumentString() {
-        if(argument==null)
-            System.out.println("E' un problema!");
         return this.argument.getArgument();
     }
 
@@ -119,13 +117,9 @@ public class BookBean {
             for (Arguments arguments : Arguments.values()) {
                 if (arguments.getArgument().equals(argument)) {
                     this.argument = arguments;
-                    System.out.println("BookBean.setArgument(String string)  in:" + argument + " out: " + arguments.getArgument());
                 }
             }
-            if(this.argument == null)
-            {
-                    System.out.println("BookBean.setArgument(String string) Valore non preso: "+argument);
-            }
+
 
 
     }
