@@ -24,7 +24,6 @@ public class Main extends Application {
         stage.setResizable(false);
         stage.setTitle("Circular Book");
         stage.setScene(scene);
-
         GUILoginController guiLoginController = fxmlLoader.getController();
         guiLoginController.setCurrentScene(scene);
         stage.show();
