@@ -9,7 +9,7 @@ public class CircularBookInfoModel {
     int giftedBook;
     int lendedBookTaked;
     int giftedBooktaked;
-    int OpportunityInsert;
+    int opportunityInsert;
 
     public CircularBookInfoModel(){}
 
@@ -17,7 +17,7 @@ public class CircularBookInfoModel {
         this.registerBook = registerBook;
         this.lendedBook = lendedBook;
         this.giftedBook= giftedBook;
-        this.OpportunityInsert = OpportunityInsert;
+        this.opportunityInsert = OpportunityInsert;
     }
 
     public CircularBookInfoModel(int registerBook, int lendedBook, int giftedBook, int lendedBookTaked, int giftedBooktaked) {
@@ -69,10 +69,10 @@ public class CircularBookInfoModel {
     }
 
     public int getOpportunityInsert() {
-        return OpportunityInsert;
+        return opportunityInsert;
     }
 
     public void setOpportunityInsert(int opportunityInsert) {
-        this.OpportunityInsert = opportunityInsert;
+        this.opportunityInsert = opportunityInsert;
     }
 }

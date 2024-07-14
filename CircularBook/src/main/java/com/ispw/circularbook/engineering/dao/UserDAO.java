@@ -1,6 +1,5 @@
 package com.ispw.circularbook.engineering.dao;
 
-import com.ispw.circularbook.engineering.bean.UpdateUserInfoBean;
 import com.ispw.circularbook.engineering.connection.ConnectionDB;
 import com.ispw.circularbook.engineering.dao.queries.CRUDQueries;
 import com.ispw.circularbook.engineering.dao.queries.Queries;

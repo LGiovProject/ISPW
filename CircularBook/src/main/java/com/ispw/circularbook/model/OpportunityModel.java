@@ -1,8 +1,5 @@
 package com.ispw.circularbook.model;
 
-import com.ispw.circularbook.engineering.enums.Month;
-import com.ispw.circularbook.engineering.enums.TypeOfOpportunity;
-
 import java.time.LocalDate;
 
 public class OpportunityModel {
