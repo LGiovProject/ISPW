@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="467.0" prefWidth="639.0" styleClass="BoxField" stylesheets="@Css/BoxField.css,@Css/Component.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ispw.circularbook.controller.graficcontroller.gui.GUIInsertOpportunityController">
+   <children>
+      <VBox prefHeight="463.0" prefWidth="635.0" spacing="14.0">
+         <children>
+            <AnchorPane prefHeight="40.0">
+               <children>
+                  <Text layoutX="132.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Insert Opportunity" textAlignment="CENTER" wrappingWidth="371.0" AnchorPane.topAnchor="2.0">
+                     <font>
+                        <Font size="36.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="50.0" prefWidth="622.0">
+               <children>
+                  <HBox layoutX="6.0" layoutY="2.0" prefHeight="48.0" prefWidth="629.0">
+                     <children>
+                        <AnchorPane prefHeight="48.0" prefWidth="258.0">
+                           <children>
+                              <Text layoutX="29.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Type of Opportunity" textAlignment="CENTER" wrappingWidth="200.0">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane prefHeight="48.0" prefWidth="190.0">
+                           <children>
+                              <RadioButton fx:id="promotionsRadioButton" layoutY="11.0" mnemonicParsing="false" text="Promotion">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="typeOfOpportunity" />
+                                 </toggleGroup>
+                                 <padding>
+                                    <Insets left="5.0" />
+                                 </padding>
+                              </RadioButton>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane prefHeight="48.0" prefWidth="155.0">
+                           <children>
+                              <RadioButton fx:id="eventsRadioButton" layoutX="35.0" layoutY="11.0" mnemonicParsing="false" text="Event" toggleGroup="$typeOfOpportunity">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </RadioButton>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </HBox>
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="45.0" prefWidth="425.0">
+               <children>
+                  <HBox layoutX="3.0" layoutY="1.0" prefHeight="61.0" prefWidth="629.0">
+                     <children>
+                        <AnchorPane prefHeight="59.0" prefWidth="258.0">
+                           <children>
+                              <Text layoutX="32.0" layoutY="25.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Title :" textAlignment="CENTER" wrappingWidth="121.0" AnchorPane.leftAnchor="34.0">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font></Text>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane prefHeight="44.0" prefWidth="247.0">
+                           <children>
+                              <TextField fx:id="title" layoutX="8.0" layoutY="18.0" prefHeight="25.0" prefWidth="200.0">
+                                 <padding>
+                                    <Insets left="5.0" />
+                                 </padding>
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font></TextField>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </HBox>
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="81.0" prefWidth="425.0">
+               <children>
+                  <HBox layoutY="1.0" prefHeight="90.0" prefWidth="629.0">
+                     <children>
+                        <AnchorPane prefHeight="83.0" prefWidth="258.0">
+                           <children>
+                              <Text layoutX="22.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Description :" textAlignment="CENTER" wrappingWidth="117.0" AnchorPane.leftAnchor="34.0">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font></Text>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane prefHeight="90.0" prefWidth="367.0">
+                           <children>
+                              <TextArea fx:id="description" layoutX="14.0" layoutY="4.0" prefHeight="82.0" prefWidth="247.0">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font></TextArea>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </HBox>
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="74.0" prefWidth="425.0">
+               <children>
+                  <HBox prefHeight="74.0" prefWidth="629.0">
+                     <children>
+                        <AnchorPane prefHeight="74.0" prefWidth="272.0">
+                           <children>
+                              <Text layoutX="17.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Period opportunity" textAlignment="CENTER" wrappingWidth="142.0" AnchorPane.leftAnchor="17.0">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font></Text>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane prefHeight="74.0" prefWidth="345.0">
+                           <children>
+                              <DatePicker fx:id="dateStart" layoutY="29.0" prefHeight="25.0" prefWidth="117.0" />
+                              <DatePicker fx:id="dateFinish" layoutX="146.0" layoutY="29.0" prefHeight="25.0" prefWidth="117.0" />
+                              <Text layoutX="41.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Start">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font></Text>
+                              <Text layoutX="192.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Finish">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font></Text>
+                              <ImageView fitHeight="11.0" fitWidth="12.0" layoutX="111.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@img/Asterisk.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fitHeight="11.0" fitWidth="12.0" layoutX="257.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@img/Asterisk.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </HBox>
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="97.0" prefWidth="425.0">
+               <children>
+                  <Button layoutX="192.0" layoutY="25.0" mnemonicParsing="false" onAction="#insertOpportunity" prefHeight="30.0" prefWidth="251.0" text="Insert promotion" AnchorPane.bottomAnchor="25.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font></Button>
+               </children>
+            </AnchorPane>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

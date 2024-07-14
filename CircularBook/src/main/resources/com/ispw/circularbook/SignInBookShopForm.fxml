@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="700.0" prefWidth="800.0" style="-fx-background-color: #4D0E0E;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ispw.circularbook.controller.graficcontroller.gui.GUISignInBookShopController">
+   <children>
+      <AnchorPane fx:id="SignInBox" layoutX="98.0" layoutY="2.0" prefHeight="700.0" prefWidth="600.0" styleClass="BoxField" stylesheets="@Css/Component.css,@Css/BoxField.css">
+         <children>
+            <VBox prefHeight="700.0" prefWidth="600.0">
+               <children>
+                  <AnchorPane prefHeight="88.0" prefWidth="600.0">
+                     <children>
+                        <Text layoutX="82.0" layoutY="58.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CircularBook registration">
+                           <font>
+                              <Font size="40.0" />
+                           </font>
+                        </Text>
+                        <Button layoutX="14.0" layoutY="31.0" mnemonicParsing="false" onAction="#goBack" prefHeight="16.0" prefWidth="29.0">
+                           <graphic>
+                              <ImageView fitHeight="17.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@img/BackArrow.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="557.0" prefWidth="600.0">
+                     <children>
+                        <VBox layoutY="-3.0" prefHeight="555.0" prefWidth="600.0">
+                           <children>
+                              <AnchorPane prefHeight="79.0" prefWidth="600.0">
+                                 <children>
+                                    <HBox prefHeight="79.0" prefWidth="600.0">
+                                       <children>
+                                          <AnchorPane prefHeight="51.0" prefWidth="278.0">
+                                             <children>
+                                                <Text layoutX="111.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email" AnchorPane.leftAnchor="111.0">
+                                                   <font>
+                                                      <Font size="24.0" />
+                                                   </font>
+                                                </Text>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane prefHeight="51.0" prefWidth="322.0">
+                                             <children>
+                                                <TextField fx:id="emailTField" layoutX="14.0" layoutY="7.0" prefWidth="200.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="7.0">
+                                                   <font>
+                                                      <Font size="18.0" />
+                                                   </font></TextField>
+                                                <ImageView fitHeight="19.0" fitWidth="16.0" layoutX="206.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@img/Asterisk.png" />
+                                                   </image>
+                                                </ImageView>
+                                             </children>
+                                          </AnchorPane>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane prefHeight="79.0" prefWidth="600.0">
+                                 <children>
+                                    <HBox prefHeight="79.0" prefWidth="600.0">
+                                       <children>
+                                          <AnchorPane prefHeight="51.0" prefWidth="278.0">
+                                             <children>
+                                                <Text layoutX="87.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password" wrappingWidth="103.921875">
+                                                   <font>
+                                                      <Font size="24.0" />
+                                                   </font>
+                                                </Text>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane prefHeight="51.0" prefWidth="322.0">
+                                             <children>
+                                                <ImageView fitHeight="19.0" fitWidth="16.0" layoutX="206.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@img/Asterisk.png" />
+                                                   </image>
+                                                </ImageView>
+                                                <Text fx:id="showPassword" layoutX="22.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" style="visibility: false;" text="Text" wrappingWidth="184.0">
+                                                   <font>
+                                                      <Font size="18.0" />
+                                                   </font>
+                                                </Text>
+                                                <ImageView fx:id="padlock" fitHeight="39.0" fitWidth="33.0" layoutX="222.0" layoutY="10.0" onMousePressed="#showPassword" onMouseReleased="#hiddenPassword" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="222.0" AnchorPane.topAnchor="10.0">
+                                                   <image>
+                                                      <Image url="@img/padlock.png" />
+                                                   </image></ImageView>
+                                                <PasswordField fx:id="passwordTField" layoutX="2.0" layoutY="14.0" prefWidth="200.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="7.0">
+                                                   <font>
+                                                      <Font size="18.0" />
+                                                   </font>
+                                                </PasswordField>
+                                             </children>
+                                          </AnchorPane>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane prefHeight="79.0" prefWidth="600.0">
+                                 <children>
+                                    <HBox prefHeight="79.0" prefWidth="600.0">
+                                       <children>
+                                          <AnchorPane prefHeight="51.0" prefWidth="278.0">
+                                             <children>
+                                                <Text layoutX="41.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="confirm Password" wrappingWidth="210.26953125">
+                                                   <font>
+                                                      <Font size="24.0" />
+                                                   </font>
+                                                </Text>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane prefHeight="52.0" prefWidth="322.0">
+                                             <children>
+                                                <ImageView fitHeight="19.0" fitWidth="16.0" layoutX="206.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@img/Asterisk.png" />
+                                                   </image>
+                                                </ImageView>
+                                                <Text fx:id="showRePassword" layoutX="22.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" style="visibility: false;" text="Text" wrappingWidth="184.0">
+                                                   <font>
+                                                      <Font size="18.0" />
+                                                   </font>
+                                                </Text>
+                                                <PasswordField fx:id="repasswordTField" layoutX="14.0" layoutY="15.0" prefWidth="200.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="7.0">
+                                                   <font>
+                                                      <Font size="18.0" />
+                                                   </font>
+                                                </PasswordField>
+                                                <ImageView fx:id="padlockR" fitHeight="39.0" fitWidth="33.0" layoutX="222.0" layoutY="10.0" onMousePressed="#showRePassword" onMouseReleased="#hiddenRePassword" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="222.0" AnchorPane.topAnchor="10.0">
+                                                   <image>
+                                                      <Image url="@img/padlock.png" />
+                                                   </image></ImageView>
+                                             </children>
+                                          </AnchorPane>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane prefHeight="79.0" prefWidth="600.0">
+                                 <children>
+                                    <HBox prefHeight="79.0" prefWidth="600.0">
+                                       <children>
+                                          <AnchorPane prefHeight="50.0" prefWidth="278.0">
+                                             <children>
+                                                <Text layoutX="64.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Book shop name">
+                                                   <font>
+                                                      <Font size="24.0" />
+                                                   </font>
+                                                </Text>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane prefHeight="50.0" prefWidth="322.0">
+                                             <children>
+                                                <TextField fx:id="nomeLTField" layoutX="14.0" layoutY="7.0" prefWidth="200.0" AnchorPane.leftAnchor="14.0">
+                                                   <font>
+                                                      <Font size="18.0" />
+                                                   </font></TextField>
+                                             </children>
+                                          </AnchorPane>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane prefHeight="79.0" prefWidth="600.0">
+                                 <children>
+                                    <HBox prefHeight="79.0" prefWidth="600.0">
+                                       <children>
+                                          <AnchorPane prefHeight="50.0" prefWidth="278.0">
+                                             <children>
+                                                <Text layoutX="158.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Address">
+                                                   <font>
+                                                      <Font size="24.0" />
+                                                   </font>
+                                                </Text>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane prefHeight="50.0" prefWidth="322.0">
+                                             <children>
+                                                <TextField fx:id="viaTField" layoutX="14.0" layoutY="6.0" prefWidth="200.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="6.0">
+                                                   <font>
+                                                      <Font size="18.0" />
+                                                   </font></TextField>
+                                             </children>
+                                          </AnchorPane>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane prefHeight="79.0" prefWidth="600.0">
+                                 <children>
+                                    <HBox prefHeight="79.0" prefWidth="600.0">
+                                       <children>
+                                          <AnchorPane prefHeight="50.0" prefWidth="278.0">
+                                             <children>
+                                                <Text layoutX="202.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="City">
+                                                   <font>
+                                                      <Font size="24.0" />
+                                                   </font>
+                                                </Text>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane prefHeight="50.0" prefWidth="322.0">
+                                             <children>
+                                                <ImageView fitHeight="19.0" fitWidth="16.0" layoutX="206.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@img/Asterisk.png" />
+                                                   </image>
+                                                </ImageView>
+                                                <ChoiceBox fx:id="choiceBoxCity" layoutX="14.0" layoutY="6.0" prefHeight="39.0" prefWidth="200.0" style="-fx-background-radius: 40;" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="6.0" />
+                                             </children>
+                                          </AnchorPane>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane prefHeight="79.0" prefWidth="600.0">
+                                 <children>
+                                    <HBox prefHeight="79.0" prefWidth="600.0">
+                                       <children>
+                                          <AnchorPane prefHeight="64.0" prefWidth="278.0">
+                                             <children>
+                                                <Text layoutX="83.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="phone number">
+                                                   <font>
+                                                      <Font size="24.0" />
+                                                   </font>
+                                                </Text>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane prefHeight="200.0" prefWidth="322.0">
+                                             <children>
+                                                <TextField fx:id="nTelTField" layoutX="14.0" layoutY="13.0" prefHeight="25.0" prefWidth="200.0" AnchorPane.leftAnchor="14.0">
+                                                   <font>
+                                                      <Font size="18.0" />
+                                                   </font></TextField>
+                                             </children>
+                                          </AnchorPane>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="61.0" prefWidth="600.0">
+                     <children>
+                        <Button layoutX="68.0" layoutY="4.0" mnemonicParsing="false" onAction="#signIn" prefHeight="32.0" prefWidth="184.0" text="Sign in">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Button>
+                        <Button layoutX="333.0" layoutY="4.0" mnemonicParsing="false" onAction="#goToLogin" prefHeight="32.0" prefWidth="184.0" text="back to login">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </VBox>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

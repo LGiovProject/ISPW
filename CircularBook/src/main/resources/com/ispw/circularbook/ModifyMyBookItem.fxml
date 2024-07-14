@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="647.0" prefWidth="1020.0" style="-fx-background-color: #4D0E0E;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ispw.circularbook.controller.graficcontroller.gui.GUIModifyBookController">
+   <children>
+      <AnchorPane layoutX="65.0" layoutY="2.0" prefHeight="639.0" prefWidth="891.0" styleClass="BoxField">
+         <children>
+            <AnchorPane layoutX="14.0" prefHeight="74.0" prefWidth="861.0">
+               <children>
+                  <Button layoutY="8.0" mnemonicParsing="false" onAction="#backButton" prefHeight="65.0" prefWidth="151.0" styleClass="imageClickable">
+                     <graphic>
+                        <ImageView fitHeight="58.0" fitWidth="78.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@img/BackArrowRed.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Text layoutX="285.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Modify Book" wrappingWidth="499.0">
+                     <font>
+                        <Font name="Verdana" size="46.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
+            <VBox layoutX="44.0" layoutY="57.0" prefHeight="525.0" prefWidth="804.0" spacing="3.0">
+               <children>
+                  <HBox prefHeight="37.0" prefWidth="804.0">
+                     <VBox.margin>
+                        <Insets top="20.0" />
+                     </VBox.margin>
+                     <children>
+                        <AnchorPane prefHeight="56.0" prefWidth="420.0">
+                           <children>
+                              <HBox layoutY="2.0" prefHeight="51.0" prefWidth="430.0">
+                                 <children>
+                                    <AnchorPane>
+                                       <children>
+                                          <Text layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Title" textAlignment="RIGHT" wrappingWidth="138.0">
+                                             <font>
+                                                <Font size="26.0" />
+                                             </font>
+                                          </Text>
+                                       </children>
+                                    </AnchorPane>
+                                    <TextField fx:id="title" prefHeight="42.0" prefWidth="292.0" promptText="Insert Title" styleClass="modifyTextField" text="Title" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane prefHeight="56.0" prefWidth="149.0">
+                           <children>
+                              <Button fx:id="titleButton" layoutX="47.0" layoutY="8.0" mnemonicParsing="false" onAction="#rewriteField" prefHeight="33.0" prefWidth="33.0" styleClass="imageClickable" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="44.0" AnchorPane.rightAnchor="131.0" AnchorPane.topAnchor="14.0">
+                                 <graphic>
+                                    <ImageView fx:id="titleImageView" fitHeight="24.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@img/PencilModify.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="37.0" prefWidth="450.0">
+                     <children>
+                        <AnchorPane prefHeight="6.0" prefWidth="430.0">
+                           <children>
+                              <HBox layoutY="-1.0" prefHeight="51.0" prefWidth="404.0">
+                                 <children>
+                                    <AnchorPane>
+                                       <children>
+                                          <Text layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Author" textAlignment="RIGHT" wrappingWidth="138.0">
+                                             <font>
+                                                <Font size="26.0" />
+                                             </font>
+                                          </Text>
+                                       </children>
+                                    </AnchorPane>
+                                    <TextField fx:id="author" prefHeight="51.0" prefWidth="259.0" promptText="Insert Author" styleClass="modifyTextField" text="Auhtor" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane prefHeight="37.0" prefWidth="169.0">
+                           <children>
+                              <Button fx:id="authorButton" layoutX="67.0" layoutY="2.0" mnemonicParsing="false" onAction="#rewriteField" prefHeight="33.0" prefWidth="35.0" styleClass="imageClickable" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="44.0" AnchorPane.rightAnchor="131.0" AnchorPane.topAnchor="14.0">
+                                 <graphic>
+                                    <ImageView fx:id="authorImageView" fitHeight="24.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@img/PencilModify.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="37.0" prefWidth="804.0">
+                     <children>
+                        <AnchorPane prefHeight="56.0" prefWidth="420.0">
+                           <children>
+                              <HBox layoutY="2.0" prefHeight="51.0" prefWidth="430.0">
+                                 <children>
+                                    <AnchorPane>
+                                       <children>
+                                          <Text layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Publisher" textAlignment="RIGHT" wrappingWidth="138.0">
+                                             <font>
+                                                <Font size="26.0" />
+                                             </font>
+                                          </Text>
+                                       </children>
+                                    </AnchorPane>
+                                    <TextField fx:id="publisher" prefHeight="42.0" prefWidth="292.0" promptText="Insert Publisher" styleClass="modifyTextField" text="Publisher" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane prefHeight="56.0" prefWidth="149.0">
+                           <children>
+                              <Button fx:id="publisherButton" layoutX="47.0" layoutY="8.0" mnemonicParsing="false" onAction="#rewriteField" prefHeight="33.0" prefWidth="33.0" styleClass="imageClickable" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="44.0" AnchorPane.rightAnchor="131.0" AnchorPane.topAnchor="14.0">
+                                 <graphic>
+                                    <ImageView fx:id="publisherImageView" fitHeight="24.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@img/PencilModify.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="37.0" prefWidth="450.0">
+                     <children>
+                        <AnchorPane prefHeight="73.0" prefWidth="430.0">
+                           <children>
+                              <HBox layoutY="-13.0" prefHeight="74.0" prefWidth="430.0">
+                                 <children>
+                                    <AnchorPane prefHeight="74.0" prefWidth="162.0">
+                                       <children>
+                                          <Text layoutX="17.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" Argument">
+                                             <font>
+                                                <Font size="26.0" />
+                                             </font>
+                                          </Text>
+                                       </children>
+                                    </AnchorPane>
+                                    <VBox prefHeight="86.0" prefWidth="280.0">
+                                       <children>
+                                          <AnchorPane prefHeight="51.0" prefWidth="274.0">
+                                             <children>
+                                                <Text fx:id="argument" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="modifyTextField" text="Insert Argument" wrappingWidth="255.0" />
+                                             </children>
+                                          </AnchorPane>
+                                          <ChoiceBox fx:id="argumentChoiceBox" prefWidth="150.0" />
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane prefHeight="56.0" prefWidth="132.0">
+                           <children>
+                              <Button fx:id="argumentButton" layoutX="67.0" layoutY="2.0" mnemonicParsing="false" onAction="#rewriteField" prefHeight="33.0" prefWidth="28.0" styleClass="imageClickable" AnchorPane.bottomAnchor="16.0" AnchorPane.leftAnchor="44.0" AnchorPane.rightAnchor="131.0" AnchorPane.topAnchor="14.0">
+                                 <graphic>
+                                    <ImageView fx:id="argumentImageView" fitHeight="24.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@img/PencilModify.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="41.0" prefWidth="450.0">
+                     <children>
+                        <AnchorPane prefHeight="63.0" prefWidth="430.0">
+                           <children>
+                              <HBox layoutY="2.0" prefHeight="51.0" prefWidth="430.0">
+                                 <children>
+                                    <AnchorPane prefHeight="40.0" prefWidth="138.0">
+                                       <children>
+                                          <Text layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Page:" textAlignment="RIGHT" wrappingWidth="138.0">
+                                             <font>
+                                                <Font size="26.0" />
+                                             </font>
+                                          </Text>
+                                       </children>
+                                    </AnchorPane>
+                                    <TextField fx:id="nPage" prefHeight="38.0" prefWidth="292.0" promptText="Insert number of page" styleClass="modifyTextField" text="Number of page" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane prefHeight="56.0" prefWidth="135.0">
+                           <children>
+                              <Button fx:id="nPageButton" layoutX="140.0" layoutY="9.0" mnemonicParsing="false" onAction="#rewriteField" prefHeight="33.0" prefWidth="24.0" styleClass="imageClickable" AnchorPane.bottomAnchor="9.0" AnchorPane.leftAnchor="44.0" AnchorPane.rightAnchor="131.0" AnchorPane.topAnchor="14.0">
+                                 <graphic>
+                                    <ImageView fx:id="nPageImageView" fitHeight="24.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@img/PencilModify.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </HBox>
+                  <HBox prefWidth="450.0">
+                     <children>
+                        <AnchorPane prefHeight="135.0" prefWidth="430.0">
+                           <children>
+                              <HBox layoutX="1.0" layoutY="3.0" prefHeight="147.0" prefWidth="430.0">
+                                 <children>
+                                    <AnchorPane prefWidth="138.0">
+                                       <children>
+                                          <Text layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Comment" textAlignment="RIGHT" wrappingWidth="138.0">
+                                             <font>
+                                                <Font size="26.0" />
+                                             </font>
+                                          </Text>
+                                       </children>
+                                    </AnchorPane>
+                                    <TextArea fx:id="comment" prefHeight="147.0" prefWidth="280.0" promptText="Insert comment" styleClass="modifyTextField" text="comment" wrapText="true">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </TextArea>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane prefHeight="128.0" prefWidth="216.0">
+                           <children>
+                              <Button fx:id="commentButton" layoutX="44.0" layoutY="14.0" mnemonicParsing="false" onAction="#rewriteField" prefHeight="33.0" prefWidth="41.0" styleClass="imageClickable" AnchorPane.bottomAnchor="107.0" AnchorPane.leftAnchor="44.0" AnchorPane.rightAnchor="131.0" AnchorPane.topAnchor="14.0">
+                                 <graphic>
+                                    <ImageView fx:id="commentImageView" fitHeight="24.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@img/PencilModify.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </HBox>
+                  <AnchorPane prefHeight="59.0" prefWidth="554.0">
+                     <children>
+                        <HBox prefHeight="52.0" prefWidth="804.0">
+                           <children>
+                              <AnchorPane prefHeight="45.0" prefWidth="300.0">
+                                 <children>
+                                    <TextField fx:id="typeOfDisponibility" layoutY="1.0" prefHeight="51.0" prefWidth="300.0" styleClass="modifyTextField" text="Type" />
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane prefHeight="52.0" prefWidth="325.0">
+                                 <children>
+                                    <HBox layoutX="5.0" layoutY="2.0" prefHeight="47.0" prefWidth="314.0" spacing="55.0">
+                                       <children>
+                                          <AnchorPane prefHeight="47.0" prefWidth="147.0">
+                                             <children>
+                                                <RadioButton fx:id="lended" layoutX="42.0" layoutY="9.0" mnemonicParsing="false" onAction="#getTypeOfDisponibility" text="Lend">
+                                                   <toggleGroup>
+                                                      <ToggleGroup fx:id="typeOfDisponibilityButt1" />
+                                                   </toggleGroup>
+                                                   <font>
+                                                      <Font size="20.0" />
+                                                   </font>
+                                                </RadioButton>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane prefHeight="47.0" prefWidth="114.0">
+                                             <children>
+                                                <RadioButton fx:id="gifted" layoutY="9.0" mnemonicParsing="false" onAction="#getTypeOfDisponibility" text="Gift" toggleGroup="$typeOfDisponibilityButt1">
+                                                   <font>
+                                                      <Font size="20.0" />
+                                                   </font>
+                                                </RadioButton>
+                                             </children>
+                                          </AnchorPane>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </HBox>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </VBox>
+            <AnchorPane layoutX="136.0" layoutY="581.0" prefHeight="51.0" prefWidth="620.0">
+               <children>
+                  <Button layoutX="188.0" layoutY="4.0" mnemonicParsing="false" onAction="#applyModify" prefHeight="25.0" prefWidth="244.0" text="Save Update">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Button>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </children>
+   <stylesheets>
+      <URL value="@Css/BoxField.css" />
+      <URL value="@Css/Component.css" />
+      <URL value="@Css/Modify.css" />
+   </stylesheets>
+</AnchorPane>

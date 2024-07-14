@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="600.0" prefWidth="1020.0" style="-fx-background-color: #4D0E0E;" stylesheets="@Css/Setting.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ispw.circularbook.controller.graficcontroller.gui.GUISettingBookShopController">
+   <children>
+      <AnchorPane prefHeight="600.0" prefWidth="1020.0" styleClass="BoxField">
+         <children>
+            <VBox prefHeight="600.0" prefWidth="1020.0">
+               <children>
+                  <AnchorPane prefHeight="600.0" prefWidth="1020.0">
+                     <children>
+                        <HBox prefHeight="600.0" prefWidth="1020.0">
+                           <children>
+                              <AnchorPane prefHeight="600.0" prefWidth="428.0">
+                                 <children>
+                                    <VBox prefHeight="600.0" prefWidth="427.0">
+                                       <children>
+                                          <AnchorPane prefHeight="95.0" prefWidth="306.0">
+                                             <children>
+                                                <ImageView fitHeight="98.0" fitWidth="106.0" layoutX="159.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@img/Setting.png" />
+                                                   </image>
+                                                </ImageView>
+                                                <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#backToHomepage" prefHeight="32.0" prefWidth="84.0" styleClass="imageClickable">
+                                                   <graphic>
+                                                      <ImageView fitHeight="52.0" fitWidth="85.0" pickOnBounds="true" preserveRatio="true" styleClass="imageClickable">
+                                                         <image>
+                                                            <Image url="@img/BackArrow.png" />
+                                                         </image>
+                                                      </ImageView>
+                                                   </graphic>
+                                                </Button>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane prefHeight="74.0" prefWidth="427.0">
+                                             <children>
+                                                <TextField fx:id="email" layoutY="6.0" text="email">
+                                                   <font>
+                                                      <Font size="24.0" />
+                                                   </font>
+                                                </TextField>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane prefHeight="73.0" prefWidth="427.0">
+                                             <children>
+                                                <HBox layoutY="6.0" prefHeight="73.0" prefWidth="427.0">
+                                                   <children>
+                                                      <AnchorPane prefHeight="50.0" prefWidth="290.0">
+                                                         <children>
+                                                            <TextField fx:id="nameBookShop" layoutY="12.0" prefHeight="51.0" prefWidth="213.0" text="Name">
+                                                               <font>
+                                                                  <Font size="24.0" />
+                                                               </font>
+                                                            </TextField>
+                                                         </children>
+                                                      </AnchorPane>
+                                                      <AnchorPane>
+                                                         <children>
+                                                            <Button fx:id="zero" layoutY="21.0" mnemonicParsing="false" onAction="#rewriteField" prefHeight="32.0" prefWidth="34.0" styleClass="imageClickable">
+                                                               <graphic>
+                                                                  <ImageView fx:id="nameImageView" fitHeight="20.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true" styleClass="imageClickable">
+                                                                     <image>
+                                                                        <Image url="@img/Pencil.png" />
+                                                                     </image>
+                                                                  </ImageView>
+                                                               </graphic>
+                                                               <cursor>
+                                                                  <Cursor fx:constant="DEFAULT" />
+                                                               </cursor>
+                                                            </Button>
+                                                         </children>
+                                                      </AnchorPane>
+                                                   </children>
+                                                </HBox>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane prefHeight="84.0" prefWidth="427.0">
+                                             <children>
+                                                <HBox layoutY="11.0" prefHeight="60.0" prefWidth="427.0">
+                                                   <children>
+                                                      <AnchorPane prefHeight="55.0" prefWidth="290.0">
+                                                         <children>
+                                                            <TextField fx:id="address" layoutY="8.0" prefHeight="51.0" prefWidth="213.0" style="-fx-background-color: none;" text="via">
+                                                               <font>
+                                                                  <Font size="24.0" />
+                                                               </font>
+                                                            </TextField>
+                                                         </children>
+                                                      </AnchorPane>
+                                                      <AnchorPane>
+                                                         <children>
+                                                            <Button fx:id="one" layoutY="17.0" mnemonicParsing="false" onAction="#rewriteField" prefHeight="32.0" prefWidth="34.0" styleClass="imageClickable">
+                                                               <graphic>
+                                                                  <ImageView fx:id="addressImageView" fitHeight="20.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true" styleClass="imageClickable">
+                                                                     <image>
+                                                                        <Image url="@img/Pencil.png" />
+                                                                     </image>
+                                                                  </ImageView>
+                                                               </graphic>
+                                                               <cursor>
+                                                                  <Cursor fx:constant="DEFAULT" />
+                                                               </cursor>
+                                                            </Button>
+                                                         </children>
+                                                      </AnchorPane>
+                                                   </children>
+                                                </HBox>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane prefHeight="90.0" prefWidth="427.0">
+                                             <children>
+                                                <HBox prefHeight="71.0" prefWidth="427.0">
+                                                   <children>
+                                                      <AnchorPane prefHeight="61.0" prefWidth="290.0">
+                                                         <children>
+                                                            <TextField fx:id="nPhone" layoutY="13.0" prefHeight="51.0" prefWidth="196.0" text="numero tel">
+                                                               <font>
+                                                                  <Font size="24.0" />
+                                                               </font>
+                                                            </TextField>
+                                                         </children>
+                                                      </AnchorPane>
+                                                      <AnchorPane>
+                                                         <children>
+                                                            <Button fx:id="two" layoutY="20.0" mnemonicParsing="false" onAction="#rewriteField" prefHeight="32.0" prefWidth="34.0" styleClass="imageClickable">
+                                                               <graphic>
+                                                                  <ImageView fx:id="nPhoneImageView" fitHeight="20.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true" styleClass="imageClickable">
+                                                                     <image>
+                                                                        <Image url="@img/Pencil.png" />
+                                                                     </image>
+                                                                  </ImageView>
+                                                               </graphic>
+                                                               <cursor>
+                                                                  <Cursor fx:constant="DEFAULT" />
+                                                               </cursor>
+                                                            </Button>
+                                                         </children>
+                                                      </AnchorPane>
+                                                   </children>
+                                                </HBox>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane prefHeight="101.0" prefWidth="427.0">
+                                             <children>
+                                                <HBox prefHeight="98.0" prefWidth="427.0">
+                                                   <children>
+                                                      <AnchorPane prefHeight="98.0" prefWidth="290.0">
+                                                         <children>
+                                                            <VBox prefHeight="98.0" prefWidth="196.0">
+                                                               <children>
+                                                                  <AnchorPane prefHeight="55.0" prefWidth="196.0">
+                                                                     <children>
+                                                                        <TextField fx:id="city" prefHeight="51.0" prefWidth="290.0" text="city">
+                                                                           <font>
+                                                                              <Font size="24.0" />
+                                                                           </font>
+                                                                        </TextField>
+                                                                     </children>
+                                                                  </AnchorPane>
+                                                                  <AnchorPane>
+                                                                     <children>
+                                                                        <ChoiceBox fx:id="cityChoicheBox" layoutX="16.0" prefWidth="150.0" style="-fx-background-color: #F1C9A0; -fx-background-radius: 60;" />
+                                                                     </children>
+                                                                  </AnchorPane>
+                                                               </children>
+                                                            </VBox>
+                                                         </children>
+                                                      </AnchorPane>
+                                                      <AnchorPane>
+                                                         <children>
+                                                            <Button fx:id="three" layoutY="35.0" mnemonicParsing="false" onAction="#rewriteField" prefHeight="25.0" prefWidth="34.0" styleClass="imageClickable">
+                                                               <cursor>
+                                                                  <Cursor fx:constant="DEFAULT" />
+                                                               </cursor>
+                                                               <graphic>
+                                                                  <ImageView fx:id="cityImageView" fitHeight="20.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true" styleClass="imageClickable">
+                                                                     <image>
+                                                                        <Image url="@img/Pencil.png" />
+                                                                     </image>
+                                                                  </ImageView>
+                                                               </graphic>
+                                                            </Button>
+                                                         </children>
+                                                      </AnchorPane>
+                                                   </children>
+                                                </HBox>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane prefHeight="103.0" prefWidth="427.0">
+                                             <children>
+                                                <Button layoutX="87.0" layoutY="23.0" mnemonicParsing="false" onAction="#applyChange" prefHeight="51.0" prefWidth="254.0" text="Apply Change">
+                                                   <font>
+                                                      <Font size="24.0" />
+                                                   </font>
+                                                </Button>
+                                             </children>
+                                          </AnchorPane>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </AnchorPane>
+                              <Separator orientation="VERTICAL" prefHeight="432.0" prefWidth="4.0" style="-fx-background-color: #F1C9A0;" />
+                              <VBox prefHeight="600.0" prefWidth="583.0">
+                                 <children>
+                                    <AnchorPane prefHeight="129.0" prefWidth="92.0">
+                                       <children>
+                                          <Text layoutX="87.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Here's how much you're using Circular Book" textAlignment="CENTER" wrappingWidth="414.0">
+                                             <font>
+                                                <Font size="30.0" />
+                                             </font>
+                                          </Text>
+                                          <Text fx:id="welcomeText" layoutX="11.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hi" wrappingWidth="136.47265625">
+                                             <font>
+                                                <Font size="24.0" />
+                                             </font>
+                                          </Text>
+                                       </children>
+                                    </AnchorPane>
+                                    <AnchorPane prefHeight="473.0" prefWidth="586.0">
+                                       <children>
+                                          <VBox layoutX="4.0" layoutY="4.0" prefHeight="472.0" prefWidth="583.0">
+                                             <children>
+                                                <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                                                   <children>
+                                                      <Text fx:id="bookRegistered" layoutX="14.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="357.2734375">
+                                                         <font>
+                                                            <Font size="24.0" />
+                                                         </font>
+                                                      </Text>
+                                                   </children>
+                                                </AnchorPane>
+                                                <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                                                   <children>
+                                                      <Text fx:id="bookLended" layoutX="14.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="357.2734375">
+                                                         <font>
+                                                            <Font size="24.0" />
+                                                         </font>
+                                                      </Text>
+                                                   </children>
+                                                </AnchorPane>
+                                                <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                                                   <children>
+                                                      <Text fx:id="bookGifted" layoutX="14.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="357.2734375">
+                                                         <font>
+                                                            <Font size="24.0" />
+                                                         </font>
+                                                      </Text>
+                                                   </children>
+                                                </AnchorPane>
+                                                <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                                                   <children>
+                                                      <Text fx:id="opportunityInsert" layoutX="14.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="357.2734375">
+                                                         <font>
+                                                            <Font size="24.0" />
+                                                         </font>
+                                                      </Text>
+                                                   </children>
+                                                </AnchorPane>
+                                                <AnchorPane prefHeight="200.0" prefWidth="200.0" />
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </AnchorPane>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </VBox>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

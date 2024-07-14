@@ -1,0 +1,55 @@
+ Button, TextField,ToggleButton,PasswordField
+{
+    -fx-background-radius: 40,40,40,40;
+
+}
+
+Button
+{
+    -fx-background-color: #4D0E0E;
+    -fx-text-fill: #F1C9A0;
+}
+
+Button:hover
+{
+    -fx-opacity:0.7;
+}
+
+Text
+{
+    -fx-fill: #4D0E0E;
+}
+
+#search_button
+{
+    -fx-background-color:#F1C9A0;
+}
+
+ToggleButton
+{
+    -fx-background-color: #F1C9A0;
+}
+/* Controlla l'effetto quando il bottone è cliccato */
+ToggleButton:hover, ToggleButton:focused
+{
+    -fx-opacity:0.5;
+}
+
+.imageClickable
+{
+    -fx-background-color:none;
+    -fx-cursor:hand;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

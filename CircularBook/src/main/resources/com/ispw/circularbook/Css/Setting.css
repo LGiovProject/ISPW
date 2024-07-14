@@ -1,0 +1,29 @@
+Text, TextField
+{
+    -fx-fill:  #F1C9A0;
+}
+
+TextField
+{
+    -fx-text-fill: #F1C9A0;
+    -fx-background-color:none;
+}
+
+ChoiceBox
+{
+    -fx-background-color:  #F1C9A0;
+    -fx-background-radius:60;
+}
+
+.imageClickable
+{
+    -fx-background-color:none;
+    -fx-cursor:hand;
+}
+
+Button
+{
+    -fx-background-color: #F1C9A0;
+    -fx-text-fill: #4D0E0E;
+    -fx-background-radius: 40,40,40,40;
+}

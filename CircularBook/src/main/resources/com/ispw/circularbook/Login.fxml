@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #4D0E0E;" stylesheets="@Css/BoxField.css,@Css/Component.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ispw.circularbook.controller.graficcontroller.gui.GUILoginController">
+   <children>
+      <AnchorPane prefHeight="600.0" prefWidth="800.0">
+         <children>
+            <VBox prefHeight="600.0" prefWidth="800.0">
+               <children>
+                  <AnchorPane prefHeight="600.0" prefWidth="800.0">
+                     <children>
+                        <AnchorPane layoutX="58.0" layoutY="82.0" prefHeight="455.0" prefWidth="723.0">
+                           <children>
+                              <AnchorPane layoutX="90.0" prefHeight="288.0" prefWidth="357.0" styleClass="BoxField">
+                                 <children>
+                                    <VBox prefHeight="401.0" prefWidth="544.0">
+                                       <children>
+                                          <AnchorPane prefHeight="101.0" prefWidth="290.0">
+                                             <children>
+                                                <Text layoutX="90.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Circular Book">
+                                                   <font>
+                                                      <Font name="Times New Roman" size="64.0" />
+                                                   </font>
+                                                </Text>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane prefHeight="130.0" prefWidth="544.0">
+                                             <children>
+                                                <VBox layoutX="142.0" prefHeight="130.0" prefWidth="391.0" spacing="20.0">
+                                                   <children>
+                                                      <AnchorPane prefHeight="50.0" prefWidth="378.0">
+                                                         <children>
+                                                            <HBox prefHeight="45.0" prefWidth="378.0">
+                                                               <children>
+                                                                  <AnchorPane>
+                                                                     <HBox.margin>
+                                                                        <Insets right="5.0" />
+                                                                     </HBox.margin>
+                                                                     <children>
+                                                                        <Text fx:id="test1" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email:" textAlignment="RIGHT" wrappingWidth="115.7646484375">
+                                                                           <font>
+                                                                              <Font name="Times New Roman" size="24.0" />
+                                                                           </font>
+                                                                        </Text>
+                                                                     </children>
+                                                                  </AnchorPane>
+                                                                  <AnchorPane>
+                                                                     <children>
+                                                                        <TextField fx:id="textFieldEmail" layoutY="3.0" prefHeight="39.0" prefWidth="221.0">
+                                                                           <font>
+                                                                              <Font size="18.0" />
+                                                                           </font>
+                                                                        </TextField>
+                                                                     </children>
+                                                                  </AnchorPane>
+                                                               </children>
+                                                            </HBox>
+                                                         </children>
+                                                      </AnchorPane>
+                                                      <AnchorPane prefHeight="67.0" prefWidth="379.0">
+                                                         <children>
+                                                            <HBox layoutX="1.0" prefHeight="39.0" prefWidth="391.0">
+                                                               <children>
+                                                                  <AnchorPane>
+                                                                     <HBox.margin>
+                                                                        <Insets right="5.0" />
+                                                                     </HBox.margin>
+                                                                     <children>
+                                                                        <Text layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password:" textAlignment="RIGHT" wrappingWidth="112.8291015625">
+                                                                           <font>
+                                                                              <Font name="Times New Roman" size="24.0" />
+                                                                           </font>
+                                                                        </Text>
+                                                                     </children>
+                                                                  </AnchorPane>
+                                                                  <AnchorPane />
+                                                                  <PasswordField fx:id="textFieldPassword" prefHeight="39.0" prefWidth="221.0">
+                                                                     <font>
+                                                                        <Font size="18.0" />
+                                                                     </font>
+                                                                  </PasswordField>
+                                                                  <ImageView fx:id="padlock" fitHeight="29.0" fitWidth="35.0" onMousePressed="#showPassword" onMouseReleased="#hiddenPassword" pickOnBounds="true" preserveRatio="true">
+                                                                     <image>
+                                                                        <Image url="@img/padlock.png" />
+                                                                     </image>
+                                                                     <HBox.margin>
+                                                                        <Insets left="8.0" />
+                                                                     </HBox.margin>
+                                                                  </ImageView>
+                                                               </children>
+                                                            </HBox>
+                                                            <Text fx:id="showPassword" layoutX="121.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" style="visibility: false;" text="Text" wrappingWidth="221.0">
+                                                               <font>
+                                                                  <Font size="18.0" />
+                                                               </font>
+                                                            </Text>
+                                                         </children>
+                                                      </AnchorPane>
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane prefHeight="133.0" prefWidth="544.0">
+                                             <children>
+                                                <VBox layoutX="195.0" prefHeight="133.0" prefWidth="306.0" spacing="10.0">
+                                                   <children>
+                                                      <AnchorPane prefHeight="42.0" prefWidth="306.0">
+                                                         <children>
+                                                            <Button fx:id="buttonLogin" layoutX="40.0" layoutY="6.0" mnemonicParsing="false" onAction="#login" prefHeight="34.0" prefWidth="226.0" text="Login">
+                                                               <font>
+                                                                  <Font name="Times New Roman" size="18.0" />
+                                                               </font>
+                                                            </Button>
+                                                         </children>
+                                                      </AnchorPane>
+                                                      <AnchorPane prefHeight="42.0" prefWidth="306.0">
+                                                         <children>
+                                                            <Button layoutX="40.0" layoutY="5.0" mnemonicParsing="false" onAction="#signIn" prefHeight="34.0" prefWidth="226.0" text="Sign In">
+                                                               <font>
+                                                                  <Font name="Times New Roman" size="18.0" />
+                                                               </font>
+                                                            </Button>
+                                                         </children></AnchorPane>
+                                                      <AnchorPane prefHeight="42.0" prefWidth="306.0">
+                                                         <children>
+                                                            <Button layoutX="40.0" layoutY="2.0" mnemonicParsing="false" onAction="#accessGuest" prefHeight="34.0" prefWidth="226.0" text="Guest Access">
+                                                               <font>
+                                                                  <Font name="Times New Roman" size="18.0" />
+                                                               </font>
+                                                            </Button>
+                                                         </children>
+                                                      </AnchorPane>
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                          </AnchorPane>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane layoutX="-57.0" layoutY="242.0" prefHeight="25.0" prefWidth="295.0">
+                                 <children>
+                                    <ImageView fitHeight="422.0" fitWidth="306.0" layoutX="14.0" layoutY="-197.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@img/man_on_the_book.gif" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </VBox>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

@@ -1,0 +1,31 @@
+
+
+.modifyTextField
+{
+    -fx-background-color:none;
+    -fx-font-size:24;
+    -fx-text-fill: #4D0E0E;
+
+}
+
+.text-area {
+    text-area-background: #F1C9A0 ;
+
+}
+
+.text-area .content {
+    -fx-background-color: text-area-background ;
+
+}
+
+ChoiceBox
+{
+    -fx-background-color:  #4D0E0E;
+    -fx-background-radius:60;
+
+
+}
+
+.choice-box .label {
+     -fx-text-fill:  #F1C9A0;
+}
