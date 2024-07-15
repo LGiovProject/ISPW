@@ -16,6 +16,7 @@ public class CLILoginController {
         private static final String LOGIN  ="1";
         private static final String SIGN_IN ="2";
         private static final String LOGIN_GUEST ="3";
+        private static final String LOGIN_GOOGLE="4";
 
         public CLILoginController()
         {
@@ -41,6 +42,9 @@ public class CLILoginController {
                                 break;
                         case LOGIN_GUEST:
                                 startLoginGuest();
+                                break;
+                        case LOGIN_GOOGLE:
+                                MessageSupport.cliExceptionSMessage("Functionality not yet developed");
                                 break;
                         default:
                                 throw  new CommandNotFoundException();

@@ -37,7 +37,7 @@ public class CLISettingBookShopView {
     public void choseCamp()
     {
         CLIMessageSupport.titleMessage("Book Shop Setting");
-        CLIMessageSupport.simpleMessage("1)For change view");
+        CLIMessageSupport.simpleMessage("1)For change address");
         CLIMessageSupport.simpleMessage("2)Phone number");
         CLIMessageSupport.simpleMessage("3)City");
         CLIMessageSupport.simpleMessage("4)Apply change");
@@ -64,16 +64,17 @@ public class CLISettingBookShopView {
     public void showPersonalInfo(BookShopBean bookShopBean)
     {
         CLIMessageSupport.delimiterMessage();
-        CLIMessageSupport.simpleMessage("Nome: "+ bookShopBean.getBookShopName());
-        CLIMessageSupport.simpleMessage("via: "+ bookShopBean.getAddress());
-        CLIMessageSupport.simpleMessage("nTel: "+ bookShopBean.getPhoneNumber());
-        CLIMessageSupport.simpleMessage("Citta: "+ bookShopBean.getCity());
+        CLIMessageSupport.simpleMessage("Name: "+ bookShopBean.getBookShopName());
+        CLIMessageSupport.simpleMessage("address: "+ bookShopBean.getAddress());
+        CLIMessageSupport.simpleMessage("phone number: "+ bookShopBean.getPhoneNumber());
+        CLIMessageSupport.simpleMessage("city: "+ bookShopBean.getCity());
     }
 
 
     public void insertView()
     {
-        CLIMessageSupport.titleMessage("Inser new view");
+        CLIMessageSupport.titleMessage("Insert new address");
+        CLIMessageSupport.backValueMessage();
         String address = scanner.nextLine();
         cliSettingBookShopController.getView(address);
     }
@@ -81,6 +82,7 @@ public class CLISettingBookShopView {
     public void insertNPhone()
     {
         CLIMessageSupport.titleMessage("Insert new phone number");
+        CLIMessageSupport.backValueMessage();
         int phoneNumber = scanner.nextInt();
         cliSettingBookShopController.getPhoneNumber(phoneNumber);
     }
@@ -88,6 +90,7 @@ public class CLISettingBookShopView {
     public void insertCity()
     {
         CLIMessageSupport.titleMessage("Insert City");
+        CLIMessageSupport.backValueMessage();
         String city = scanner.nextLine();
         cliSettingBookShopController.getCity(city);
     }

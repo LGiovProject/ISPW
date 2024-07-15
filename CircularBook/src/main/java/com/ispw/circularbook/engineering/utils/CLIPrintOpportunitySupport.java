@@ -12,12 +12,12 @@ public class CLIPrintOpportunitySupport {
     {
         for(OpportunityBean opportunityBean : opportunityBeanList) {
             CLIMessageSupport.delimiterMessage();
-            CLIMessageSupport.simpleMessage("Titolo :" + opportunityBean.getTitle());
-            CLIMessageSupport.simpleMessage("Tipologia :" + opportunityBean.getTypeOfOpportunityString());
-            CLIMessageSupport.simpleMessage("Libreria: " + opportunityBean.getNameBookShop());
-            CLIMessageSupport.simpleMessage("Data inizio: " + opportunityBean.getDateStart());
-            CLIMessageSupport.simpleMessage("Data fine: " + opportunityBean.getDateFinish());
-            CLIMessageSupport.simpleMessage("Descrizione :" + opportunityBean.getDescription());
+            CLIMessageSupport.simpleMessage("Id :"+opportunityBean.getId());
+            CLIMessageSupport.simpleMessage("Title :" + opportunityBean.getTitle());
+            CLIMessageSupport.simpleMessage("Type :" + opportunityBean.getTypeOfOpportunityString());
+            CLIMessageSupport.simpleMessage("Date Start: " + opportunityBean.getDateStart());
+            CLIMessageSupport.simpleMessage("Date finish: " + opportunityBean.getDateFinish());
+            CLIMessageSupport.simpleMessage("Description :" + opportunityBean.getDescription());
             CLIMessageSupport.delimiterMessage();
         }
     }

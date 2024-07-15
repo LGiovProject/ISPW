@@ -1,12 +1,13 @@
 package com.ispw.circularbook.controller.graficcontroller.cli;
 
+import com.ispw.circularbook.controller.appcontroller.BookShopController;
 import com.ispw.circularbook.controller.appcontroller.SearchBookController;
-import com.ispw.circularbook.controller.appcontroller.UserController;
 import com.ispw.circularbook.engineering.bean.CircularBookInfoBean;
 import com.ispw.circularbook.engineering.bean.BookShopBean;
 import com.ispw.circularbook.engineering.bean.UpdateUserInfoBean;
 import com.ispw.circularbook.engineering.exception.CommandNotFoundException;
 import com.ispw.circularbook.engineering.session.Session;
+import com.ispw.circularbook.engineering.utils.MessageSupport;
 import com.ispw.circularbook.view.cli.CLISettingBookShopView;
 
 
@@ -46,9 +47,11 @@ public class CLISettingBookShopController {
                 break;
             case SHOW_PERSONAL_INFO:
                 cliSettingBookShopView.showPersonalInfo(bookShopBean);
+                cliSettingBookShopView.start();
                 break;
             case SHOW_CIRCULAR_BOOK_USE:
                 showCircularBookUse();
+                cliSettingBookShopView.start();
                 break;
             case BACK:
                 this.goBack();
@@ -85,27 +88,35 @@ public class CLISettingBookShopController {
 
     public void getView(String view)
     {
+        checkInputBack(view);
         bookShopBean.setAddress(view);
+        cliSettingBookShopView.choseCamp();
     }
 
     public void getPhoneNumber(int phoneNumber)
     {
+        checkInputBack(String.valueOf(phoneNumber));
         bookShopBean.setPhoneNumber(phoneNumber);
+        cliSettingBookShopView.choseCamp();
     }
 
     public void getCity(String city)
     {
+        checkInputBack(city);
         bookShopBean.setCity(city);
+        cliSettingBookShopView.choseCamp();
     }
 
     public void applyChange()
     {
-        UserController userController = new UserController();
+        BookShopController bookShopController = new BookShopController();
         UpdateUserInfoBean updateUserInfoBean = new UpdateUserInfoBean(bookShopBean.getEmail(), bookShopBean.getCity());
         updateUserInfoBean.setNameBookShop(bookShopBean.getBookShopName());
         updateUserInfoBean.setAddress(bookShopBean.getAddress());
         updateUserInfoBean.setNumberPhone(bookShopBean.getPhoneNumber());
-        userController.updateUser(updateUserInfoBean);
+        bookShopController.updateBookShop(updateUserInfoBean);
+        MessageSupport.cliSuccessMessage("The changes have been applied");
+        cliSettingBookShopView.start();
     }
 
     private void goBack()
@@ -119,6 +130,18 @@ public class CLISettingBookShopController {
         SearchBookController searchBookController = new SearchBookController();
         CircularBookInfoBean circularBookInfoBean = searchBookController.searchBookShopCircularBookInfo(bookShopBean.getEmail());
         cliSettingBookShopView.showInfoCircularBook(circularBookInfoBean);
+    }
+
+    private void checkInputBack(String value)
+    {
+        try {
+            int command = Integer.parseInt(value);
+            if (command == -1)
+                goBack();
+        } catch (NumberFormatException e) {
+            // Non è un comando numerico, prosegui normalmente
+        }
+
     }
 
 

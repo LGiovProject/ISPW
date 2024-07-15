@@ -28,6 +28,7 @@ public class CLILoginView {
         CLIMessageSupport.simpleMessage("1)For Login");
         CLIMessageSupport.simpleMessage("2)Sign in");
         CLIMessageSupport.simpleMessage("3)Guest Access");
+        CLIMessageSupport.simpleMessage("4)Google Access");
         String command = scanner.nextLine();
         try {
             cliLoginController.command(command);

@@ -9,9 +9,6 @@ public class BookShopController {
 
     public void updateBookShop(UpdateUserInfoBean updateUserInfoBean)
     {
-
-
-
         updateSession(updateUserInfoBean);
         BookShopModel bookShopModel = new BookShopModel();
         bookShopModel.setEmail(updateUserInfoBean.getEmail());
@@ -20,8 +17,6 @@ public class BookShopController {
         bookShopModel.setAddress(updateUserInfoBean.getAddress());
         bookShopModel.setPhoneNumber(updateUserInfoBean.getNumberPhone());
         BookShopDAO.updateBookShop(bookShopModel);
-
-
     }
 
     private void updateSession(UpdateUserInfoBean updateUserInfoBean)

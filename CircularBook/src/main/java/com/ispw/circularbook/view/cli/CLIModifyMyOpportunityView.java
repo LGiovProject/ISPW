@@ -29,7 +29,8 @@ public class CLIModifyMyOpportunityView {
         CLIMessageSupport.simpleMessage("4)Date finish");
         CLIMessageSupport.simpleMessage("5)Comment");
         CLIMessageSupport.simpleMessage("6)Apply change");
-        CLIMessageSupport.simpleMessage("7)go back");
+        CLIMessageSupport.simpleMessage("7)Actually value");
+        CLIMessageSupport.simpleMessage("8)go back");
         String command = scanner.nextLine();
         try {
             cliModifyOpportunityController.command(command);
@@ -86,7 +87,7 @@ public class CLIModifyMyOpportunityView {
         String dateStart = scanner.nextLine();
         try {
             cliModifyOpportunityController.insertDateStart(dateStart);
-        } catch (WrongDataFormatException e) {
+        } catch (WrongDataFormatException | WrongDataInsertException e) {
             MessageSupport.cliExceptionSMessage(e.getMessage());
             insertDateStart();
         }

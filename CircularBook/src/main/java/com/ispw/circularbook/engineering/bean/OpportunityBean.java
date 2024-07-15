@@ -143,9 +143,11 @@ public class OpportunityBean {
     public void setDateStart(String dateStart) throws WrongDataFormatException {
 
         String pattern="\\d{4}-\\d{2}-\\d{2}";
-        if(!Pattern.matches(pattern,dateStart))
+        LocalDate bufferStart = StringUtils.isEmptyOrWhitespaceOnly(dateStart)?null:LocalDate.parse(dateStart);
+        if(!Pattern.matches(pattern,dateStart) || bufferStart==null)
             throw new WrongDataFormatException();
-        this.dateStart=StringUtils.isEmptyOrWhitespaceOnly(dateStart)?null:LocalDate.parse(dateStart);
+        else
+            this.dateStart = LocalDate.parse(dateStart);
     }
 
 
@@ -158,19 +160,20 @@ public class OpportunityBean {
 
     public void setDateFinish(LocalDate dateFinish){this.dateFinish= dateFinish;}
 
-    public void setDateFinish(String dateFinish, String dateStart) throws WrongDataInsertException {
+    public void setDateFinish(String dateStart, String dateFinish) throws WrongDataInsertException {
 
-        this.dateFinish = StringUtils.isEmptyOrWhitespaceOnly(dateFinish)?null:LocalDate.parse(dateFinish);
-        if(this.dateFinish != null && this.dateFinish.isBefore(LocalDate.parse(dateStart)))
+        LocalDate bufferFinish = StringUtils.isEmptyOrWhitespaceOnly(dateFinish)?null:LocalDate.parse(dateFinish);
+        if(bufferFinish != null && bufferFinish.isBefore(LocalDate.parse(dateStart)))
             throw new WrongDataInsertException(dateStart);
-
-
+        else
+           this.dateFinish = LocalDate.parse(dateStart);
     }
 
     public void setDateFinish(LocalDate dateStart, LocalDate dateFinish) throws WrongDataInsertException {
-        this.dateFinish =dateFinish;
-        if(this.dateFinish.isBefore(dateStart))
-            throw new WrongDataInsertException(dateStart.toString());
+        if(dateFinish.isBefore(dateStart))
+            throw new WrongDataInsertException(dateStart.format(dateTimeFormatter));
+        else
+            this.dateFinish = dateStart;
     }
 
     public void setDateFinish(String dateFinish)

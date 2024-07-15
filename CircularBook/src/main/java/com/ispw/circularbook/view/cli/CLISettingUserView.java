@@ -67,10 +67,10 @@ public class CLISettingUserView {
     public void showPersonalInfo(UserBean userBean)
     {
         CLIMessageSupport.delimiterMessage();
-        CLIMessageSupport.simpleMessage("Nome: "+userBean.getName());
-        CLIMessageSupport.simpleMessage("Cognome: "+userBean.getSurname());
+        CLIMessageSupport.simpleMessage("Name: "+userBean.getName());
+        CLIMessageSupport.simpleMessage("Surname: "+userBean.getSurname());
         CLIMessageSupport.simpleMessage("Username: "+userBean.getUsername());
-        CLIMessageSupport.simpleMessage("Citta: "+userBean.getCityString());
+        CLIMessageSupport.simpleMessage("City: "+userBean.getCityString());
     }
 
     public void insertName()

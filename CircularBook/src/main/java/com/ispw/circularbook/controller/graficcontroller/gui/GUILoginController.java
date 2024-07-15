@@ -91,6 +91,11 @@ public class GUILoginController {
 
     }
 
+    public void googleAccess()
+    {
+        MessageSupport.popUpsNotDevelopedMessage();
+    }
+
     public void showPassword() throws IOException {
         showPassword.setVisible(true);
         showPassword.setText(textFieldPassword.getText());

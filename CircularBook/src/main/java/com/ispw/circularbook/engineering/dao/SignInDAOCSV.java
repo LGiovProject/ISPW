@@ -8,9 +8,10 @@ import java.io.*;
 
 public class SignInDAOCSV extends Component {
 
-    private static final String CSV_LOGIN_NAME = "src/main/res/Login.csv";
-    private static final String CSV_USER_NAME = "src/main/res/User.csv";
-    private static final String CSV_BOOK_SHOP_NAME = "src/main/res/BookShop.csv";
+    private static final String CSV_LOGIN_NAME = "CircularBook/src/main/res/Login.csv";
+    private static final String CSV_USER_NAME = "CircularBook/src/main/res/Login.csv";
+    private static final String CSV_BOOK_SHOP_NAME = "CircularBook/src/main/res/BookShop.csv";
+
 
     public void signInU(SignInBean signInBean)
     {

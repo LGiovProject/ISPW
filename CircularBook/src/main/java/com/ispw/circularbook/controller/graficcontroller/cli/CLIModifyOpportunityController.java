@@ -7,6 +7,8 @@ import com.ispw.circularbook.engineering.session.Session;
 import com.ispw.circularbook.engineering.utils.MessageSupport;
 import com.ispw.circularbook.view.cli.CLIModifyMyOpportunityView;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 public class CLIModifyOpportunityController {
@@ -108,8 +110,10 @@ public class CLIModifyOpportunityController {
         continueModify();
     }
 
-    public void insertDateStart(String dateStart) throws WrongDataFormatException {
-        checkInput(dateStart);
+    public void insertDateStart(String dateStart) throws WrongDataFormatException, WrongDataInsertException {
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        if(LocalDate.parse(dateStart).isBefore(LocalDate.now()))
+            throw new WrongDataInsertException(LocalDate.now().format(dateTimeFormatter));
         opportunityBean.setDateStart(dateStart);
         continueModify();
     }

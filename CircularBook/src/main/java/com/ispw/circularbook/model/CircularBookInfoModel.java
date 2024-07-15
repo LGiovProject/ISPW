@@ -13,11 +13,11 @@ public class CircularBookInfoModel {
 
     public CircularBookInfoModel(){}
 
-    public CircularBookInfoModel(int registerBook, int lendedBook, int giftedBook, int OpportunityInsert) {
+    public CircularBookInfoModel(int registerBook, int lendedBook, int giftedBook, int opportunityInsert) {
         this.registerBook = registerBook;
         this.lendedBook = lendedBook;
         this.giftedBook= giftedBook;
-        this.opportunityInsert = OpportunityInsert;
+        this.opportunityInsert = opportunityInsert;
     }
 
     public CircularBookInfoModel(int registerBook, int lendedBook, int giftedBook, int lendedBookTaked, int giftedBooktaked) {

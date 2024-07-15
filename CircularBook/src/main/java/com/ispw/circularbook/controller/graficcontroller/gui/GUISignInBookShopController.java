@@ -62,6 +62,7 @@ public class GUISignInBookShopController {
     {
         choiceBoxCity.getItems().addAll(City.values());
         choiceBoxCity.getSelectionModel().select(0);
+        choiceBoxCity.getItems().removeFirst();
         this.setLoginScene(loginScene);
         this.setPreviousScene(previousScene);
     }

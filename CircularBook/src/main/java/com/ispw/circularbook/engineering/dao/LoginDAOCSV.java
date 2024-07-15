@@ -8,9 +8,9 @@ public class LoginDAOCSV {
 
     private static final int EMAIL_POSITION=0;
     private static final int PASSWORD_POSITION=1;
-    private static final String CSV_LOGIN_NAME = "src/main/res/Login.csv";
-    private static final String CSV_USER_NAME = "src/main/res/User.csv";
-    private static final String CSV_BOOK_SHOP_NAME = "src/main/res/BookShop.csv";
+    private static final String CSV_LOGIN_NAME = "CircularBook/src/main/res/Login.csv";
+    private static final String CSV_USER_NAME = "CircularBook/src/main/res/Login.csv";
+    private static final String CSV_BOOK_SHOP_NAME = "CircularBook/src/main/res/BookShop.csv";
 
     private LoginDAOCSV(){}
 

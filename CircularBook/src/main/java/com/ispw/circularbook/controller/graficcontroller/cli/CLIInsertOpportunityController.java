@@ -5,9 +5,13 @@ import com.ispw.circularbook.engineering.bean.OpportunityBean;
 import com.ispw.circularbook.engineering.exception.CommandNotFoundException;
 import com.ispw.circularbook.engineering.exception.TitleCampRequiredException;
 import com.ispw.circularbook.engineering.exception.WrongDataFormatException;
+import com.ispw.circularbook.engineering.exception.WrongDataInsertException;
 import com.ispw.circularbook.engineering.session.Session;
 import com.ispw.circularbook.engineering.utils.MessageSupport;
 import com.ispw.circularbook.view.cli.CLIInsertOpportunityView;
+
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public class CLIInsertOpportunityController {
 
@@ -101,17 +105,20 @@ public class CLIInsertOpportunityController {
         opportunityBean.setDescription(description);
     }
 
-    public void insertDateStart(String dateStart) throws WrongDataFormatException {
+    public void insertDateStart(String dateStart) throws WrongDataFormatException, WrongDataInsertException {
 
         checkInput(dateStart);
-        opportunityBean.setDateStart(dateStart);
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        if(LocalDate.parse(dateStart).isBefore(LocalDate.now()))
+            throw new WrongDataInsertException(LocalDate.now().format(dateTimeFormatter));
+        else
+            opportunityBean.setDateStart(dateStart);
 
     }
 
-    public void insertDateFinish(String dateFinish)
-    {
+    public void insertDateFinish(String dateFinish) throws WrongDataInsertException {
         checkInput(dateFinish);
-        opportunityBean.setDateFinish(dateFinish);
+        opportunityBean.setDateFinish(opportunityBean.getDateStartString(),dateFinish);
     }
 
     private void checkInput(String value)

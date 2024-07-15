@@ -12,10 +12,11 @@ public class UserController {
         userModel.setEmail(updateUserInfoBean.getEmail());
         userModel.setName(updateUserInfoBean.getNameUser());
         userModel.setSurname(updateUserInfoBean.getSurname());
-        userModel.setSurname(updateUserInfoBean.getSurname());
+        userModel.setAccountName(updateUserInfoBean.getUsername());
         userModel.setCity(updateUserInfoBean.getCity());
+        updateSession(updateUserInfoBean);
         UserDAO.updateUser(userModel);
-        this.updateSession(updateUserInfoBean);
+
 
     }
 

@@ -27,6 +27,7 @@ public class CLIInsertBookController {
     public void start()
     {
         cliInsertBookView = new CLIInsertBookView(this);
+        cliInsertBookView.start();
 
     }
 
@@ -69,7 +70,7 @@ public class CLIInsertBookController {
         cliInsertBookView.insertPublisher();
         cliInsertBookView.insertArgument();
         cliInsertBookView.insertAuthor();
-        cliInsertBookView.insertNPage();
+        cliInsertBookView.insertTypeOfBook();
         cliInsertBookView.insertNPage();
         cliInsertBookView.insertComment();
         cliInsertBookView.finish();

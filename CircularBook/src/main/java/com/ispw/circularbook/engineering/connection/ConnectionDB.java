@@ -59,7 +59,7 @@ public class ConnectionDB {
     private static Properties loadProperties() throws IOException {
         Properties properties = new Properties();
 
-        try(FileInputStream fileInputStream = new FileInputStream("src/main/java/com/ispw/circularbook/engineering/connection/connection.properties");){
+        try(FileInputStream fileInputStream = new FileInputStream("CircularBook/src/main/java/com/ispw/circularbook/engineering/connection/connection.properties");){
             properties.load(fileInputStream);
         }catch (FileNotFoundException e)
         {

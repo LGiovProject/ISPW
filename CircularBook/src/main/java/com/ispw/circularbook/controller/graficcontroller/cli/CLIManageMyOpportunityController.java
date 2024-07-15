@@ -6,6 +6,7 @@ import com.ispw.circularbook.engineering.bean.OpportunityBean;
 import com.ispw.circularbook.engineering.exception.CommandNotFoundException;
 import com.ispw.circularbook.engineering.exception.NoOpportunityFoundException;
 import com.ispw.circularbook.engineering.session.Session;
+import com.ispw.circularbook.engineering.utils.CLIPrintOpportunitySupport;
 import com.ispw.circularbook.engineering.utils.MessageSupport;
 import com.ispw.circularbook.view.cli.CLIManageMyOpportunityView;
 
@@ -34,13 +35,14 @@ public class CLIManageMyOpportunityController {
     {
             try {
                 opportunityBeanList = searchOpportunityController.searchOpportunity(Session.getCurrentSession().getBookShop().getEmail());
+                CLIPrintOpportunitySupport.showOpportunity(opportunityBeanList);
                 cliManageMyopportunityView.start();
             } catch (NoOpportunityFoundException e) {
                 MessageSupport.cliExceptionSMessage(e.getMessage());
                 cliManageController.start();
             }
-
     }
+
 
     public void command(String i) throws CommandNotFoundException {
         switch (i)
@@ -62,14 +64,14 @@ public class CLIManageMyOpportunityController {
 
     public void modifyOpportunity(int id)
     {
-
+        checkInput(id);
         CLIModifyOpportunityController cliModifyOpportunityController = new CLIModifyOpportunityController(this, opportunityBeanList);
         cliModifyOpportunityController.start(id);
     }
 
     public void deleteOpportunity(int id)
     {
-
+        checkInput(id);
         InsertOpportunityController insertOpportunityController =new InsertOpportunityController();
         insertOpportunityController.removeOpportunity(id);
     }
@@ -77,5 +79,12 @@ public class CLIManageMyOpportunityController {
     private void goBack()
     {
         cliManageController.start();
+    }
+
+    private void checkInput(int command)
+    {
+        if (command == -1)
+            cliManageMyopportunityView.start();
+
     }
 }

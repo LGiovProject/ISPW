@@ -8,6 +8,7 @@ import com.ispw.circularbook.engineering.bean.UserBean;
 import com.ispw.circularbook.engineering.exception.CommandNotFoundException;
 import com.ispw.circularbook.engineering.exception.WrongCityInsertException;
 import com.ispw.circularbook.engineering.session.Session;
+import com.ispw.circularbook.engineering.utils.MessageSupport;
 import com.ispw.circularbook.view.cli.CLISettingUserView;
 
 public class CLISettingUserController {
@@ -33,12 +34,14 @@ public class CLISettingUserController {
 
     public CLISettingUserController(CLIHomepageController cliHomepageController){
         this.cliHomepageController= cliHomepageController;
-        this.cliSettingUserView = new CLISettingUserView(this);
-        userBean =Session.getCurrentSession().getUser();
+        cliSettingUserView = new CLISettingUserView(this);
+
     }
 
     public void start()
     {
+        userBean =Session.getCurrentSession().getUser();
+        updateUserInfoBean= new UpdateUserInfoBean(userBean.getEmail(),userBean.getCity());
         cliSettingUserView.start();
     }
 
@@ -50,13 +53,13 @@ public class CLISettingUserController {
                 cliSettingUserView.choseCamp();
                 break;
             case SHOW_PERSONAL_INFO:
-                this.showPersonalInfo();
+                showPersonalInfo();
                 break;
             case SHOW_CIRCULAR_BOOK_USE:
-                this.showCircularBookUse();
+                showCircularBookUse();
                 break;
             case BACK:
-                this.goBack();
+                goBack();
                 break;
             default:
                 throw new CommandNotFoundException();
@@ -137,11 +140,9 @@ public class CLISettingUserController {
     public void applyChange()
     {
         UserController userController = new UserController();
-        updateUserInfoBean = new UpdateUserInfoBean(userBean.getEmail(),userBean.getCity());
-        updateUserInfoBean.setNameUser(userBean.getName());
-        updateUserInfoBean.setSurname(userBean.getSurname());
-        updateUserInfoBean.setUsername(userBean.getUsername());
         userController.updateUser(updateUserInfoBean);
+        MessageSupport.cliSuccessMessage("The changes have been applied");
+        cliSettingUserView.start();
     }
 
     private void goBack()

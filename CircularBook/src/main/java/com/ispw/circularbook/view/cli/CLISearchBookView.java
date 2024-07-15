@@ -27,8 +27,9 @@ public class CLISearchBookView {
         CLIMessageSupport.simpleMessage("2)insert argument");
         CLIMessageSupport.simpleMessage("3)Inserisci Autore");
         CLIMessageSupport.simpleMessage("4)Effetua ricerca");
-        CLIMessageSupport.simpleMessage("5)Pulisci i parametri");
-        CLIMessageSupport.simpleMessage("6)go back");
+        CLIMessageSupport.simpleMessage("5)Clean the parameters");
+        CLIMessageSupport.simpleMessage("6)Show the parameters");
+        CLIMessageSupport.simpleMessage("7)go back");
         String command = scanner.nextLine();
         try {
             cliResearchBookController.command(command);

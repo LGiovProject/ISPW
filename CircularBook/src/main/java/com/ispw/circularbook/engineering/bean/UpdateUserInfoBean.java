@@ -5,16 +5,18 @@ import com.ispw.circularbook.engineering.exception.WrongCityInsertException;
 
 public class UpdateUserInfoBean {
 
-    String email;
-    String nameUser;
-    String surname;
-    String username;
-    String nameBookShop;
-    String address;
+    private String email;
+    private String nameUser;
+    private String surname;
+    private String username;
+    private String nameBookShop;
+    private String address;
     int numberPhone;
 
-    City city;
+    private City city;
 
+
+public UpdateUserInfoBean(){}
 
     public UpdateUserInfoBean(String email, City city) {
         this.email = email;

@@ -4,6 +4,7 @@ import com.ispw.circularbook.controller.graficcontroller.cli.CLIInsertOpportunit
 import com.ispw.circularbook.engineering.exception.CommandNotFoundException;
 import com.ispw.circularbook.engineering.exception.TitleCampRequiredException;
 import com.ispw.circularbook.engineering.exception.WrongDataFormatException;
+import com.ispw.circularbook.engineering.exception.WrongDataInsertException;
 import com.ispw.circularbook.engineering.utils.CLIMessageSupport;
 import com.ispw.circularbook.engineering.utils.MessageSupport;
 
@@ -85,7 +86,7 @@ public class CLIInsertOpportunityView {
         String dateStart = scanner.nextLine();
         try {
             cliInsertOpportunityController.insertDateStart(dateStart);
-        } catch (WrongDataFormatException e) {
+        } catch (WrongDataFormatException | WrongDataInsertException e) {
             MessageSupport.cliExceptionSMessage(e.getMessage());
             insertDateStart();
         }
@@ -97,7 +98,12 @@ public class CLIInsertOpportunityView {
         CLIMessageSupport.simpleMessage("use the format yyyy-mm-dd");
         CLIMessageSupport.backValueMessage();
         String dateFinish = scanner.nextLine();
-        cliInsertOpportunityController.insertDateFinish(dateFinish);
+        try {
+            cliInsertOpportunityController.insertDateFinish(dateFinish);
+        } catch (WrongDataInsertException e) {
+            MessageSupport.cliExceptionSMessage(e.getMessage());
+            insertDateFinish();
+        }
     }
 
 
