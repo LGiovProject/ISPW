@@ -15,9 +15,9 @@ import org.junit.jupiter.api.Test;
 import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class TestController {
+class TestInsertBookController {
 
-private final String EMAIL="test@gmail.com";
+private final String email ="test@gmail.com";
     /*
     * Questo test verifica che effettivamente l'inserimento del libro vada a buon fine
     * per farlo effettua la registrazione di un nuovo utente in modo da evitare che ci siano libri
@@ -36,7 +36,7 @@ private final String EMAIL="test@gmail.com";
             ConnectionDB.getConnection();
             SignInController signInController = new SignInController();
             SignInBean signInBean = new SignInBean();
-            signInBean.setEmail(EMAIL);
+            signInBean.setEmail(email);
             signInBean.setPassword("password");
             signInBean.setName("test");
             signInBean.setCitta("Roma");
@@ -48,11 +48,10 @@ private final String EMAIL="test@gmail.com";
             InsertBookController insertBookController = new InsertBookController();
             SearchBookController searchBookController = new SearchBookController();
             RegistrationBookBean registrationBookBean = new RegistrationBookBean();
-            registrationBookBean.setEmail(EMAIL);
 
+
+            registrationBookBean.setEmail(email);
             registrationBookBean.setTitle("title");
-
-
             registrationBookBean.setTypeOfBook(TypeOfBook.LEND);
             registrationBookBean.setAccountType(1);
             registrationBookBean.setAuthor("author");
@@ -62,7 +61,7 @@ private final String EMAIL="test@gmail.com";
             registrationBookBean.setComment("comment");
             insertBookController.insertBook(registrationBookBean);
 
-            List<BookBean> bookBeanList=searchBookController.searchMyAvailableBook(EMAIL);
+            List<BookBean> bookBeanList=searchBookController.searchMyAvailableBook(email);
             valueTest =bookBeanList.size();
 
 
