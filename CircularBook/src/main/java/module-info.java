@@ -17,4 +17,5 @@ module com.ispw.circularbook {
     exports com.ispw.circularbook.engineering.connection;
     exports com.ispw.circularbook.engineering.mediator.concretemediator;
     exports com.ispw.circularbook.engineering.observer;
+    exports com.ispw.circularbook.engineering.enums;
 }

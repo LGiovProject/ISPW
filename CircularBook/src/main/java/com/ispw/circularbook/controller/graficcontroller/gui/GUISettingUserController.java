@@ -118,7 +118,7 @@ public class GUISettingUserController {
         bookLended.setText(stringGenerator(circularBookInfoBean.getLendedBook())+"your book give on lend");
         bookGived.setText(stringGenerator(circularBookInfoBean.getGiftedBook())+" your book give as a gift");
         bookTakeInGift.setText(stringGenerator(circularBookInfoBean.getLendedBookTaked())+" taken on gift");
-        bookTakedInLend.setText(stringGenerator(circularBookInfoBean.getGiftedBooktaked())+" taken on lend");
+        bookTakedInLend.setText(stringGenerator(circularBookInfoBean.getGiftedBookTaked())+" taken on lend");
     }
 
     public void backToHomepage()  {
@@ -126,9 +126,8 @@ public class GUISettingUserController {
         Main.getStage().setScene(this.previousScene);
     }
 
-    private String stringGenerator(int i)
-    {
-       return i==1?"Hai "+i+" libro":"Hai "+i+" libri";
+    private String stringGenerator(int i) {
+        return i == 1 ? "You have " + i + " book" : "You have " + i + " books";
     }
 
     public void rewriteField(ActionEvent event) throws IOException {
@@ -140,17 +139,17 @@ public class GUISettingUserController {
         String string=btn.getId();
 
         switch (string) {
-            case "zero":
+            case "usernameButton":
                     editUsername();
                     break;
-            case "one":
+            case "nameButton":
                     editName();
                     break;
 
-            case "two":
+            case "surnameButton":
                     editSurname();
                     break;
-            case "thre":
+            case "cityButton":
                     editCity();
                     break;
             default:

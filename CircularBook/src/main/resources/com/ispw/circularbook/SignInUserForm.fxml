@@ -14,7 +14,7 @@
 
 <AnchorPane prefHeight="683.0" prefWidth="800.0" style="-fx-background-color: #4D0E0E;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ispw.circularbook.controller.graficcontroller.gui.GUISignInUserController">
    <children>
-      <AnchorPane fx:id="SignInBox" layoutX="98.0" layoutY="5.0" prefHeight="670.0" prefWidth="604.0" styleClass="BoxField" stylesheets="@Css/Component.css,@Css/BoxField.css">
+      <AnchorPane fx:id="SignInBox" layoutX="98.0" layoutY="5.0" prefHeight="670.0" prefWidth="604.0" styleClass="BoxField" stylesheets="@css/Component.css,@css/BoxField.css">
          <children>
             <VBox prefHeight="670.0" prefWidth="600.0">
                <children>
@@ -115,7 +115,7 @@
                                        <children>
                                           <AnchorPane prefHeight="51.0" prefWidth="278.0">
                                              <children>
-                                                <Text layoutX="34.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="confirm Password" wrappingWidth="210.26953125" AnchorPane.bottomAnchor="31.0" AnchorPane.leftAnchor="34.0" AnchorPane.rightAnchor="33.73046875" AnchorPane.topAnchor="14.0">
+                                                <Text layoutX="53.0" layoutY="39.8984375" strokeType="OUTSIDE" strokeWidth="0.0" text="confirm Password" wrappingWidth="210.26953125" AnchorPane.bottomAnchor="31.078125" AnchorPane.leftAnchor="53.0" AnchorPane.rightAnchor="14.73046875" AnchorPane.topAnchor="14.0">
                                                    <font>
                                                       <Font size="24.0" />
                                                    </font>
@@ -179,7 +179,7 @@
                                        <children>
                                           <AnchorPane prefHeight="50.0" prefWidth="278.0">
                                              <children>
-                                                <Text layoutX="106.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name" AnchorPane.bottomAnchor="21.9765625" AnchorPane.rightAnchor="33.73046875" AnchorPane.topAnchor="20.1015625">
+                                                <Text layoutX="174.4296875" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name" AnchorPane.bottomAnchor="21.9765625" AnchorPane.rightAnchor="40.18359375" AnchorPane.topAnchor="20.1015625">
                                                    <font>
                                                       <Font size="24.0" />
                                                    </font>
@@ -204,7 +204,7 @@
                                        <children>
                                           <AnchorPane prefHeight="50.0" prefWidth="278.0">
                                              <children>
-                                                <Text layoutX="87.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Surname" AnchorPane.bottomAnchor="21.9765625" AnchorPane.rightAnchor="33.73046875" AnchorPane.topAnchor="20.1015625">
+                                                <Text layoutX="144.03515625" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Surname" AnchorPane.bottomAnchor="21.9765625" AnchorPane.rightAnchor="40.2734375" AnchorPane.topAnchor="20.1015625">
                                                    <font>
                                                       <Font size="24.0" />
                                                    </font>
@@ -229,7 +229,7 @@
                                        <children>
                                           <AnchorPane prefHeight="50.0" prefWidth="278.0">
                                              <children>
-                                                <Text layoutX="114.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="City" AnchorPane.bottomAnchor="21.9765625" AnchorPane.rightAnchor="33.73046875" AnchorPane.topAnchor="20.1015625">
+                                                <Text layoutX="196.359375" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="City" AnchorPane.bottomAnchor="21.9765625" AnchorPane.rightAnchor="41.22265625" AnchorPane.topAnchor="20.1015625">
                                                    <font>
                                                       <Font size="24.0" />
                                                    </font>

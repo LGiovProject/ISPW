@@ -2,11 +2,12 @@ package com.ispw.circularbook.engineering.connection;
 
 
 
+import com.ispw.circularbook.Main;
 import com.ispw.circularbook.engineering.exception.ErrorConnectionDbException;
 
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStream;
 import java.sql.*;
 import java.util.Properties;
 
@@ -58,9 +59,9 @@ public class ConnectionDB {
 
     private static Properties loadProperties() throws IOException {
         Properties properties = new Properties();
-
-        try(FileInputStream fileInputStream = new FileInputStream("CircularBook/src/main/java/com/ispw/circularbook/engineering/connection/connection.properties");){
-            properties.load(fileInputStream);
+        try{
+            InputStream inputStream = Main.class.getResourceAsStream("connection/connection.properties");
+            properties.load(inputStream);
         }catch (FileNotFoundException e)
         {
             e.printStackTrace();

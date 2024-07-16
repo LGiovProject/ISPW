@@ -24,14 +24,14 @@ public class CLISearchOpportunityView {
     public void start()
     {
         CLIMessageSupport.titleMessage("Search Opportunity");
-        CLIMessageSupport.simpleMessage("Inserisci i parametri per la ricerca");
-        CLIMessageSupport.simpleMessage("Se non inserisci parametri la ricerca mostrerà tutti i risultati disponibili");
+        CLIMessageSupport.simpleMessage("Please enter the search parameters.");
+        CLIMessageSupport.simpleMessage("If you don't enter any parameters, the search will display all available results.");
         CLIMessageSupport.simpleMessage("1)Nome Book Shop");
-        CLIMessageSupport.simpleMessage("2)Mese in cui effettuare la ricerca");
-        CLIMessageSupport.simpleMessage("3)Tipologia di inserzione");
-        CLIMessageSupport.simpleMessage("4)Effetua ricerca");
-        CLIMessageSupport.simpleMessage("5)Azzera i parametri");
-        CLIMessageSupport.simpleMessage("6)Mostra i parametri di ricerca");
+        CLIMessageSupport.simpleMessage("2)Month to conduct the search");
+        CLIMessageSupport.simpleMessage("3)Type of opportunity");
+        CLIMessageSupport.simpleMessage("4)Start search");
+        CLIMessageSupport.simpleMessage("5)Clean parameters");
+        CLIMessageSupport.simpleMessage("6)Display search parameters");
         CLIMessageSupport.simpleMessage("7)go back");
         String command = scanner.nextLine();
         try {
@@ -45,35 +45,35 @@ public class CLISearchOpportunityView {
     public void searchParameters(SearchOpportunityBean searchOpportunityBean)
     {
         CLIMessageSupport.simpleMessage("Nome Book Shop"+ searchOpportunityBean.getNameLib());
-        CLIMessageSupport.simpleMessage("Mese in cui effettuare la ricerca: "+ searchOpportunityBean.getMonthString());
-        CLIMessageSupport.simpleMessage("Tipologia di inserzione: "+ searchOpportunityBean.getTypeOfOpportunity());
+        CLIMessageSupport.simpleMessage("Month to conduct the search: "+ searchOpportunityBean.getMonthString());
+        CLIMessageSupport.simpleMessage("Type of opportunity: "+ searchOpportunityBean.getTypeOfOpportunity());
     }
 
     public void insertBookShopName()
     {
         CLIMessageSupport.delimiterMessage();
-        CLIMessageSupport.titleMessage("Inserisci il nome di una libreria per la quale stai cercando inserzioni");
-        CLIMessageSupport.simpleMessage("Non inserire nulla per effettuare la ricerca tra tutte le librerie");
-        CLIMessageSupport.simpleMessage("Nome Libreria: ");
+        CLIMessageSupport.titleMessage("Enter the name of a bookstore for which you are searching opportunity");
+        CLIMessageSupport.simpleMessage("If you don't enter any name the search will be across all book shop");
+        CLIMessageSupport.simpleMessage("Bookshop name: ");
         String name = scanner.nextLine();
         cliResearchOpportunityController.insertBookShopName(name);
     }
 
     public void insertMonth() {
-        CLIMessageSupport.titleMessage("Inserisci il nome del mese in cui vuoi effettuare la riceca ");
-        CLIMessageSupport.simpleMessage("Non inserire niente per effettuare la ricerca su tutti i mesi ");
-        CLIMessageSupport.simpleMessage("Il mese va inserito con la prima lettera maiuscola \"Jennuary\"");
-        CLIMessageSupport.simpleMessage("Nome mese: ");
+        CLIMessageSupport.titleMessage("Enter the name of the month you want to search");
+        CLIMessageSupport.simpleMessage("If you don't enter any month the search will be across all months");
+        CLIMessageSupport.simpleMessage("Month name should be capitalized, e.g., \"January\"");
+        CLIMessageSupport.simpleMessage("Month name: ");
         String month = scanner.nextLine();
         cliResearchOpportunityController.insertMonth(month);
     }
 
     public void insertTypologyInsertion()
     {
-        CLIMessageSupport.titleMessage("Inserisci la tipologia di inserzione");
-        CLIMessageSupport.simpleMessage("Possono essere del tipo \"Evento\" oppure \"Promozione\"");
-        CLIMessageSupport.simpleMessage("Non inserire niente per cercare tra entrambe le tipologie");
-        CLIMessageSupport.simpleMessage("Tipologia: ");
+        CLIMessageSupport.titleMessage("Enter the type of insertion");
+        CLIMessageSupport.simpleMessage("Options are \"Event\" or \"Promotion\"");
+        CLIMessageSupport.simpleMessage("If you don't enter any type the search will be across all types");
+        CLIMessageSupport.simpleMessage("Type: ");
         String type = scanner.nextLine();
         cliResearchOpportunityController.insertTypologyInsertion(type);
     }

@@ -33,17 +33,6 @@ public class OpportunityBean {
         this.id=id;
     }
 
-    public OpportunityBean(int id,String title, String description,TypeOfOpportunity typeOfOpportunity, String dateStart, String dateFinish) throws WrongDataFormatException, TitleCampRequiredException {
-        this.id = id;
-        setTitle(title);
-        this.typeOfOppportunity=typeOfOpportunity;
-        this.description = description;
-        setDateStart(dateStart);
-        setDateFinish(dateFinish);
-    }
-
-
-
     public OpportunityBean(String email, String title, TypeOfOpportunity typeOfOppportunity, String description  , String dateStart, String dateFinish) throws WrongDataFormatException, WrongDataInsertException {
 
         this.email = email;
@@ -51,7 +40,7 @@ public class OpportunityBean {
         this.title = title;
         this.description=description;
         setDateStart(dateStart);
-        setDateFinish(dateFinish,dateStart);
+        setDateFinish(dateStart,dateFinish);
     }
 
     public int getId() {
@@ -138,7 +127,9 @@ public class OpportunityBean {
 
     public LocalDate getDateStart(){ return dateStart;}
 
-    public void setDateStart(LocalDate dateStart){this.dateStart=dateStart;}
+    public void setDateStart(LocalDate dateStart){
+        this.dateStart=dateStart;
+    }
 
     public void setDateStart(String dateStart) throws WrongDataFormatException {
 
@@ -178,7 +169,7 @@ public class OpportunityBean {
 
     public void setDateFinish(String dateFinish)
     {
-        this.dateFinish=LocalDate.parse(dateFinish);
+        this.dateFinish = LocalDate.parse(dateFinish);
     }
 
     public String getNameBookShop() {

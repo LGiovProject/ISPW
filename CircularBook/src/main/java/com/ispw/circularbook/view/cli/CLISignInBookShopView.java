@@ -65,7 +65,7 @@ public class CLISignInBookShopView {
     {
         CLIMessageSupport.titleMessage("Insert city");
         CLIMessageSupport.campObligatoryMessage();
-        CLIMessageSupport.titleMessage("Inserisci la citta, capolugo di regione , con l'iniziale maiuscola");
+        CLIMessageSupport.titleMessage("Enter the city, regional capital, starting with a capital letter");
         CLIMessageSupport.backValueMessage();
         String city = scanner.nextLine();
         try {

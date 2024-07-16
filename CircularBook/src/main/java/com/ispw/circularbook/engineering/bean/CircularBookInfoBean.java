@@ -81,11 +81,11 @@ public class CircularBookInfoBean {
         this.lendedBookTaked = lendedBookTaked;
     }
 
-    public int getGiftedBooktaked() {
+    public int getGiftedBookTaked() {
         return giftedBooktaked;
     }
 
-    public void setGiftedBooktaked(int giftedBooktaked) {
+    public void setGiftedBookTaked(int giftedBooktaked) {
         this.giftedBooktaked = giftedBooktaked;
     }
 

@@ -38,7 +38,7 @@ public class CLISettingUserView {
     public void choseCamp()
     {
 
-        CLIMessageSupport.titleMessage("Scegli il campo che vuoi modificare");
+        CLIMessageSupport.titleMessage("Choose the field you want to modify.");
         CLIMessageSupport.simpleMessage("1)Name");
         CLIMessageSupport.simpleMessage("2)Surname");
         CLIMessageSupport.simpleMessage("3)Username");
@@ -57,11 +57,11 @@ public class CLISettingUserView {
     public void showInfoCircularBook(CircularBookInfoBean circularBookInfoBean)
     {
         CLIMessageSupport.delimiterMessage();
-        CLIMessageSupport.simpleMessage(circularBookInfoBean.getRegisterBook()+" registrati");
-        CLIMessageSupport.simpleMessage(circularBookInfoBean.getLendedBook()+" messi in prestito");
-        CLIMessageSupport.simpleMessage(circularBookInfoBean.getGiftedBook()+" messi in regalo");
-        CLIMessageSupport.simpleMessage(circularBookInfoBean.getLendedBookTaked()+" presi in regalo");
-        CLIMessageSupport.simpleMessage(circularBookInfoBean.getGiftedBooktaked()+" presi in prestito");
+        CLIMessageSupport.simpleMessage(circularBookInfoBean.getRegisterBook() + " registered");
+        CLIMessageSupport.simpleMessage(circularBookInfoBean.getLendedBook() + " lent");
+        CLIMessageSupport.simpleMessage(circularBookInfoBean.getGiftedBook() + " gifted");
+        CLIMessageSupport.simpleMessage(circularBookInfoBean.getLendedBookTaked() + " taken as a gift");
+        CLIMessageSupport.simpleMessage(circularBookInfoBean.getGiftedBookTaked() + " taken on loan");
     }
 
     public void showPersonalInfo(UserBean userBean)

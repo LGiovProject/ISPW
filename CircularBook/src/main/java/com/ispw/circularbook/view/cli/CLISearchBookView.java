@@ -21,12 +21,12 @@ public class CLISearchBookView {
     {
         CLIMessageSupport.delimiterMessage();
         CLIMessageSupport.titleMessage("Start research ");
-        CLIMessageSupport.simpleMessage("Inserisci i parametri per la ricerca del libro");
-        CLIMessageSupport.simpleMessage("Se non metti alcun parametro la ricerca mostrerà tutti i risultati disponibili");
+        CLIMessageSupport.simpleMessage("Please enter the parameters for book search.");
+        CLIMessageSupport.simpleMessage("If no parameters are entered, the search will display all available results.");
         CLIMessageSupport.simpleMessage("1)Insert title");
-        CLIMessageSupport.simpleMessage("2)insert argument");
-        CLIMessageSupport.simpleMessage("3)Inserisci Autore");
-        CLIMessageSupport.simpleMessage("4)Effetua ricerca");
+        CLIMessageSupport.simpleMessage("2)Insert argument");
+        CLIMessageSupport.simpleMessage("3)Insert  author");
+        CLIMessageSupport.simpleMessage("4)Start search");
         CLIMessageSupport.simpleMessage("5)Clean the parameters");
         CLIMessageSupport.simpleMessage("6)Show the parameters");
         CLIMessageSupport.simpleMessage("7)go back");

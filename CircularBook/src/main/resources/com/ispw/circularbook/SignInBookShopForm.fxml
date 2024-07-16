@@ -14,7 +14,7 @@
 
 <AnchorPane prefHeight="700.0" prefWidth="800.0" style="-fx-background-color: #4D0E0E;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ispw.circularbook.controller.graficcontroller.gui.GUISignInBookShopController">
    <children>
-      <AnchorPane fx:id="SignInBox" layoutX="98.0" layoutY="2.0" prefHeight="700.0" prefWidth="600.0" styleClass="BoxField" stylesheets="@Css/Component.css,@Css/BoxField.css">
+      <AnchorPane fx:id="SignInBox" layoutX="98.0" layoutY="2.0" prefHeight="700.0" prefWidth="600.0" styleClass="BoxField" stylesheets="@css/Component.css,@css/BoxField.css">
          <children>
             <VBox prefHeight="700.0" prefWidth="600.0">
                <children>
@@ -46,7 +46,7 @@
                                        <children>
                                           <AnchorPane prefHeight="51.0" prefWidth="278.0">
                                              <children>
-                                                <Text layoutX="111.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email" AnchorPane.leftAnchor="111.0">
+                                                <Text layoutX="188.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email" AnchorPane.leftAnchor="188.0">
                                                    <font>
                                                       <Font size="24.0" />
                                                    </font>
@@ -76,7 +76,7 @@
                                        <children>
                                           <AnchorPane prefHeight="51.0" prefWidth="278.0">
                                              <children>
-                                                <Text layoutX="87.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password" wrappingWidth="103.921875">
+                                                <Text layoutX="144.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password" wrappingWidth="103.921875">
                                                    <font>
                                                       <Font size="24.0" />
                                                    </font>
@@ -116,7 +116,7 @@
                                        <children>
                                           <AnchorPane prefHeight="51.0" prefWidth="278.0">
                                              <children>
-                                                <Text layoutX="41.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="confirm Password" wrappingWidth="210.26953125">
+                                                <Text layoutX="56.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="confirm Password" wrappingWidth="210.26953125">
                                                    <font>
                                                       <Font size="24.0" />
                                                    </font>

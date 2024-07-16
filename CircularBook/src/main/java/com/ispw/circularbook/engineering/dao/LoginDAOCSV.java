@@ -1,16 +1,18 @@
 package com.ispw.circularbook.engineering.dao;
 
+import com.ispw.circularbook.Main;
 import com.ispw.circularbook.engineering.bean.LoginBean;
 
 import java.io.*;
+import java.net.URISyntaxException;
 
 public class LoginDAOCSV {
 
     private static final int EMAIL_POSITION=0;
     private static final int PASSWORD_POSITION=1;
-    private static final String CSV_LOGIN_NAME = "CircularBook/src/main/res/Login.csv";
-    private static final String CSV_USER_NAME = "CircularBook/src/main/res/Login.csv";
-    private static final String CSV_BOOK_SHOP_NAME = "CircularBook/src/main/res/BookShop.csv";
+    private static final String CSV_LOGIN_NAME = "res/Login.csv";
+    private static final String CSV_USER_NAME = "res/User.csv";
+    private static final String CSV_BOOK_SHOP_NAME = "res/BookShop.csv";
 
     private LoginDAOCSV(){}
 
@@ -20,7 +22,7 @@ public class LoginDAOCSV {
 
          int x=0;
          boolean flag=false;
-        File file = new File(CSV_LOGIN_NAME);
+         File file = findFile(CSV_LOGIN_NAME);
          try(BufferedReader bufferedReader = new BufferedReader(new FileReader(file));){
 
              String row;
@@ -47,7 +49,7 @@ public class LoginDAOCSV {
 
     private static int foundUserType(LoginBean loginBean)
     {
-        File file = new File(CSV_USER_NAME);
+        File file = findFile(CSV_USER_NAME);
         try(BufferedReader bufferedReader = new BufferedReader(new FileReader(file))) {
 
             String row;
@@ -67,7 +69,7 @@ public class LoginDAOCSV {
 
     private static int foundBookShopType(LoginBean loginBean)
     {
-        File file = new File(CSV_BOOK_SHOP_NAME);
+        File file = findFile(CSV_BOOK_SHOP_NAME);
 
         try(BufferedReader bufferedReader = new BufferedReader(new FileReader(file));) {
 
@@ -84,6 +86,16 @@ public class LoginDAOCSV {
             e.printStackTrace();
         }
         return 0;
+    }
+
+    private static File findFile(String path)
+    {
+        try {
+            return new File(Main.class.getResource(path).toURI());
+        } catch (URISyntaxException e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 
 

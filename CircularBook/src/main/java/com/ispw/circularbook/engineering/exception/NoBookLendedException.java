@@ -1,5 +1,5 @@
 package com.ispw.circularbook.engineering.exception;
 
 public class NoBookLendedException extends Exception{
-    public NoBookLendedException(){super("Non ci sono libri in prestito");}
+    public NoBookLendedException(){super("There are no books on loan");}
 }

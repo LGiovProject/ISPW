@@ -8,7 +8,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="337.0" prefWidth="341.0" style="-fx-background-color: #4D0E0E;" stylesheets="@Css/Component.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ispw.circularbook.controller.graficcontroller.gui.GUIHomepageSideButtonUserController">
+<AnchorPane prefHeight="337.0" prefWidth="341.0" style="-fx-background-color: #4D0E0E;" stylesheets="@css/Component.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ispw.circularbook.controller.graficcontroller.gui.GUIHomepageSideButtonUserController">
    <VBox layoutY="1.0" prefHeight="337.0" prefWidth="341.0" spacing="40.0">
       <ToggleButton mnemonicParsing="false" onAction="#insertNewBook" prefHeight="44.0" prefWidth="341.0">
          <graphic>

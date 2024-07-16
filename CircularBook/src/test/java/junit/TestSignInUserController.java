@@ -12,14 +12,20 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
-class TestPersonal {
+class TestSignInUserController {
 
-    private static final String EMAIL="test4@gmail.com";
-    private static final String PASSWORD ="testpass4";
-    private static final String CITY ="Roma";
-
+    private static final String EMAIL="test21@gmail.com";
+    private static final String PASSWORD ="test21";
+    /*
+    * Il seguente test va a verficare se l'inserimento di un nuovo utente avviene correttamente
+    * sia sul Database che sul file Sysyem.
+    * Se l'inserimento non va a buon fine restituisce 0
+    * Se invece la registrazione va a buon fine restituisce il valore corrispondente al tipo di utente inserito
+    * 1 per gli User
+    * 2 per i BookShop
+    */
     @Test
-    void signInTest()
+    void signInUserTest()
     {
 
         try{
@@ -29,7 +35,7 @@ class TestPersonal {
             signInBean.setEmail(EMAIL);
             signInBean.setPassword(PASSWORD);
             signInBean.setName("test");
-            signInBean.setCitta(CITY);
+            signInBean.setCitta("Roma");
             signInBean.setSurname("tester");
             signInBean.setUsername("Testator");
             signInController.signInU(signInBean);

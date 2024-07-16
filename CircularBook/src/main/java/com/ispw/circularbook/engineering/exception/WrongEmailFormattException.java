@@ -4,7 +4,7 @@ public class WrongEmailFormattException extends Exception {
 
         public WrongEmailFormattException(String email) {
 
-        super("'"+email+"' formato email non valido,seguire il formato prova@prova.com/it");
+        super("'"+email+"' Invalid email format. Please follow the format example@domain.com/it.");
     }
 
 }

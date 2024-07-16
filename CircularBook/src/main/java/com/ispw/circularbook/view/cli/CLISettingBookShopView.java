@@ -55,10 +55,10 @@ public class CLISettingBookShopView {
     public void showInfoCircularBook(CircularBookInfoBean circularBookInfoBean)
     {
         CLIMessageSupport.delimiterMessage();
-        CLIMessageSupport.simpleMessage(circularBookInfoBean.getRegisterBook()+" registrati");
-        CLIMessageSupport.simpleMessage(circularBookInfoBean.getLendedBook()+" messi in prestito");
-        CLIMessageSupport.simpleMessage(circularBookInfoBean.getGiftedBook()+" messi in regalo");
-        CLIMessageSupport.simpleMessage(circularBookInfoBean.getOpportunityInsert()+" inserzioni inserite");
+        CLIMessageSupport.simpleMessage(circularBookInfoBean.getRegisterBook() + " registered");
+        CLIMessageSupport.simpleMessage(circularBookInfoBean.getLendedBook() + " on lend");
+        CLIMessageSupport.simpleMessage(circularBookInfoBean.getGiftedBook() + " gifted");
+        CLIMessageSupport.simpleMessage(circularBookInfoBean.getOpportunityInsert() + " insertions inserted");
     }
 
     public void showPersonalInfo(BookShopBean bookShopBean)

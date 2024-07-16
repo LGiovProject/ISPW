@@ -228,8 +228,8 @@
       </AnchorPane>
    </children>
    <stylesheets>
-      <URL value="@Css/BoxField.css" />
-      <URL value="@Css/Component.css" />
-      <URL value="@Css/Modify.css" />
+      <URL value="@css/BoxField.css" />
+      <URL value="@css/Component.css" />
+      <URL value="@css/Modify.css" />
    </stylesheets>
 </AnchorPane>

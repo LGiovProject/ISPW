@@ -127,12 +127,16 @@ public class GUISettingBookShopController {
         Main.getStage().setScene(this.previousScene);
     }
 
-    private String bookStringGenerator(int i)
-    {
-        return i==1?"Hai "+i+" book":"Hai "+i+" books";
+    private String bookStringGenerator(int i) {
+
+        String duplicate="You have ";
+        return i == 1 ? duplicate+ i + " book" : duplicate + i + " books";
     }
 
-    private String opportunityStringGenerator(int i){ return i==1?"Hai "+i+" opportunity inserted":"Hai "+i+" opportunitys inserted";}
+    private String opportunityStringGenerator(int i) {
+        String duplicate="You have ";
+        return i == 1 ? duplicate + i + " opportunity inserted" : duplicate + i + " opportunities inserted";
+    }
 
     public void rewriteField(ActionEvent event) throws IOException {
         checkBoxImage= new Image(Objects.requireNonNull(Main.class.getResource(CHECK_BOX_IMAGE_PATH)).openStream());
@@ -141,16 +145,16 @@ public class GUISettingBookShopController {
         String string=btn.getId();
 
         switch (string) {
-            case "zero":
+            case "nameButton":
                 editName();
                 break;
-            case "one":
+            case "addressButton":
                 editStreet();
                 break;
-            case "two":
+            case "phoneButton":
                 editNPhone();
                 break;
-            case "three":
+            case "cityButton":
                 editCity();
                 break;
             default:

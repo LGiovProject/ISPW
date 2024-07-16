@@ -62,7 +62,7 @@ public class CLISignInUserView {
 
     public void getCity()
     {
-        CLIMessageSupport.titleMessage("Inserisci la citta, capolugo di regione , con l'iniziale maiuscola");
+        CLIMessageSupport.titleMessage("Enter the city, regional capital, starting with a capital letter");
         CLIMessageSupport.campObligatoryMessage();
         CLIMessageSupport.backValueMessage();
         String city = scanner.nextLine();

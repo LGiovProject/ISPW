@@ -14,8 +14,8 @@
       <Font size="24.0" />
    </font>
    <stylesheets>
-      <URL value="@Css/PopUps.css" />
-      <URL value="@Css/Component.css" />
+      <URL value="@css/PopUps.css" />
+      <URL value="@css/Component.css" />
    </stylesheets>
    <graphic>
       <AnchorPane prefHeight="279.0" prefWidth="366.0">

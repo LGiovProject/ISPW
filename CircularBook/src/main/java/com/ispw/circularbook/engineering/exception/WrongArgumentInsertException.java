@@ -1,5 +1,5 @@
 package com.ispw.circularbook.engineering.exception;
 
 public class WrongArgumentInsertException extends Exception {
-    public WrongArgumentInsertException(){super("L'argomento inserito è sbagliato");}
+    public WrongArgumentInsertException(){super("The entered argument is incorrect.");}
 }
