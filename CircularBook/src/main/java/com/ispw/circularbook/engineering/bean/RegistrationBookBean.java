@@ -17,17 +17,6 @@ public class RegistrationBookBean {
     String nPage;
     String comment;
 
-    public RegistrationBookBean(){}
-
-    public RegistrationBookBean(String email,TypeOfBook typeOfDisponibility,String title, String author, Arguments argument, String nPage, String comment) throws TitleCampRequiredException, WrongNpageFormatException {
-        this.email = email;
-        setTypeOfBook(typeOfDisponibility);
-        this.setTitle(title);
-        this.setAuthor(author);
-        this.argument=argument;
-        this.setNPage(nPage);
-        this.setComment(comment);
-    }
 
     public String getEmail() {
         return email;
@@ -143,7 +132,6 @@ public class RegistrationBookBean {
     {
         this.nPage=String.valueOf(nPage);
     }
-
 
     public String getComment() {
         return comment;

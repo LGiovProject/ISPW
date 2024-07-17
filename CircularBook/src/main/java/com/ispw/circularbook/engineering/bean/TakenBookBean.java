@@ -71,7 +71,7 @@ public class TakenBookBean {
 
     public void setDateFinish() {
         LocalDate dateStartTemp = LocalDate.parse(this.dateStart,DateTimeFormatter.ofPattern("yyyy-MM-dd"));
-        LocalDate dateFinishTemp =dateStartTemp.plusMonths(2);
+        LocalDate dateFinishTemp =dateStartTemp.plusMonths(1);
         this.dateFinish = dateFinishTemp.toString();
     }
 
