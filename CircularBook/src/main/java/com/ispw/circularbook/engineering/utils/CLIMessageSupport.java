@@ -10,7 +10,9 @@ public class CLIMessageSupport {
 
     static {
         // Configurazione del logger per inviare i messaggi alla console
+        // Il codice viene eseguito una sola volta quando la classe viene caricata in memoria.
         ConsoleHandler consoleHandler = new ConsoleHandler();
+        // Un formatter personalizzato per rimuovere informazioni timestamp, livello di log, e altre informazioni meta
         consoleHandler.setFormatter(new Formatter() {
             @Override
             public String format(LogRecord recordTemp) {
@@ -18,8 +20,11 @@ public class CLIMessageSupport {
             }
         });
         consoleHandler.setLevel(Level.ALL);
+        // Aggiungo il consoleHandler al logger
         logger.addHandler(consoleHandler);
-        logger.setUseParentHandlers(false); // Disabilita i gestori predefiniti del logger di root
+        // Disabilito gli altri handler predefiniti, in modo che i messaggi vengano propagati solo all'handler specificatamente aggiunti
+        // In questo caso il consoleHandler
+        logger.setUseParentHandlers(false);
         logger.setLevel(Level.ALL);
     }
 

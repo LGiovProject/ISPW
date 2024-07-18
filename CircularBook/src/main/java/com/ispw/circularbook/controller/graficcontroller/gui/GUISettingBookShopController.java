@@ -21,7 +21,6 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.Objects;
 
 
@@ -262,8 +261,9 @@ public class GUISettingBookShopController {
     }
 
     private void checkEdit() throws ModifyOperatorNotClosedException {
-        if(Arrays.stream(rwField).anyMatch(element-> !element))
-            throw new ModifyOperatorNotClosedException();
+        for (Boolean aBoolean : rwField)
+            if (Boolean.FALSE.equals(aBoolean))
+                throw new ModifyOperatorNotClosedException();
     }
 
 }

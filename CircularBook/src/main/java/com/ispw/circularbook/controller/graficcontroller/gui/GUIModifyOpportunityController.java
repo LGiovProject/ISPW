@@ -27,7 +27,6 @@ import java.time.LocalDate;
 
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 
@@ -149,6 +148,9 @@ public class GUIModifyOpportunityController extends Subject {
     {
         this.dateStart.setDayCellFactory(getDayCellFactory(LocalDate.now()));
         this.dateStart.setValue(dateStart);
+        //Aggiunge un listener alla proprietà valueProperty di un oggetto
+        //L'epressione lambda rappresenta il listener stesso, quando il valore in dateStart cambia
+        //Il nuovo valore viene inviato a handleDateChange
         this.dateStart.valueProperty().addListener((observable, oldValue, newValue) -> handleDateChange(newValue));
     }
 
@@ -159,6 +161,7 @@ public class GUIModifyOpportunityController extends Subject {
         this.dateFinish.setValue(dateFinish);
     }
 
+    //Disabilita le date nel DatePicker dateFinish in base ai cambiamenti in dateStart
     private void handleDateChange(LocalDate newDate) {
 
         dateFinish.setDayCellFactory(getDayCellFactory(newDate));
@@ -168,7 +171,8 @@ public class GUIModifyOpportunityController extends Subject {
         Main.getStage().setScene(this.previusScene);
     }
 
-    //E' un metodo privato per disabilitare e colorare in maniera diversa le date precedenti al valore minDate che gli passo
+    //Codice esterno
+    //Disabilità le date nel datePicker e le evidenzia con un colore specifico
     private Callback<DatePicker, DateCell> getDayCellFactory(LocalDate minDate) {
         return datePicker -> new DateCell() {
             @Override
@@ -268,8 +272,9 @@ public class GUIModifyOpportunityController extends Subject {
     }
 
     private void checkEdit() throws ModifyOperatorNotClosedException {
-        if(Arrays.stream(rwField).anyMatch(element-> !element))
-            throw new ModifyOperatorNotClosedException();
+        for (Boolean aBoolean : rwField)
+            if (Boolean.FALSE.equals(aBoolean))
+                throw new ModifyOperatorNotClosedException();
     }
 
 }

@@ -38,6 +38,9 @@ public class GUIInsertOpportunityController {
     {
         opportunityBean = new OpportunityBean();
         dateStart.setDayCellFactory(getDayCellFactory(LocalDate.now()));
+        //Aggiunge un listener alla proprietà valueProperty di un oggetto
+        //L'epressione lambda rappresenta il listener stesso, quando il valore in dateStart cambia
+        //Il nuovo valore viene inviato a handleDateChange
         dateStart.valueProperty().addListener((observable, oldValue, newValue) -> handleDateChange(newValue));
 
     }
@@ -71,6 +74,8 @@ public class GUIInsertOpportunityController {
         dateFinish.setValue(null);
     }
 
+    //Codice esterno
+    //Disabilità le date nel datePicker e le evidenzia con un colore specifico
     private Callback<DatePicker, DateCell> getDayCellFactory(LocalDate minDate) {
         return datePicker -> new DateCell() {
             @Override
@@ -85,6 +90,7 @@ public class GUIInsertOpportunityController {
         };
     }
 
+    //Disabilita le date nel DatePicker dateFinish in base ai cambiamenti in dateStart
     private void handleDateChange(LocalDate newDate) {
         dateFinish.setDayCellFactory(getDayCellFactory(newDate));
     }
