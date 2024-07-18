@@ -30,8 +30,6 @@ public class SignInDAOCSV extends Component {
 
             bufferedWriterLog.newLine();
             bufferedWriterLog.write(signInBean.getEmail() + "," + signInBean.getPassword());
-            bufferedWriterLog.write(",");
-            bufferedWriterLog.write(signInBean.getPassword());
             bufferedWriterLog.newLine();
 
             bufferedWriterU.newLine();
