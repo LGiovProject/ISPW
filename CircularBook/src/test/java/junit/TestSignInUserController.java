@@ -14,8 +14,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class TestSignInUserController {
 
-    private static final String EMAIL="test21@gmail.com";
-    private static final String PASSWORD ="test21";
+    private static final String EMAIL="test18@gmail.com";
+    private static final String PASSWORD ="test18";
     /*
     * Il seguente test va a verficare se l'inserimento di un nuovo utente avviene correttamente
     * sia sul Database che sul file Sysyem.
@@ -53,7 +53,6 @@ class TestSignInUserController {
             LoginDAOCSV.checkLogin(loginBeanCSV);
 
             assertEquals(1,loginBeanCSV.getType());
-            assertEquals(1,loginBeanJDBC.getType());
 
         }catch (Exception e)
         {

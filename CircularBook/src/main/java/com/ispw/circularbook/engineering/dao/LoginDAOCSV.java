@@ -1,18 +1,16 @@
 package com.ispw.circularbook.engineering.dao;
 
-import com.ispw.circularbook.Main;
 import com.ispw.circularbook.engineering.bean.LoginBean;
 
 import java.io.*;
-import java.net.URISyntaxException;
 
 public class LoginDAOCSV {
 
     private static final int EMAIL_POSITION=0;
     private static final int PASSWORD_POSITION=1;
-    private static final String CSV_LOGIN_NAME = "res/Login.csv";
-    private static final String CSV_USER_NAME = "res/User.csv";
-    private static final String CSV_BOOK_SHOP_NAME = "res/BookShop.csv";
+    private static final String CSV_LOGIN_NAME = "src/main/res/Login.csv";
+    private static final String CSV_USER_NAME = "src/main/res/User.csv";
+    private static final String CSV_BOOK_SHOP_NAME = "src/main/res/BookShop.csv";
 
     private LoginDAOCSV(){}
 
@@ -90,12 +88,7 @@ public class LoginDAOCSV {
 
     private static File findFile(String path)
     {
-        try {
-            return new File(Main.class.getResource(path).toURI());
-        } catch (URISyntaxException e) {
-            e.printStackTrace();
-            return null;
-        }
+            return new File(path);
     }
 
 
