@@ -30,7 +30,7 @@ CREATE TABLE `book_available` (
   KEY `book_email_idx` (`email`),
   CONSTRAINT `book_available_email` FOREIGN KEY (`email`) REFERENCES `login` (`email`),
   CONSTRAINT `book_available_id` FOREIGN KEY (`id`) REFERENCES `book_data` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -39,7 +39,7 @@ CREATE TABLE `book_available` (
 
 LOCK TABLES `book_available` WRITE;
 /*!40000 ALTER TABLE `book_available` DISABLE KEYS */;
-INSERT INTO `book_available` VALUES (1,'marco@gmail.com',1),(2,'marco@gmail.com',2),(3,'marco@gmail.com',1),(4,'carlo@gmail.com',1),(5,'carlo@gmail.com',2),(6,'carlo@gmail.com',1),(7,'carlo@gmail.com',1),(9,'lalibreria@libero.it',2),(11,'feltrinelli@virgilio.it',2),(12,'feltrinelli@virgilio.it',1),(13,'feltrinelli@virgilio.it',1);
+INSERT INTO `book_available` VALUES (1,'marco@gmail.com',1),(2,'marco@gmail.com',2),(3,'marco@gmail.com',1),(4,'carlo@gmail.com',1),(5,'carlo@gmail.com',2),(6,'carlo@gmail.com',1),(7,'carlo@gmail.com',1),(9,'lalibreria@libero.it',2),(11,'feltrinelli@virgilio.it',2),(12,'feltrinelli@virgilio.it',1),(13,'feltrinelli@virgilio.it',1),(14,'luca@gmail.com',1),(20,'testInsertBook@gmail.com',1),(21,'testInsertBook@gmail.com',1);
 /*!40000 ALTER TABLE `book_available` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -125,7 +125,7 @@ CREATE TABLE `book_data` (
   `npage` int DEFAULT NULL,
   `comment` varchar(450) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -134,7 +134,7 @@ CREATE TABLE `book_data` (
 
 LOCK TABLES `book_data` WRITE;
 /*!40000 ALTER TABLE `book_data` DISABLE KEYS */;
-INSERT INTO `book_data` VALUES (1,'aldo cazzullo','Historical','mondadori','storia di unitalia che non si lamentava',137,'storia di un paese molto più semplice dell\'attuale'),(2,'corrado guzzanti','Comic','l\'unità','il libro de kipli',90,NULL),(3,'piero malvezzi','Auto Biography','l\'unità','lettere di condannati a morte',180,NULL),(4,'stefano benni','Romance','feltrinelli','bar sport',129,'no comment'),(5,'niccolo ammaniti','Romance','piccolo biblioteca','ti prendo e ti porto via',432,'no comment'),(6,'michele serra','Romance','feltrinelli','gli straiati',108,'no comment'),(7,'gigi proietti','Comic','la repubblica','mandrake a roma',135,'no comment'),(8,'licia troisi','Fantasy','marsilio lucciole','la luce delle stelle',187,'no comment'),(9,'cesare pavese','Romance','oscar mondadori','il compagno',196,'un libro molto impegnato ma da leggere'),(10,'ray bradbury','Science Fiction','edizioni dello scorpione','la città perduta di marte',155,'storia tra fantascienza e realtà'),(11,'oliver sacks','Romance','elcograf','l\'uomo che scambio sua moglie per un cappello',301,'no comment'),(12,'thomas mann','Thriller','la repubblica','la morte a venezia',96,'no comment'),(13,'michela murgia','Romance','feltrinelli','le assaggiatrici',287,'no comment');
+INSERT INTO `book_data` VALUES (1,'aldo cazzullo','Historical','mondadori','storia di unitalia che non si lamentava',137,'storia di un paese molto più semplice dell\'attuale'),(2,'corrado guzzanti','Comic','l\'unità','il libro de kipli',90,NULL),(3,'piero malvezzi','Auto Biography','l\'unità','lettere di condannati a morte',180,NULL),(4,'stefano benni','Romance','feltrinelli','bar sport',129,'no comment'),(5,'niccolo ammaniti','Romance','piccolo biblioteca','ti prendo e ti porto via',432,'no comment'),(6,'michele serra','Romance','feltrinelli','gli straiati',108,'no comment'),(7,'gigi proietti','Comic','la repubblica','mandrake a roma',135,'no comment'),(8,'licia troisi','Fantasy','marsilio lucciole','la luce delle stelle',187,'no comment'),(9,'cesare pavese','Romance','oscar mondadori','il compagno',196,'un libro molto impegnato ma da leggere'),(10,'ray bradbury','Science Fiction','edizioni dello scorpione','la città perduta di marte',155,'storia tra fantascienza e realtà'),(11,'oliver sacks','Romance','elcograf','l\'uomo che scambio sua moglie per un cappello',301,'no comment'),(12,'thomas mann','Thriller','la repubblica','la morte a venezia',96,'no comment'),(13,'michela murgia','Romance','feltrinelli','le assaggiatrici',287,'no comment'),(14,'tester','Thriller','test','test',0,NULL),(20,'author','argument','publisher','title',0,'comment'),(21,'author','Adventure','publisher','title',0,'comment');
 /*!40000 ALTER TABLE `book_data` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -418,7 +418,7 @@ CREATE TABLE `login` (
 
 LOCK TABLES `login` WRITE;
 /*!40000 ALTER TABLE `login` DISABLE KEYS */;
-INSERT INTO `login` VALUES ('carlo@gmail.com','carlo1'),('feltrinelli@virgilio.it','feltri1'),('lalibreria@libero.it','libro1'),('luca@gmail.com','utente1'),('marco@gmail.com','marco1');
+INSERT INTO `login` VALUES ('carlo@gmail.com','carlo1'),('feltrinelli@virgilio.it','feltri1'),('lalibreria@libero.it','libro1'),('luca@gmail.com','utente1'),('marco@gmail.com','marco1'),('testInsertBook@gmail.com','test');
 /*!40000 ALTER TABLE `login` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -440,7 +440,7 @@ CREATE TABLE `opportunity` (
   PRIMARY KEY (`id`),
   KEY `sales_email_idx` (`email`),
   CONSTRAINT `sales_email` FOREIGN KEY (`email`) REFERENCES `book_shop` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -449,7 +449,7 @@ CREATE TABLE `opportunity` (
 
 LOCK TABLES `opportunity` WRITE;
 /*!40000 ALTER TABLE `opportunity` DISABLE KEYS */;
-INSERT INTO `opportunity` VALUES (1,'lalibreria@libero.it',1,'il portalettere','francesca giannone presentara  il suo nuovo libro ','2024-07-22','2024-07-24'),(2,'lalibreria@libero.it',2,'il giallo','grande promozione su tutti i libre gialli con il ter per due','2024-07-23','2024-07-31'),(3,'feltrinelli@virgilio.it',1,'maurizio de giovanni','tre giorni con l\'autore di il pianto dell\'alba dibattiti sul contenuto del libro','2024-07-24','2024-07-26'),(4,'feltrinelli@virgilio.it',2,'i romanzi oggi','raccolta di romanzi con la possibilità dello sconto del 20%','2024-07-25','2024-07-27');
+INSERT INTO `opportunity` VALUES (1,'lalibreria@libero.it',1,'il portalettere','francesca giannone presentara  il suo nuovo libro ','2024-07-22','2024-07-22'),(2,'lalibreria@libero.it',2,'il giallo','grande promozione su tutti i libre gialli con il tre per due','2024-07-23','2024-07-23'),(3,'feltrinelli@virgilio.it',1,'maurizio de giovanni','tre giorni con l\'autore di il pianto dell\'alba dibattiti sul contenuto del libro','2024-07-24','2024-07-26'),(4,'feltrinelli@virgilio.it',2,'i romanzi oggi','raccolta di romanzi con la possibilità dello sconto del 20%','2024-07-25','2024-07-27');
 /*!40000 ALTER TABLE `opportunity` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -510,7 +510,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES ('carlo@gmail.com','carlot','carla','melotti','Potenza'),('luca@gmail.com','null','null','null','Roma'),('marco@gmail.com','null','marco','lombo','Torino');
+INSERT INTO `users` VALUES ('carlo@gmail.com','carlot','carla','melotti','Potenza'),('luca@gmail.com','null','null','null','Roma'),('marco@gmail.com','null','marco','lombo','Torino'),('testInsertBook@gmail.com','Testator','test','tester','Roma');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1079,4 +1079,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-07-17  8:56:55
+-- Dump completed on 2024-07-18 17:15:32

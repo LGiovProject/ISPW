@@ -2,11 +2,8 @@ package junit;
 
 import com.ispw.circularbook.controller.appcontroller.InsertBookController;
 import com.ispw.circularbook.controller.appcontroller.SearchBookController;
-import com.ispw.circularbook.controller.appcontroller.SignInController;
 import com.ispw.circularbook.engineering.bean.BookBean;
 import com.ispw.circularbook.engineering.bean.RegistrationBookBean;
-import com.ispw.circularbook.engineering.bean.SignInBean;
-import com.ispw.circularbook.engineering.connection.ConnectionDB;
 import com.ispw.circularbook.engineering.enums.Arguments;
 import com.ispw.circularbook.engineering.enums.TypeOfBook;
 import com.ispw.circularbook.engineering.exception.*;
@@ -17,37 +14,28 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class TestInsertBookController {
 
-private final String email ="test@gmail.com";
+private final String email ="testInsertBook@gmail.com";
     /*
-    * Questo test verifica che effettivamente l'inserimento del libro vada a buon fine
-    * per farlo effettua la registrazione di un nuovo utente in modo da evitare che ci siano libri
-    * inseriti in precedenza.
-    *
-    * Dopodiche effettua l'inserimento del libro ed effettua una ricerca sui libri appartenti all'utente
-    * Se la dimensione della lista è 1 il test è passato
-    *
+    * Faccio prima un controllo su quanto è lunga la lista attuale di libri con l'utente scelto
+    * dopodiche faccio l'inserimento del nuovo libro
+    * il valore atteso è la lunghezza della lista prima dell'inserimento +1
+    * Il test è passato se la lunghezza della lista dopo l'inserimento è uguale al valore atteso
     * */
 
     @Test
     void test()
     {
-        int valueTest=0;
         try {
-            ConnectionDB.getConnection();
-            SignInController signInController = new SignInController();
-            SignInBean signInBean = new SignInBean();
-            signInBean.setEmail(email);
-            signInBean.setPassword("password");
-            signInBean.setName("test");
-            signInBean.setCitta("Roma");
-            signInBean.setSurname("tester");
-            signInBean.setUsername("Testator");
-            signInController.signInU(signInBean);
-
 
             InsertBookController insertBookController = new InsertBookController();
             SearchBookController searchBookController = new SearchBookController();
             RegistrationBookBean registrationBookBean = new RegistrationBookBean();
+
+            List<BookBean> bookBeanListBefore=searchBookController.searchMyAvailableBook(email);
+            int valueTest =bookBeanListBefore.size();
+
+
+
 
 
             registrationBookBean.setEmail(email);
@@ -62,14 +50,13 @@ private final String email ="test@gmail.com";
             insertBookController.insertBook(registrationBookBean);
 
             List<BookBean> bookBeanList=searchBookController.searchMyAvailableBook(email);
-            valueTest =bookBeanList.size();
+            valueTest ++;
+            assertEquals(valueTest,bookBeanList.size());
 
-
-        }catch (NoBookRegisteredException | TitleCampRequiredException | WrongEmailFormattException |
-                ErrorConnectionDbException | WrongCityInsertException e)
+        }catch (NoBookRegisteredException | TitleCampRequiredException e)
         {
             e.printStackTrace();
         }
-        assertEquals(1,valueTest);
+
     }
 }
