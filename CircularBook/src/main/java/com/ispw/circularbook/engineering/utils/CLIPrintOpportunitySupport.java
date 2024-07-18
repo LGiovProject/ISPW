@@ -8,11 +8,11 @@ public class CLIPrintOpportunitySupport {
 
     private CLIPrintOpportunitySupport(){}
 
-    public static void showOpportunity(List<OpportunityBean> opportunityBeanList)
+    public static void showOpportunity(List<OpportunityBean> opportunityBeans)
     {
-        for(OpportunityBean opportunityBean : opportunityBeanList) {
+        for(OpportunityBean opportunityBean : opportunityBeans) {
             CLIMessageSupport.delimiterMessage();
-            CLIMessageSupport.simpleMessage("Id :"+opportunityBean.getId());
+            CLIMessageSupport.simpleMessage("Id :"+ opportunityBean.getId());
             CLIMessageSupport.simpleMessage("Title :" + opportunityBean.getTitle());
             CLIMessageSupport.simpleMessage("Type :" + opportunityBean.getTypeOfOpportunityString());
             CLIMessageSupport.simpleMessage("Date Start: " + opportunityBean.getDateStart());

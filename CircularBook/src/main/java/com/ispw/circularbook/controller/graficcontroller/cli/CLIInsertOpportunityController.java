@@ -1,7 +1,7 @@
 package com.ispw.circularbook.controller.graficcontroller.cli;
 
 import com.ispw.circularbook.controller.appcontroller.InsertOpportunityController;
-import com.ispw.circularbook.engineering.bean.OpportunityBean;
+import com.ispw.circularbook.engineering.bean.RegistrationOpportunityBean;
 import com.ispw.circularbook.engineering.exception.CommandNotFoundException;
 import com.ispw.circularbook.engineering.exception.TitleCampRequiredException;
 import com.ispw.circularbook.engineering.exception.WrongDataFormatException;
@@ -10,13 +10,14 @@ import com.ispw.circularbook.engineering.session.Session;
 import com.ispw.circularbook.engineering.utils.MessageSupport;
 import com.ispw.circularbook.view.cli.CLIInsertOpportunityView;
 
+
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 public class CLIInsertOpportunityController {
 
     CLIInsertOpportunityView cliInsertOpportunityView;
-    OpportunityBean opportunityBean;
+    RegistrationOpportunityBean registrationOpportunityBean;
     CLIHomepageController cliHomepageController;
 
     private static final String INSERT_DATA ="1";
@@ -29,7 +30,7 @@ public class CLIInsertOpportunityController {
     {
         this.cliHomepageController= cliHomepageController;
         cliInsertOpportunityView = new CLIInsertOpportunityView(this);
-        opportunityBean = new OpportunityBean();
+        registrationOpportunityBean = new RegistrationOpportunityBean();
     }
 
     public void start()
@@ -81,28 +82,28 @@ public class CLIInsertOpportunityController {
     public void registrationData()
     {
         InsertOpportunityController insertOpportunityController = new InsertOpportunityController();
-        opportunityBean.setEmail(Session.getCurrentSession().getBookShop().getEmail());
-        insertOpportunityController.insertOpportunity(opportunityBean);
+        registrationOpportunityBean.setEmail(Session.getCurrentSession().getBookShop().getEmail());
+        insertOpportunityController.insertOpportunity(registrationOpportunityBean);
         MessageSupport.cliSuccessMessage("Data entry Successful");
         start();
     }
 
     public void insertTitle(String title) throws TitleCampRequiredException {
         checkInput(title);
-        opportunityBean.setTitle(title);
+        registrationOpportunityBean.setTitle(title);
     }
 
     public void insertTypeOfOpportunity(int typeOfOpportunity)
     {
         checkInput(String.valueOf(typeOfOpportunity));
-        opportunityBean.setTypeOfOpportunity(typeOfOpportunity);
+        registrationOpportunityBean.setTypeOfOpportunity(typeOfOpportunity);
     }
 
     public void insertDescription(String description)
     {
 
         checkInput(description);
-        opportunityBean.setDescription(description);
+        registrationOpportunityBean.setDescription(description);
     }
 
     public void insertDateStart(String dateStart) throws WrongDataFormatException, WrongDataInsertException {
@@ -112,13 +113,13 @@ public class CLIInsertOpportunityController {
         if(LocalDate.parse(dateStart).isBefore(LocalDate.now()))
             throw new WrongDataInsertException(LocalDate.now().format(dateTimeFormatter));
         else
-            opportunityBean.setDateStart(dateStart);
+            registrationOpportunityBean.setDateStart(dateStart);
 
     }
 
     public void insertDateFinish(String dateFinish) throws WrongDataInsertException {
         checkInput(dateFinish);
-        opportunityBean.setDateFinish(opportunityBean.getDateStartString(),dateFinish);
+        registrationOpportunityBean.setDateFinish(registrationOpportunityBean.getDateStartString(),dateFinish);
     }
 
     private void checkInput(String value)

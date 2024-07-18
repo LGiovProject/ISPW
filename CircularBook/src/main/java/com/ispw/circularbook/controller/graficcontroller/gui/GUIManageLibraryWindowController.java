@@ -53,11 +53,11 @@ public class GUIManageLibraryWindowController implements Observer{
         }
     }
 
-    public void viewOpportunity(List<OpportunityBean> opportunityBeanList) throws IOException{
+    public void viewOpportunity(List<OpportunityBean> opportunityBeans) throws IOException{
 
         this.viewInitialization();
 
-        for(OpportunityBean opportunityBean : opportunityBeanList){
+        for(OpportunityBean opportunityBean : opportunityBeans){
             FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("MyOpportunityItem.fxml"));
             Pane element = fxmlLoader.load();
             GUIMyOpportunityItemController guiMyOpportunityItemController = fxmlLoader.getController();

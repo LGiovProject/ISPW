@@ -1,12 +1,12 @@
 package junit;
 
-import com.ispw.circularbook.engineering.bean.OpportunityBean;
+import com.ispw.circularbook.engineering.bean.registrationOpportunityBean;
 import com.ispw.circularbook.engineering.exception.WrongDataFormatException;
 import com.ispw.circularbook.engineering.exception.WrongDataInsertException;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class TestOpportunityBeanController {
+class TestRegistrationOpportunityBeanController {
 
     /*
     * Questo test verifica se opportunityBean fa i controlli necessari affinchè non vanga inserita una data di fine evento/promozione
@@ -22,11 +22,11 @@ class TestOpportunityBeanController {
     @Test
     void opportunityBeanTest()
     {
-        OpportunityBean opportunityBean = new OpportunityBean();
+        registrationOpportunityBean registrationOpportunityBean = new registrationOpportunityBean();
         int valueTest;
         try{
-            opportunityBean.setDateStart(DATE_START);
-            opportunityBean.setDateFinish(DATE_START,DATE_FINISH);
+            registrationOpportunityBean.setDateStart(DATE_START);
+            registrationOpportunityBean.setDateFinish(DATE_START,DATE_FINISH);
             valueTest=1;
 
         } catch (WrongDataFormatException | WrongDataInsertException e) {

@@ -80,11 +80,12 @@ public class OpportunityDAO {
                 opportunityModel.setId(resultSet.getInt(1));
                 bookShopModel.setEmail(resultSet.getString(2));
                 opportunityModel.setBookShopModel(bookShopModel);
-                opportunityModel.setTypeOfOpportunity(resultSet.getInt(3));
-                opportunityModel.setTitle(resultSet.getString(4));
-                opportunityModel.setDescription(resultSet.getString(5));
-                opportunityModel.setDateStart(resultSet.getString(6));
-                opportunityModel.setDateFinish(resultSet.getString(7));
+                opportunityModel.setBookShopName(resultSet.getString(3));
+                opportunityModel.setTypeOfOpportunity(resultSet.getInt(4));
+                opportunityModel.setTitle(resultSet.getString(5));
+                opportunityModel.setDescription(resultSet.getString(6));
+                opportunityModel.setDateStart(resultSet.getString(7));
+                opportunityModel.setDateFinish(resultSet.getString(8));
                 opportunityModelList.add(opportunityModel);
             }while (resultSet.next());
 
@@ -128,4 +129,5 @@ public class OpportunityDAO {
         }
 
     }
+
 }

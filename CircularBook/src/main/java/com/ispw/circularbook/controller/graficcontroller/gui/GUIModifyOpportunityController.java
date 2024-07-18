@@ -4,14 +4,16 @@ import com.ispw.circularbook.Main;
 import com.ispw.circularbook.controller.appcontroller.InsertOpportunityController;
 import com.ispw.circularbook.engineering.bean.ElementBean;
 import com.ispw.circularbook.engineering.bean.OpportunityBean;
+import com.ispw.circularbook.engineering.bean.RegistrationOpportunityBean;
 import com.ispw.circularbook.engineering.enums.TypeOfOpportunity;
 import com.ispw.circularbook.engineering.exception.ModifyOperatorNotClosedException;
 import com.ispw.circularbook.engineering.exception.TitleCampRequiredException;
 import com.ispw.circularbook.engineering.exception.WrongDataFormatException;
+import com.ispw.circularbook.engineering.exception.WrongDataInsertException;
 import com.ispw.circularbook.engineering.observer.Observer;
 import com.ispw.circularbook.engineering.observer.Subject;
-
 import com.ispw.circularbook.engineering.utils.MessageSupport;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
@@ -19,12 +21,8 @@ import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
-import javafx.util.Callback;
 
 import java.io.IOException;
-
-import java.time.LocalDate;
-
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
@@ -87,8 +85,8 @@ public class GUIModifyOpportunityController extends Subject {
         title.setText(opportunityBean.getTitle());
         description.setText(opportunityBean.getDescription());
         setTypeOfDisponibility(opportunityBean.getTypeOfOpportunityInt());
-        setDateStart(opportunityBean.getDateStart());
-        setDateFinish(opportunityBean.getDateFinish(), opportunityBean.getDateStart());
+        dateStart.setValue(opportunityBean.getDateStart());
+        dateFinish.setValue(opportunityBean.getDateFinish());
     }
 
     public int getTypeOfOpportunity() {
@@ -107,17 +105,25 @@ public class GUIModifyOpportunityController extends Subject {
         try {
             checkEdit();
             InsertOpportunityController insertOpportunityController = new InsertOpportunityController();
-            OpportunityBean opportunityBeanTemp = new OpportunityBean();
-            opportunityBeanTemp.setId(opportunityBean.getId());
-            opportunityBeanTemp.setTitle(title.getText());
-            opportunityBeanTemp.setDescription(description.getText());
-            opportunityBeanTemp.setTypeOfOpportunity(getTypeOfOpportunity());
-            opportunityBeanTemp.setDateStart(dateStart.getValue().format(dateTimeFormatter));
-            opportunityBeanTemp.setDateFinish(dateFinish.getValue().format(dateTimeFormatter));
-            insertOpportunityController.updateOpportunity(opportunityBeanTemp);
-            notifyObserver(opportunityBeanTemp,panel);
+            RegistrationOpportunityBean registrationOpportunityBeanTemp = new RegistrationOpportunityBean();
+            registrationOpportunityBeanTemp.setId(opportunityBean.getId());
+            registrationOpportunityBeanTemp.setTitle(title.getText());
+            registrationOpportunityBeanTemp.setDescription(description.getText());
+            registrationOpportunityBeanTemp.setTypeOfOpportunity(getTypeOfOpportunity());
+            registrationOpportunityBeanTemp.setDateStart(dateStart.getValue().format(dateTimeFormatter));
+            registrationOpportunityBeanTemp.setDateFinish(dateStart.getValue().format(dateTimeFormatter),dateFinish.getValue().format(dateTimeFormatter));
+            insertOpportunityController.updateOpportunity(registrationOpportunityBeanTemp);
+
+            opportunityBean.setTitle(title.getText());
+            opportunityBean.setDescription(description.getText());
+            opportunityBean.setTypeOfOpportunity(getTypeOfOpportunity());
+            opportunityBean.setDateStart(dateStart.getValue());
+            opportunityBean.setDateFinish(dateFinish.getValue());
+
+            notifyObserver(opportunityBean,panel);
             backButton();
-        } catch (WrongDataFormatException | ModifyOperatorNotClosedException | TitleCampRequiredException e) {
+        } catch (WrongDataFormatException | ModifyOperatorNotClosedException | TitleCampRequiredException |
+                 WrongDataInsertException e) {
             MessageSupport.popUpsExceptionMessage(e.getMessage());
         }
 
@@ -144,48 +150,11 @@ public class GUIModifyOpportunityController extends Subject {
         }
     }
 
-    private void setDateStart(LocalDate dateStart)
-    {
-        this.dateStart.setDayCellFactory(getDayCellFactory(LocalDate.now()));
-        this.dateStart.setValue(dateStart);
-        //Aggiunge un listener alla proprietà valueProperty di un oggetto
-        //L'epressione lambda rappresenta il listener stesso, quando il valore in dateStart cambia
-        //Il nuovo valore viene inviato a handleDateChange
-        this.dateStart.valueProperty().addListener((observable, oldValue, newValue) -> handleDateChange(newValue));
-    }
-
-    private void setDateFinish(LocalDate dateFinish, LocalDate dateStart)
-    {
-        LocalDate maxValue = dateStart.isBefore(LocalDate.now())?LocalDate.now():dateStart;
-        this.dateFinish.setDayCellFactory(getDayCellFactory(maxValue));
-        this.dateFinish.setValue(dateFinish);
-    }
-
-    //Disabilita le date nel DatePicker dateFinish in base ai cambiamenti in dateStart
-    private void handleDateChange(LocalDate newDate) {
-
-        dateFinish.setDayCellFactory(getDayCellFactory(newDate));
-    }
-
     public void backButton() {
         Main.getStage().setScene(this.previusScene);
     }
 
-    //Codice esterno
-    //Disabilità le date nel datePicker e le evidenzia con un colore specifico
-    private Callback<DatePicker, DateCell> getDayCellFactory(LocalDate minDate) {
-        return datePicker -> new DateCell() {
-            @Override
-            public void updateItem(LocalDate item, boolean empty) {
-                super.updateItem(item, empty);
 
-                if (item.isBefore(minDate)) {
-                    setDisable(true);
-                    setStyle("-fx-background-color: #ffc0cb;"); // Colore di sfondo per le date disabilitate
-                }
-            }
-        };
-    }
 
     private void setTypeOfDisponibility(int typeOfDisponibility) {
         if(typeOfDisponibility==2)
@@ -200,33 +169,6 @@ public class GUIModifyOpportunityController extends Subject {
         }
     }
 
-
-    @Override
-    public void register(Observer observer) {
-        this.observers.add(observer);
-    }
-
-    @Override
-    public void register(List<Observer> observers) {
-        this.observers.addAll(observers);
-    }
-
-    @Override
-    public void unregister(Observer observer) {
-        this.observers.remove(observer);
-    }
-
-    @Override
-    public void notifyObserver(Object element) {
-        for(Observer observer : observers)
-            observer.update(element);
-    }
-
-    @Override
-    public void notifyObserver(Object opportunityBean, Object element) {
-        for(Observer observer : observers)
-            observer.update(opportunityBean,element);
-    }
 
     private void setBoolean(int i, boolean value)
     {
@@ -275,6 +217,33 @@ public class GUIModifyOpportunityController extends Subject {
         for (Boolean aBoolean : rwField)
             if (Boolean.FALSE.equals(aBoolean))
                 throw new ModifyOperatorNotClosedException();
+    }
+
+    @Override
+    public void register(Observer observer) {
+        this.observers.add(observer);
+    }
+
+    @Override
+    public void register(List<Observer> observers) {
+        this.observers.addAll(observers);
+    }
+
+    @Override
+    public void unregister(Observer observer) {
+        this.observers.remove(observer);
+    }
+
+    @Override
+    public void notifyObserver(Object element) {
+        for(Observer observer : observers)
+            observer.update(element);
+    }
+
+    @Override
+    public void notifyObserver(Object opportunityBean, Object element) {
+        for(Observer observer : observers)
+            observer.update(opportunityBean,element);
     }
 
 }

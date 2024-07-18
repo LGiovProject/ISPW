@@ -8,6 +8,7 @@ import com.ispw.circularbook.engineering.bean.OpportunityBean;
 import com.ispw.circularbook.engineering.exception.*;
 import com.ispw.circularbook.engineering.session.Session;
 import com.ispw.circularbook.engineering.utils.MessageSupport;
+
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
@@ -48,10 +49,10 @@ public class GUIManageBookShopLibraryController {
     }
 
     public void searchMyOpportunity(){
-        List<OpportunityBean> opportunityBeanList;
+        List<OpportunityBean> opportunityBeans;
         SearchOpportunityController searchOpportunityController = new SearchOpportunityController();
         try {
-            opportunityBeanList = searchOpportunityController.searchOpportunity(Session.getCurrentSession().getBookShop().getEmail());
+            opportunityBeans = searchOpportunityController.searchOpportunity(Session.getCurrentSession().getBookShop().getEmail());
             FXMLLoader fxmlLoader = getWindowElement();
             Pane pane = fxmlLoader.load();
             Session.getCurrentSession().getSceneFacade().loadScene(pane);
@@ -59,7 +60,7 @@ public class GUIManageBookShopLibraryController {
             guiManageLibraryWindowController.setCurrentPane(pane);
             guiManageLibraryWindowController.setPreviuosScene(previuosScene);
             guiManageLibraryWindowController.setPreviuosPane(currentPane);
-            guiManageLibraryWindowController.viewOpportunity(opportunityBeanList);
+            guiManageLibraryWindowController.viewOpportunity(opportunityBeans);
 
         } catch (NoOpportunityFoundException e) {
             MessageSupport.popUpsExceptionMessage(e.getMessage());
@@ -80,8 +81,8 @@ public class GUIManageBookShopLibraryController {
             Session.getCurrentSession().getSceneFacade().loadScene(pane);
             guiManageLibraryWindowController = fxmlLoader.getController();
             guiManageLibraryWindowController.setPreviuosScene(previuosScene);
-            guiManageLibraryWindowController.setPreviuosPane(pane);
-            guiManageLibraryWindowController.setCurrentPane(currentPane);
+            guiManageLibraryWindowController.setPreviuosPane(currentPane);
+            guiManageLibraryWindowController.setCurrentPane(pane);
             guiManageLibraryWindowController.viewMyGivenBook(bookBeanList);
         }catch (NoBookLendedException e){
             MessageSupport.popUpsExceptionMessage(e.getMessage());

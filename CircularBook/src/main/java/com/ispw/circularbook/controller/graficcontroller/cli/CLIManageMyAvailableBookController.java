@@ -55,6 +55,7 @@ public class CLIManageMyAvailableBookController {
                 break;
             case DELETE_BOOK:
                 cliManageMyAvailableBookView.deleteBook();
+                cliManageController.start();
                 break;
             case BACK:
                 cliManageController.start();
@@ -78,7 +79,7 @@ public class CLIManageMyAvailableBookController {
         checkInput(id);
         InsertBookController insertBookController = new InsertBookController();
         insertBookController.removeBook(id);
-        cliManageController.start();
+
     }
 
     private String getSessionEmail()

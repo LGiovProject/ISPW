@@ -80,7 +80,7 @@ public class Queries {
 
         public static ResultSet searchOpportunity(Statement stmt, String email) throws SQLException {
 
-            String sql="SELECT * FROM opportunity WHERE email='"+email+"' ;";
+            String sql="SELECT * FROM opportunity_info WHERE email='"+email+"' ;";
             return stmt.executeQuery(sql);
         }
 

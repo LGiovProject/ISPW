@@ -1,7 +1,7 @@
 package com.ispw.circularbook.view.cli;
 
 import com.ispw.circularbook.controller.graficcontroller.cli.CLIModifyOpportunityController;
-import com.ispw.circularbook.engineering.bean.OpportunityBean;
+import com.ispw.circularbook.engineering.bean.RegistrationOpportunityBean;
 import com.ispw.circularbook.engineering.exception.CommandNotFoundException;
 import com.ispw.circularbook.engineering.exception.TitleCampRequiredException;
 import com.ispw.circularbook.engineering.exception.WrongDataFormatException;
@@ -40,13 +40,13 @@ public class CLIModifyMyOpportunityView {
         }
     }
 
-    public void actuallyValue(OpportunityBean opportunityBean)
+    public void actuallyValue(RegistrationOpportunityBean registrationOpportunityBean)
     {
-        CLIMessageSupport.simpleMessage("Title :"+ opportunityBean.getTitle());
-        CLIMessageSupport.simpleMessage("Type :"+ opportunityBean.getTypeOfOpportunityString());
-        CLIMessageSupport.simpleMessage("Date start :"+ opportunityBean.getDateStart());
-        CLIMessageSupport.simpleMessage("Date finish :"+ opportunityBean.getDateFinish());
-        CLIMessageSupport.simpleMessage("Comment :"+ opportunityBean.getDescription());
+        CLIMessageSupport.simpleMessage("Title :"+ registrationOpportunityBean.getTitle());
+        CLIMessageSupport.simpleMessage("Type :"+ registrationOpportunityBean.getTypeOfOpportunityString());
+        CLIMessageSupport.simpleMessage("Date start :"+ registrationOpportunityBean.getDateStart());
+        CLIMessageSupport.simpleMessage("Date finish :"+ registrationOpportunityBean.getDateFinish());
+        CLIMessageSupport.simpleMessage("Comment :"+ registrationOpportunityBean.getDescription());
     }
 
     public void insertTitle()

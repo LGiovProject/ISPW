@@ -16,7 +16,7 @@ public class CLIManageMyOpportunityController {
 
     private final CLIManageMyOpportunityView cliManageMyopportunityView;
     private final CLIManageController cliManageController;
-    private List<OpportunityBean> opportunityBeanList;
+    private List<OpportunityBean> opportunityBeans;
     private final SearchOpportunityController searchOpportunityController;
 
 
@@ -28,14 +28,14 @@ public class CLIManageMyOpportunityController {
     {
         cliManageMyopportunityView = new CLIManageMyOpportunityView(this);
         this.cliManageController= cliManageController;
-        this.searchOpportunityController =new SearchOpportunityController();
+        searchOpportunityController =new SearchOpportunityController();
     }
 
     public void start()
     {
             try {
-                opportunityBeanList = searchOpportunityController.searchOpportunity(Session.getCurrentSession().getBookShop().getEmail());
-                CLIPrintOpportunitySupport.showOpportunity(opportunityBeanList);
+                opportunityBeans = searchOpportunityController.searchOpportunity(Session.getCurrentSession().getBookShop().getEmail());
+                CLIPrintOpportunitySupport.showOpportunity(opportunityBeans);
                 cliManageMyopportunityView.start();
             } catch (NoOpportunityFoundException e) {
                 MessageSupport.cliExceptionSMessage(e.getMessage());
@@ -52,6 +52,7 @@ public class CLIManageMyOpportunityController {
                 break;
             case DELETE_OPPORTUNITY:
                 cliManageMyopportunityView.deleteOpportunity();
+                cliManageController.start();
                 break;
             case BACK:
                 goBack();
@@ -65,7 +66,7 @@ public class CLIManageMyOpportunityController {
     public void modifyOpportunity(int id)
     {
         checkInput(id);
-        CLIModifyOpportunityController cliModifyOpportunityController = new CLIModifyOpportunityController(this, opportunityBeanList);
+        CLIModifyOpportunityController cliModifyOpportunityController = new CLIModifyOpportunityController(this, opportunityBeans);
         cliModifyOpportunityController.start(id);
     }
 
@@ -74,6 +75,7 @@ public class CLIManageMyOpportunityController {
         checkInput(id);
         InsertOpportunityController insertOpportunityController =new InsertOpportunityController();
         insertOpportunityController.removeOpportunity(id);
+
     }
 
     private void goBack()

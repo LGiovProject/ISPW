@@ -54,21 +54,21 @@ public class GUIResearchOpportunityController {
     }
     public void startSearchOpportunity(){
         showResult.getChildren().clear();
-        List<OpportunityBean> opportunityBeanList;
+        List<OpportunityBean> opportunityBeans;
         SearchOpportunityBean searchOpportunityBean = new SearchOpportunityBean(bookShopName.getText(), monthChoiceBox.getSelectionModel().getSelectedItem(), opportunityChoiceBox.getSelectionModel().getSelectedItem());
         SearchOpportunityController searchOpportunityController = new SearchOpportunityController();
         try {
-            opportunityBeanList = searchOpportunityController.searchOpportunity(searchOpportunityBean);
-            this.setShowResult(opportunityBeanList);
+            opportunityBeans = searchOpportunityController.searchOpportunity(searchOpportunityBean);
+            this.setShowResult(opportunityBeans);
         } catch (NoOpportunityFoundException e) {
             MessageSupport.popUpsExceptionMessage(e.getMessage());
         }
 
     }
 
-    private void setShowResult(List<OpportunityBean> opportunityBeanList){
+    private void setShowResult(List<OpportunityBean> opportunityBeans){
 
-        for(OpportunityBean opportunityBean : opportunityBeanList)
+        for(OpportunityBean opportunityBean : opportunityBeans)
         {
             ElementBean elementBean = new ElementBean(opportunityBean);
             FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("SearchedOpportunityItem.fxml"));

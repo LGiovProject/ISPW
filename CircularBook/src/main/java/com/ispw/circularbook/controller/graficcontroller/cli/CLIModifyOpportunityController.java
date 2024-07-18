@@ -2,6 +2,7 @@ package com.ispw.circularbook.controller.graficcontroller.cli;
 
 import com.ispw.circularbook.controller.appcontroller.InsertOpportunityController;
 import com.ispw.circularbook.engineering.bean.OpportunityBean;
+import com.ispw.circularbook.engineering.bean.RegistrationOpportunityBean;
 import com.ispw.circularbook.engineering.exception.*;
 import com.ispw.circularbook.engineering.session.Session;
 import com.ispw.circularbook.engineering.utils.MessageSupport;
@@ -11,12 +12,13 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 
+
 public class CLIModifyOpportunityController {
 
     private final CLIManageMyOpportunityController cliManageMyOpportunityController;
     private final CLIModifyMyOpportunityView cliModifyMyOpportunityView;
-    private final List<OpportunityBean> opportunityBeanList;
-    private OpportunityBean opportunityBean;
+    private final List<OpportunityBean> opportunityBeans;
+    private RegistrationOpportunityBean registrationOpportunityBean;
 
 
     private static final String INSERT_TITLE ="1";
@@ -29,20 +31,21 @@ public class CLIModifyOpportunityController {
     private static final String BACK="8";
 
 
-    public CLIModifyOpportunityController(CLIManageMyOpportunityController cliManageMyOpportunityController, List<OpportunityBean> opportunityBeanList)
+    public CLIModifyOpportunityController(CLIManageMyOpportunityController cliManageMyOpportunityController, List<OpportunityBean> opportunityBeans)
     {
         this.cliManageMyOpportunityController = cliManageMyOpportunityController;
         this.cliModifyMyOpportunityView = new CLIModifyMyOpportunityView(this);
-        this.opportunityBeanList = opportunityBeanList;
+        this.opportunityBeans = opportunityBeans;
 
     }
 
     public void start(int id)
     {
         try {
-            opportunityBean = getOpportunityBean(opportunityBeanList, id);
+            OpportunityBean opportunityBean = getOpportunityBean(opportunityBeans, id);
+            registrationOpportunityBean =new RegistrationOpportunityBean(opportunityBean.getId(),opportunityBean.getTitle(),opportunityBean.getTypeOfOppportunity(),opportunityBean.getDescription(),opportunityBean.getDateStart(),opportunityBean.getDateFinish());
             cliModifyMyOpportunityView.start();
-            cliModifyMyOpportunityView.actuallyValue(opportunityBean);
+            cliModifyMyOpportunityView.actuallyValue(registrationOpportunityBean);
         } catch (NoOpportunityFoundException e) {
             MessageSupport.cliExceptionSMessage(e.getMessage());
             cliManageMyOpportunityController.start();
@@ -75,7 +78,7 @@ public class CLIModifyOpportunityController {
                 saveUpdate();
                 break;
             case ACTUALLY_VALUE:
-                cliModifyMyOpportunityView.actuallyValue(opportunityBean);
+                cliModifyMyOpportunityView.actuallyValue(registrationOpportunityBean);
                 continueModify();
                 break;
             case BACK:
@@ -90,7 +93,7 @@ public class CLIModifyOpportunityController {
     public void insertTitle(String title) throws TitleCampRequiredException {
 
         checkInput(title);
-        opportunityBean.setTitle(title);
+        registrationOpportunityBean.setTitle(title);
         continueModify();
     }
 
@@ -98,7 +101,7 @@ public class CLIModifyOpportunityController {
     {
 
         checkInput(String.valueOf(type));
-        opportunityBean.setTypeOfOpportunity(type);
+        registrationOpportunityBean.setTypeOfOpportunity(type);
         continueModify();
     }
 
@@ -106,7 +109,7 @@ public class CLIModifyOpportunityController {
     {
 
         checkInput(description);
-        opportunityBean.setDescription(description);
+        registrationOpportunityBean.setDescription(description);
         continueModify();
     }
 
@@ -114,22 +117,22 @@ public class CLIModifyOpportunityController {
         DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         if(LocalDate.parse(dateStart).isBefore(LocalDate.now()))
             throw new WrongDataInsertException(LocalDate.now().format(dateTimeFormatter));
-        opportunityBean.setDateStart(dateStart);
+        registrationOpportunityBean.setDateStart(dateStart);
         continueModify();
     }
 
     public void insertDateFinish(String dateFinish) throws WrongDataInsertException {
 
         checkInput(dateFinish);
-        opportunityBean.setDateFinish(opportunityBean.getDateStartString(),dateFinish);
+        registrationOpportunityBean.setDateFinish(registrationOpportunityBean.getDateStartString(),dateFinish);
         continueModify();
     }
 
     public void saveUpdate()
     {
-        opportunityBean.setEmail(Session.getCurrentSession().getBookShop().getEmail());
+        registrationOpportunityBean.setEmail(Session.getCurrentSession().getBookShop().getEmail());
         InsertOpportunityController insertOpportunityController = new InsertOpportunityController();
-        insertOpportunityController.updateOpportunity(opportunityBean);
+        insertOpportunityController.updateOpportunity(registrationOpportunityBean);
     }
 
     private void checkInput(String i)
@@ -148,12 +151,12 @@ public class CLIModifyOpportunityController {
         cliManageMyOpportunityController.start();
     }
 
-    private OpportunityBean getOpportunityBean(List <OpportunityBean> opportunityBeanList, int id) throws NoOpportunityFoundException {
+    private OpportunityBean getOpportunityBean(List <OpportunityBean> opportunityBeans, int id) throws NoOpportunityFoundException {
 
-        for(OpportunityBean opportunity: opportunityBeanList)
+        for(OpportunityBean opportunityBean: opportunityBeans)
         {
-            if(opportunity.getId()==id)
-                return opportunity;
+            if(opportunityBean.getId()==id)
+                return opportunityBean;
 
         }
         throw new NoOpportunityFoundException();

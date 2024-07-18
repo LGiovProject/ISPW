@@ -92,11 +92,11 @@ public class CLIResearchOpportunityController {
 
     public void searchOpportunity()
     {
-        List<OpportunityBean> opportunityBeanList;
+        List<OpportunityBean> opportunityBeans;
         SearchOpportunityController searchOpportunityController = new SearchOpportunityController();
         try {
-            opportunityBeanList = searchOpportunityController.searchOpportunity(searchOpportunityBean);
-            CLIPrintOpportunitySupport.showOpportunity(opportunityBeanList);
+            opportunityBeans = searchOpportunityController.searchOpportunity(searchOpportunityBean);
+            CLIPrintOpportunitySupport.showOpportunity(opportunityBeans);
             start();
         } catch (NoOpportunityFoundException e) {
             MessageSupport.cliExceptionSMessage(e.getMessage());

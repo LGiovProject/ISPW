@@ -24,8 +24,6 @@ public class GUIMyOpportunityItemController extends Subject {
     @FXML
     private Text title;
     @FXML
-    private Text nameLib;
-    @FXML
     private Text typeOfOpportunity;
 
     private OpportunityBean opportunityBean;
@@ -52,7 +50,6 @@ public class GUIMyOpportunityItemController extends Subject {
         this.opportunityBean =elementBean.getOpportunityBean();
         this.element= elementBean.getPane();
         this.title.setText(opportunityBean.getTitle());
-        this.nameLib.setText(opportunityBean.getNameBookShop());
         this.typeOfOpportunity.setText(opportunityBean.getTypeOfOpportunityString());
     }
 

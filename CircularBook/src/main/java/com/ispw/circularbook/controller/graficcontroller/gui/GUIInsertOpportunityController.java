@@ -1,17 +1,15 @@
 package com.ispw.circularbook.controller.graficcontroller.gui;
 
 import com.ispw.circularbook.controller.appcontroller.InsertOpportunityController;
-import com.ispw.circularbook.engineering.bean.OpportunityBean;
+import com.ispw.circularbook.engineering.bean.RegistrationOpportunityBean;
 import com.ispw.circularbook.engineering.enums.TypeOfOpportunity;
-
 import com.ispw.circularbook.engineering.exception.TitleCampRequiredException;
 import com.ispw.circularbook.engineering.exception.WrongDataFormatException;
+import com.ispw.circularbook.engineering.exception.WrongDataInsertException;
 import com.ispw.circularbook.engineering.session.Session;
 import com.ispw.circularbook.engineering.utils.MessageSupport;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-import javafx.util.Callback;
-import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 public class GUIInsertOpportunityController {
@@ -30,18 +28,13 @@ public class GUIInsertOpportunityController {
     @FXML
     RadioButton eventsRadioButton;
 
-    private OpportunityBean opportunityBean;
+    private RegistrationOpportunityBean registrationOpportunityBean;
 
     private final DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
     public void startSet()
     {
-        opportunityBean = new OpportunityBean();
-        dateStart.setDayCellFactory(getDayCellFactory(LocalDate.now()));
-        //Aggiunge un listener alla proprietà valueProperty di un oggetto
-        //L'epressione lambda rappresenta il listener stesso, quando il valore in dateStart cambia
-        //Il nuovo valore viene inviato a handleDateChange
-        dateStart.valueProperty().addListener((observable, oldValue, newValue) -> handleDateChange(newValue));
+        registrationOpportunityBean = new RegistrationOpportunityBean();
 
     }
 
@@ -49,7 +42,8 @@ public class GUIInsertOpportunityController {
     {
             setOpportunityBean();
             InsertOpportunityController insertOpportunityController = new InsertOpportunityController();
-            insertOpportunityController.insertOpportunity(opportunityBean);
+            MessageSupport.popUpsSuccessMessage("Data entry successful");
+            insertOpportunityController.insertOpportunity(registrationOpportunityBean);
             clearCamp();
 
     }
@@ -74,37 +68,16 @@ public class GUIInsertOpportunityController {
         dateFinish.setValue(null);
     }
 
-    //Codice esterno
-    //Disabilità le date nel datePicker e le evidenzia con un colore specifico
-    private Callback<DatePicker, DateCell> getDayCellFactory(LocalDate minDate) {
-        return datePicker -> new DateCell() {
-            @Override
-            public void updateItem(LocalDate item, boolean empty) {
-                super.updateItem(item, empty);
-
-                if (item.isBefore(minDate)) {
-                    setDisable(true);
-                    setStyle("-fx-background-color: #ffc0cb;"); // Colore di sfondo per le date disabilitate
-                }
-            }
-        };
-    }
-
-    //Disabilita le date nel DatePicker dateFinish in base ai cambiamenti in dateStart
-    private void handleDateChange(LocalDate newDate) {
-        dateFinish.setDayCellFactory(getDayCellFactory(newDate));
-    }
-
     private void setOpportunityBean()
     {
         try{
-        opportunityBean.setEmail(Session.getCurrentSession().getBookShop().getEmail());
-        opportunityBean.setTitle(title.getText());
-        opportunityBean.setTypeOfOpportunity(typeOfOpportunity());
-        opportunityBean.setDescription(description.getText());
-        opportunityBean.setDateStart(dateStart.getValue().format(dateTimeFormatter));
-        opportunityBean.setDateFinish(dateFinish.getValue().format(dateTimeFormatter));
-        } catch (WrongDataFormatException | TitleCampRequiredException e) {
+        registrationOpportunityBean.setEmail(Session.getCurrentSession().getBookShop().getEmail());
+        registrationOpportunityBean.setTitle(title.getText());
+        registrationOpportunityBean.setTypeOfOpportunity(typeOfOpportunity());
+        registrationOpportunityBean.setDescription(description.getText());
+        registrationOpportunityBean.setDateStart(dateStart.getValue().format(dateTimeFormatter));
+        registrationOpportunityBean.setDateFinish(dateStart.getValue().format(dateTimeFormatter),dateFinish.getValue().format(dateTimeFormatter));
+        } catch (WrongDataFormatException | TitleCampRequiredException | WrongDataInsertException e) {
             MessageSupport.popUpsExceptionMessage(e.getMessage());
         }
 
