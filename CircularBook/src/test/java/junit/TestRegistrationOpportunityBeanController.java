@@ -1,6 +1,6 @@
 package junit;
 
-import com.ispw.circularbook.engineering.bean.registrationOpportunityBean;
+import com.ispw.circularbook.engineering.bean.RegistrationOpportunityBean;
 import com.ispw.circularbook.engineering.exception.WrongDataFormatException;
 import com.ispw.circularbook.engineering.exception.WrongDataInsertException;
 import org.junit.jupiter.api.Test;
@@ -22,7 +22,7 @@ class TestRegistrationOpportunityBeanController {
     @Test
     void opportunityBeanTest()
     {
-        registrationOpportunityBean registrationOpportunityBean = new registrationOpportunityBean();
+        RegistrationOpportunityBean registrationOpportunityBean = new RegistrationOpportunityBean();
         int valueTest;
         try{
             registrationOpportunityBean.setDateStart(DATE_START);
