@@ -11,11 +11,11 @@ class TestRegistrationOpportunityBeanController {
     /*
     * Questo test verifica se opportunityBean fa i controlli necessari affinchè non vanga inserita una data di fine evento/promozione
     * che sia precedente alla data dell'inizio dello stesso.
-    *
+    * Il test viene passato se l'errore della data viene catturato e valueTest viene posto =-1
     */
 
     private static final String DATE_START="2024-07-20";
-    private static final String DATE_FINISH="2024-07-21";
+    private static final String DATE_FINISH="2024-07-19";
 
 
 
@@ -33,6 +33,6 @@ class TestRegistrationOpportunityBeanController {
             valueTest=-1;
         }
 
-        assertEquals(1,valueTest);
+        assertEquals(-1,valueTest);
     }
 }
