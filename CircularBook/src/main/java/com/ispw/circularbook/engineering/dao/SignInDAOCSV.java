@@ -28,11 +28,13 @@ public class SignInDAOCSV extends Component {
         try(BufferedWriter bufferedWriterLog = new BufferedWriter(new FileWriter(fileLog,true));
             BufferedWriter bufferedWriterU = new BufferedWriter(new FileWriter(fileU,true));) {
 
+            bufferedWriterLog.newLine();
             bufferedWriterLog.write(signInBean.getEmail() + "," + signInBean.getPassword());
             bufferedWriterLog.write(",");
             bufferedWriterLog.write(signInBean.getPassword());
             bufferedWriterLog.newLine();
 
+            bufferedWriterU.newLine();
             bufferedWriterU.write(signInBean.getEmail());
             bufferedWriterU.write(",");
             bufferedWriterU.write(signInBean.getUsername());
@@ -42,6 +44,7 @@ public class SignInDAOCSV extends Component {
             bufferedWriterU.write(signInBean.getSurname());
             bufferedWriterU.write(",");
             bufferedWriterU.write(signInBean.getCittaString());
+            bufferedWriterU.newLine();
 
         }catch (IOException e)
         {
