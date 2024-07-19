@@ -4,7 +4,6 @@ import com.ispw.circularbook.controller.appcontroller.InsertOpportunityControlle
 import com.ispw.circularbook.engineering.bean.RegistrationOpportunityBean;
 import com.ispw.circularbook.engineering.enums.TypeOfOpportunity;
 import com.ispw.circularbook.engineering.exception.TitleCampRequiredException;
-import com.ispw.circularbook.engineering.exception.WrongDataFormatException;
 import com.ispw.circularbook.engineering.exception.WrongDataInsertException;
 import com.ispw.circularbook.engineering.session.Session;
 import com.ispw.circularbook.engineering.utils.MessageSupport;
