@@ -23,7 +23,7 @@ private final String email ="testInsertBook@gmail.com";
     * */
 
     @Test
-    void testInsertBookController()
+    void testInsertBookSuccessful()
     {
         try {
 

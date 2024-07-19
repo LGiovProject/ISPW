@@ -20,7 +20,7 @@ class TestRegistrationOpportunityBean {
 
 
     @Test
-    void testRegistrationOpportunityBean()
+    void testSetDateCatchException()
     {
         RegistrationOpportunityBean registrationOpportunityBean = new RegistrationOpportunityBean();
         int valueTest;
