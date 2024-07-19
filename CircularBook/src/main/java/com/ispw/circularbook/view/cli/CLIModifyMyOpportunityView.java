@@ -2,10 +2,7 @@ package com.ispw.circularbook.view.cli;
 
 import com.ispw.circularbook.controller.graficcontroller.cli.CLIModifyOpportunityController;
 import com.ispw.circularbook.engineering.bean.RegistrationOpportunityBean;
-import com.ispw.circularbook.engineering.exception.CommandNotFoundException;
-import com.ispw.circularbook.engineering.exception.TitleCampRequiredException;
-import com.ispw.circularbook.engineering.exception.WrongDataFormatException;
-import com.ispw.circularbook.engineering.exception.WrongDataInsertException;
+import com.ispw.circularbook.engineering.exception.*;
 import com.ispw.circularbook.engineering.utils.CLIMessageSupport;
 import com.ispw.circularbook.engineering.utils.MessageSupport;
 
@@ -68,7 +65,12 @@ public class CLIModifyMyOpportunityView {
         CLIMessageSupport.titleMessage("Insert type of opportunity 1 Promotion o 2 Event");
         CLIMessageSupport.backValueMessage();
         int type = Integer.parseInt(scanner.nextLine());
-        cliModifyOpportunityController.insertType(type);
+        try {
+            cliModifyOpportunityController.insertType(type);
+        } catch (TypeOfOpportunityNotFound e) {
+            MessageSupport.cliExceptionSMessage(e.getMessage());
+            insertTypeOfOpportunity();
+        }
     }
 
     public void insertDescription()
@@ -102,7 +104,7 @@ public class CLIModifyMyOpportunityView {
         String dateFinish = scanner.nextLine();
         try {
             cliModifyOpportunityController.insertDateFinish(dateFinish);
-        } catch (WrongDataInsertException e) {
+        } catch (WrongDataInsertException | WrongDataFormatException e) {
             MessageSupport.cliExceptionSMessage(e.getMessage());
             insertDateStart();
         }

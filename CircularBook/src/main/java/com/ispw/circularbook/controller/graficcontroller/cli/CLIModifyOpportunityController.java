@@ -8,8 +8,7 @@ import com.ispw.circularbook.engineering.session.Session;
 import com.ispw.circularbook.engineering.utils.MessageSupport;
 import com.ispw.circularbook.view.cli.CLIModifyMyOpportunityView;
 
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
+
 import java.util.List;
 
 
@@ -97,8 +96,7 @@ public class CLIModifyOpportunityController {
         continueModify();
     }
 
-    public void insertType(int type)
-    {
+    public void insertType(int type) throws TypeOfOpportunityNotFound {
 
         checkInput(String.valueOf(type));
         registrationOpportunityBean.setTypeOfOpportunity(type);
@@ -114,14 +112,12 @@ public class CLIModifyOpportunityController {
     }
 
     public void insertDateStart(String dateStart) throws WrongDataFormatException, WrongDataInsertException {
-        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-        if(LocalDate.parse(dateStart).isBefore(LocalDate.now()))
-            throw new WrongDataInsertException(LocalDate.now().format(dateTimeFormatter));
+        checkInput(dateStart);
         registrationOpportunityBean.setDateStart(dateStart);
         continueModify();
     }
 
-    public void insertDateFinish(String dateFinish) throws WrongDataInsertException {
+    public void insertDateFinish(String dateFinish) throws WrongDataInsertException, WrongDataFormatException {
 
         checkInput(dateFinish);
         registrationOpportunityBean.setDateFinish(registrationOpportunityBean.getDateStartString(),dateFinish);

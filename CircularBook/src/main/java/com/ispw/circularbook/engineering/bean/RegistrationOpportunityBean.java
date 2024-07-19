@@ -2,6 +2,7 @@ package com.ispw.circularbook.engineering.bean;
 
 import com.ispw.circularbook.engineering.enums.TypeOfOpportunity;
 import com.ispw.circularbook.engineering.exception.TitleCampRequiredException;
+import com.ispw.circularbook.engineering.exception.TypeOfOpportunityNotFound;
 import com.ispw.circularbook.engineering.exception.WrongDataFormatException;
 import com.ispw.circularbook.engineering.exception.WrongDataInsertException;
 import com.mysql.cj.util.StringUtils;
@@ -84,7 +85,7 @@ public class RegistrationOpportunityBean {
         this.typeOfOppportunity = typeOfOpportunity;
     }
 
-    public void setTypeOfOpportunity(int typeOfOpportunity) {
+    public void setTypeOfOpportunity(int typeOfOpportunity) throws TypeOfOpportunityNotFound {
 
         switch (typeOfOpportunity)
         {
@@ -99,11 +100,11 @@ public class RegistrationOpportunityBean {
                 break;
 
             }
-            default: this.typeOfOppportunity = TypeOfOpportunity.ANY;
+            default: throw new TypeOfOpportunityNotFound();
         }
     }
 
-    public void setTypeOfOpportunity(String typeOfOpportunity) {
+    public void setTypeOfOpportunity(String typeOfOpportunity) throws TypeOfOpportunityNotFound {
         switch (typeOfOpportunity)
         {
             case "Event":
@@ -116,7 +117,7 @@ public class RegistrationOpportunityBean {
                 this.typeOfOppportunity = TypeOfOpportunity.PROMOTION;
                 break;
             }
-            default: this.typeOfOppportunity = TypeOfOpportunity.ANY;
+            default: throw new TypeOfOpportunityNotFound();
         }
     }
 
@@ -136,23 +137,24 @@ public class RegistrationOpportunityBean {
 
     public void setDateStart(LocalDate dateStart) throws WrongDataInsertException {
         if (dateStart.isBefore(LocalDate.now()))
-            throw new WrongDataInsertException(LocalDate.now().format(dateTimeFormatter));
+            throw new WrongDataInsertException("Start date can't be earlier than"+LocalDate.now().format(dateTimeFormatter));
         this.dateStart=dateStart;
     }
 
-
-
-    public void setDateStart(String dateStart) throws WrongDataFormatException {
+    public void setDateStart(String dateStart) throws WrongDataFormatException, WrongDataInsertException {
 
         String pattern="\\d{4}-\\d{2}-\\d{2}";
         LocalDate bufferStart = StringUtils.isEmptyOrWhitespaceOnly(dateStart)?null:LocalDate.parse(dateStart);
-        if(!Pattern.matches(pattern,dateStart) || bufferStart==null)
+        if(bufferStart==null || !Pattern.matches(pattern,dateStart))
             throw new WrongDataFormatException();
-        else
-            this.dateStart = LocalDate.parse(dateStart);
+        else {
+            if (bufferStart.isBefore(LocalDate.now()))
+                throw new WrongDataInsertException("Start date can't be earlier than"+LocalDate.now().format(dateTimeFormatter));
+            else
+                this.dateStart = bufferStart;
+
+        }
     }
-
-
 
     public String getDateFinishString() {
         return dateFinish.format(dateTimeFormatter);
@@ -162,18 +164,23 @@ public class RegistrationOpportunityBean {
 
     public void setDateFinish(LocalDate dateFinish){this.dateFinish= dateFinish;}
 
-    public void setDateFinish(String dateStart, String dateFinish) throws WrongDataInsertException {
+    public void setDateFinish(String dateStart, String dateFinish) throws WrongDataInsertException, WrongDataFormatException {
 
+        String pattern="\\d{4}-\\d{2}-\\d{2}";
         LocalDate bufferFinish = StringUtils.isEmptyOrWhitespaceOnly(dateFinish)?null:LocalDate.parse(dateFinish);
-        if(bufferFinish != null && bufferFinish.isBefore(LocalDate.parse(dateStart)))
-            throw new WrongDataInsertException(dateStart);
-        else
-            this.dateFinish = LocalDate.parse(dateStart);
+        if(bufferFinish == null || !Pattern.matches(pattern,dateFinish))
+            throw new WrongDataFormatException();
+        else {
+            if (bufferFinish.isBefore(LocalDate.parse(dateStart)))
+                throw new WrongDataInsertException("Finish date can't be earlier than " + dateStart);
+            else
+                this.dateFinish = bufferFinish;
+        }
     }
 
     public void setDateFinish(LocalDate dateStart, LocalDate dateFinish) throws WrongDataInsertException {
         if(dateFinish.isBefore(dateStart))
-            throw new WrongDataInsertException(dateStart.format(dateTimeFormatter));
+            throw new WrongDataInsertException("Finish date can't be earlier than "+dateStart.format(dateTimeFormatter));
         else
             this.dateFinish = dateStart;
     }

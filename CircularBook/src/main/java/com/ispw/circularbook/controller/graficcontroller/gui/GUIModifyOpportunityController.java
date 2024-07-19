@@ -89,16 +89,16 @@ public class GUIModifyOpportunityController extends Subject {
         dateFinish.setValue(opportunityBean.getDateFinish());
     }
 
-    public int getTypeOfOpportunity() {
+    public TypeOfOpportunity getTypeOfOpportunity() {
         if(this.event.isSelected())
         {
-            return TypeOfOpportunity.EVENT.getId();
+            return TypeOfOpportunity.EVENT;
         }
         else if(this.promotion.isSelected())
         {
-            return TypeOfOpportunity.PROMOTION.getId();
+            return TypeOfOpportunity.PROMOTION;
         }
-        return TypeOfOpportunity.ANY.getId();
+        return null;
     }
 
     public void applyModify(){

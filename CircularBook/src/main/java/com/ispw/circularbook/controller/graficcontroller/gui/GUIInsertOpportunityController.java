@@ -35,17 +35,22 @@ public class GUIInsertOpportunityController {
     public void startSet()
     {
         registrationOpportunityBean = new RegistrationOpportunityBean();
+        promotionsRadioButton.setSelected(true);
+        eventsRadioButton.setSelected(false);
 
     }
 
     public void insertOpportunity()
     {
+        try {
             setOpportunityBean();
             InsertOpportunityController insertOpportunityController = new InsertOpportunityController();
             MessageSupport.popUpsSuccessMessage("Data entry successful");
             insertOpportunityController.insertOpportunity(registrationOpportunityBean);
             clearCamp();
-
+        } catch (WrongDataInsertException | TitleCampRequiredException | WrongDataFormatException e) {
+            MessageSupport.popUpsExceptionMessage(e.getMessage());
+        }
     }
 
     public TypeOfOpportunity typeOfOpportunity()
@@ -62,24 +67,21 @@ public class GUIInsertOpportunityController {
     {
         title.setText("");
         description.setText("");
-        promotionsRadioButton.setSelected(false);
+        promotionsRadioButton.setSelected(true);
         eventsRadioButton.setSelected(false);
         dateStart.setValue(null);
         dateFinish.setValue(null);
     }
 
-    private void setOpportunityBean()
-    {
-        try{
+    private void setOpportunityBean() throws TitleCampRequiredException, WrongDataFormatException, WrongDataInsertException {
+
         registrationOpportunityBean.setEmail(Session.getCurrentSession().getBookShop().getEmail());
         registrationOpportunityBean.setTitle(title.getText());
         registrationOpportunityBean.setTypeOfOpportunity(typeOfOpportunity());
         registrationOpportunityBean.setDescription(description.getText());
-        registrationOpportunityBean.setDateStart(dateStart.getValue().format(dateTimeFormatter));
-        registrationOpportunityBean.setDateFinish(dateStart.getValue().format(dateTimeFormatter),dateFinish.getValue().format(dateTimeFormatter));
-        } catch (WrongDataFormatException | TitleCampRequiredException | WrongDataInsertException e) {
-            MessageSupport.popUpsExceptionMessage(e.getMessage());
-        }
+        registrationOpportunityBean.setDateStart(dateStart.getValue());
+        registrationOpportunityBean.setDateFinish(dateStart.getValue(),dateFinish.getValue());
+
 
     }
 

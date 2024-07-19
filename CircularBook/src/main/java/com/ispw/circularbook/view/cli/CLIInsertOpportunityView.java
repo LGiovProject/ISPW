@@ -1,10 +1,7 @@
 package com.ispw.circularbook.view.cli;
 
 import com.ispw.circularbook.controller.graficcontroller.cli.CLIInsertOpportunityController;
-import com.ispw.circularbook.engineering.exception.CommandNotFoundException;
-import com.ispw.circularbook.engineering.exception.TitleCampRequiredException;
-import com.ispw.circularbook.engineering.exception.WrongDataFormatException;
-import com.ispw.circularbook.engineering.exception.WrongDataInsertException;
+import com.ispw.circularbook.engineering.exception.*;
 import com.ispw.circularbook.engineering.utils.CLIMessageSupport;
 import com.ispw.circularbook.engineering.utils.MessageSupport;
 
@@ -52,6 +49,7 @@ public class CLIInsertOpportunityView {
     public void insertTitle()
     {
         CLIMessageSupport.titleMessage("Insert Title:");
+        CLIMessageSupport.campObligatoryMessage();
         CLIMessageSupport.backValueMessage();
         String title = scanner.nextLine();
         try {
@@ -67,7 +65,12 @@ public class CLIInsertOpportunityView {
         CLIMessageSupport.titleMessage("Insert type of opportunity 1 Promotion o 2 Event");
         CLIMessageSupport.backValueMessage();
         int typeOfOpportunity = Integer.parseInt(scanner.nextLine());
-        cliInsertOpportunityController.insertTypeOfOpportunity(typeOfOpportunity);
+        try {
+            cliInsertOpportunityController.insertTypeOfOpportunity(typeOfOpportunity);
+        } catch (TypeOfOpportunityNotFound e) {
+            MessageSupport.cliExceptionSMessage(e.getMessage());
+            insertTypeOfOpportunity();
+        }
     }
 
     public void insertDescription()
@@ -82,6 +85,7 @@ public class CLIInsertOpportunityView {
     {
         CLIMessageSupport.titleMessage("Insert date start");
         CLIMessageSupport.simpleMessage("Use the format yyyy-mm-dd");
+        CLIMessageSupport.campObligatoryMessage();
         CLIMessageSupport.backValueMessage();
         String dateStart = scanner.nextLine();
         try {
@@ -96,11 +100,12 @@ public class CLIInsertOpportunityView {
     {
         CLIMessageSupport.titleMessage("Insert date finish");
         CLIMessageSupport.simpleMessage("use the format yyyy-mm-dd");
+        CLIMessageSupport.campObligatoryMessage();
         CLIMessageSupport.backValueMessage();
         String dateFinish = scanner.nextLine();
         try {
             cliInsertOpportunityController.insertDateFinish(dateFinish);
-        } catch (WrongDataInsertException e) {
+        } catch (WrongDataInsertException | WrongDataFormatException e) {
             MessageSupport.cliExceptionSMessage(e.getMessage());
             insertDateFinish();
         }

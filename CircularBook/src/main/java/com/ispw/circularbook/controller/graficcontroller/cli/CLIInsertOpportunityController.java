@@ -2,17 +2,11 @@ package com.ispw.circularbook.controller.graficcontroller.cli;
 
 import com.ispw.circularbook.controller.appcontroller.InsertOpportunityController;
 import com.ispw.circularbook.engineering.bean.RegistrationOpportunityBean;
-import com.ispw.circularbook.engineering.exception.CommandNotFoundException;
-import com.ispw.circularbook.engineering.exception.TitleCampRequiredException;
-import com.ispw.circularbook.engineering.exception.WrongDataFormatException;
-import com.ispw.circularbook.engineering.exception.WrongDataInsertException;
+import com.ispw.circularbook.engineering.exception.*;
 import com.ispw.circularbook.engineering.session.Session;
 import com.ispw.circularbook.engineering.utils.MessageSupport;
 import com.ispw.circularbook.view.cli.CLIInsertOpportunityView;
 
-
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 
 public class CLIInsertOpportunityController {
 
@@ -93,8 +87,7 @@ public class CLIInsertOpportunityController {
         registrationOpportunityBean.setTitle(title);
     }
 
-    public void insertTypeOfOpportunity(int typeOfOpportunity)
-    {
+    public void insertTypeOfOpportunity(int typeOfOpportunity) throws TypeOfOpportunityNotFound {
         checkInput(String.valueOf(typeOfOpportunity));
         registrationOpportunityBean.setTypeOfOpportunity(typeOfOpportunity);
     }
@@ -109,15 +102,11 @@ public class CLIInsertOpportunityController {
     public void insertDateStart(String dateStart) throws WrongDataFormatException, WrongDataInsertException {
 
         checkInput(dateStart);
-        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-        if(LocalDate.parse(dateStart).isBefore(LocalDate.now()))
-            throw new WrongDataInsertException(LocalDate.now().format(dateTimeFormatter));
-        else
-            registrationOpportunityBean.setDateStart(dateStart);
+        registrationOpportunityBean.setDateStart(dateStart);
 
     }
 
-    public void insertDateFinish(String dateFinish) throws WrongDataInsertException {
+    public void insertDateFinish(String dateFinish) throws WrongDataFormatException, WrongDataInsertException {
         checkInput(dateFinish);
         registrationOpportunityBean.setDateFinish(registrationOpportunityBean.getDateStartString(),dateFinish);
     }
