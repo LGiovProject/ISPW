@@ -6,7 +6,7 @@ import com.ispw.circularbook.engineering.exception.WrongDataInsertException;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class TestRegistrationOpportunityBeanController {
+class TestRegistrationOpportunityBean {
 
     /*
     * Questo test verifica se opportunityBean fa i controlli necessari affinchè non vanga inserita una data di fine evento/promozione
@@ -20,7 +20,7 @@ class TestRegistrationOpportunityBeanController {
 
 
     @Test
-    void opportunityBeanTest()
+    void testRegistrationOpportunityBean()
     {
         RegistrationOpportunityBean registrationOpportunityBean = new RegistrationOpportunityBean();
         int valueTest;

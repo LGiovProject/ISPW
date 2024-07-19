@@ -25,7 +25,7 @@ class TestSignInUserController {
     * 2 per i BookShop
     */
     @Test
-    void signInUserTest()
+    void testSignInController()
     {
 
         try{
