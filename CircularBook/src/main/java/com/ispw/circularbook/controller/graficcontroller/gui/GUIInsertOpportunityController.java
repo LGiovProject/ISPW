@@ -10,7 +10,6 @@ import com.ispw.circularbook.engineering.session.Session;
 import com.ispw.circularbook.engineering.utils.MessageSupport;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-import java.time.format.DateTimeFormatter;
 
 public class GUIInsertOpportunityController {
 
@@ -30,8 +29,6 @@ public class GUIInsertOpportunityController {
 
     private RegistrationOpportunityBean registrationOpportunityBean;
 
-    private final DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-
     public void startSet()
     {
         registrationOpportunityBean = new RegistrationOpportunityBean();
@@ -48,7 +45,7 @@ public class GUIInsertOpportunityController {
             MessageSupport.popUpsSuccessMessage("Data entry successful");
             insertOpportunityController.insertOpportunity(registrationOpportunityBean);
             clearCamp();
-        } catch (WrongDataInsertException | TitleCampRequiredException | WrongDataFormatException e) {
+        } catch (WrongDataInsertException | TitleCampRequiredException  e) {
             MessageSupport.popUpsExceptionMessage(e.getMessage());
         }
     }
@@ -73,7 +70,7 @@ public class GUIInsertOpportunityController {
         dateFinish.setValue(null);
     }
 
-    private void setOpportunityBean() throws TitleCampRequiredException, WrongDataFormatException, WrongDataInsertException {
+    private void setOpportunityBean() throws TitleCampRequiredException, WrongDataInsertException {
 
         registrationOpportunityBean.setEmail(Session.getCurrentSession().getBookShop().getEmail());
         registrationOpportunityBean.setTitle(title.getText());
