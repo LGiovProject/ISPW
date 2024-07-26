@@ -85,7 +85,7 @@ public class GUISearchedBookItemController extends Subject {
             }
             else {
                 InsertBookController insertBookController = new InsertBookController();
-                TakenBookBean takenBookBean = new TakenBookBean(bookBean.getId(), bookBean.getAccountType(),bookBean.getTypeOfBookInt(), bookBean.getEmail(), Session.getCurrentSession().getUser().getEmail(), LocalDate.now());
+                TakenBookBean takenBookBean = new TakenBookBean(bookBean.getId(), bookBean.isUser(),bookBean.getTypeOfBookInt(), bookBean.getEmail(), Session.getCurrentSession().getUser().getEmail(), LocalDate.now());
                 try {
                     insertBookController.registerTakenBook(takenBookBean);
                     notifyObserver(this.panel);

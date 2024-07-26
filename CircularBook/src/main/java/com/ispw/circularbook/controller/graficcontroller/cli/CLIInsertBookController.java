@@ -80,7 +80,7 @@ public class CLIInsertBookController {
     {
         InsertBookController insertBookController= new InsertBookController();
         registrationBookBean.setEmail(getSessionEmail());
-        registrationBookBean.setAccountType(getSessionAccountType());
+        registrationBookBean.setAUser(getSessionAccountType());
         insertBookController.insertBook(registrationBookBean);
     }
 

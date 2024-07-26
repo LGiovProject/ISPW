@@ -9,7 +9,7 @@ import com.ispw.circularbook.engineering.exception.WrongNpageFormatException;
 public class RegistrationBookBean {
     String email;
     TypeOfBook typeOfBook;
-    int accountType;
+    boolean user;
     String publisher;
     String title;
     String author;
@@ -45,13 +45,15 @@ public class RegistrationBookBean {
                 this.typeOfBook=type;
     }
 
-    public int getAccountType() {
-        return accountType;
+    public boolean isUser() {
+        return user;
     }
 
-    public void setAccountType(int accountType) {
-        this.accountType = accountType;
+    public void setUser(boolean aUser) {
+        this.user = aUser;
     }
+
+    public void setAUser(int aUser){this.user = (aUser == 1);}
 
     public String getTitle() {
         return title;

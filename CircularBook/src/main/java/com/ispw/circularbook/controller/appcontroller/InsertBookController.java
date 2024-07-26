@@ -23,7 +23,7 @@ public class InsertBookController {
         bookModel.setComment(registrationBookBean.getComment());
 
 
-        if(registrationBookBean.getAccountType()==1) {
+        if(registrationBookBean.isUser()) {
             UserModel userModel = new UserModel(registrationBookBean.getEmail());
             bookModel.setGenericAccountModelPutter(userModel);
         } else{
@@ -46,7 +46,7 @@ public class InsertBookController {
         }else
             bookModel.setDateStart(takenBookBean.getDateStart());
 
-        if (takenBookBean.getAccountTypeGiver()==1) {
+        if (takenBookBean.isUser()) {
             UserModel userModelPutter = new UserModel(takenBookBean.getEmailGiver());
             bookModel.setGenericAccountModelPutter(userModelPutter);
         } else

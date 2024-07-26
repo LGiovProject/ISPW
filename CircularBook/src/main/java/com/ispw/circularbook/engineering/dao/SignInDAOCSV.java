@@ -9,24 +9,24 @@ import java.io.*;
 
 public class SignInDAOCSV extends Component {
 
-    private static final String CSV_LOGIN_NAME = "src/main/res/Login.csv";
-    private static final String CSV_USER_NAME = "src/main/res/User.csv";
-    private static final String CSV_BOOK_SHOP_NAME = "src/main/res/BookShop.csv";
+    private static final String CSV_LOGIN_PATH = "src/main/res/Login.csv";
+    private static final String CSV_USER_PATH = "src/main/res/User.csv";
+    private static final String CSV_BOOK_SHOP_PATH = "src/main/res/BookShop.csv";
 
 
 
     public void signInU(SignInBean signInBean)
     {
-        File fileLog = findFile(CSV_LOGIN_NAME);
-        File fileU = findFile(CSV_USER_NAME);
+        FileWriter fileLog = findFile(CSV_LOGIN_PATH);
+        FileWriter fileU = findFile(CSV_USER_PATH);
         startBufferedWriterU(signInBean, fileLog, fileU);
         super.mediator.notify(this, MediatorEvent.SIGN_IN_USER,signInBean);
 
     }
 
-    private void startBufferedWriterU(SignInBean signInBean, File fileLog, File fileU){
-        try(BufferedWriter bufferedWriterLog = new BufferedWriter(new FileWriter(fileLog,true));
-            BufferedWriter bufferedWriterU = new BufferedWriter(new FileWriter(fileU,true));) {
+    private void startBufferedWriterU(SignInBean signInBean, FileWriter fileLog, FileWriter fileU){
+        try(BufferedWriter bufferedWriterLog = new BufferedWriter(fileLog);
+            BufferedWriter bufferedWriterU = new BufferedWriter(fileU);) {
 
             bufferedWriterLog.newLine();
             bufferedWriterLog.write(signInBean.getEmail() + "," + signInBean.getPassword());
@@ -54,17 +54,17 @@ public class SignInDAOCSV extends Component {
 
     public  void signInB(SignInBean signInBean)
     {
-        File fileLog = findFile(CSV_LOGIN_NAME);
-        File fileB = findFile(CSV_BOOK_SHOP_NAME);
+        FileWriter fileLog = findFile(CSV_LOGIN_PATH);
+        FileWriter fileB = findFile(CSV_BOOK_SHOP_PATH);
         startBufferedWriterB(signInBean,fileLog,fileB);
         super.mediator.notify(this, MediatorEvent.SIGN_IN_BOOK_SHOP,signInBean);
 
     }
 
-    private void startBufferedWriterB(SignInBean signInBean, File fileLog, File fileB)
+    private void startBufferedWriterB(SignInBean signInBean, FileWriter fileLog, FileWriter fileB)
     {
-        try(BufferedWriter bufferedWriterLog = new BufferedWriter(new FileWriter(fileLog,true));
-            BufferedWriter bufferedWriterB = new BufferedWriter(new FileWriter(fileB,true));) {
+        try(BufferedWriter bufferedWriterLog = new BufferedWriter( fileLog);
+            BufferedWriter bufferedWriterB = new BufferedWriter( fileB)){
 
 
             bufferedWriterLog.write(signInBean.getEmail());
@@ -92,10 +92,15 @@ public class SignInDAOCSV extends Component {
         }
     }
 
-    private static File findFile(String path)
-    {
-            return new File(path);
+    private static FileWriter findFile(String path) {
+        try {
+            return new FileWriter(path, true);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
+
 
 
 

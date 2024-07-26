@@ -83,7 +83,7 @@ public class GUIInsertNewBookController {
 
     private void setRegistrationBookBean() throws WrongNpageFormatException, TitleCampRequiredException {
         registrationBookBean.setEmail(emailCurrentSession);
-        registrationBookBean.setAccountType(accountType);
+        registrationBookBean.setAUser(accountType);
         registrationBookBean.setTypeOfBook(typeOfBook());
         registrationBookBean.setTitle(titleTField.getText());
         registrationBookBean.setAuthor(authorTField.getText());

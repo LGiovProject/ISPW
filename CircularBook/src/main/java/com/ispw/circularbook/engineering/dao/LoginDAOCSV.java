@@ -1,5 +1,6 @@
 package com.ispw.circularbook.engineering.dao;
 
+import com.ispw.circularbook.Main;
 import com.ispw.circularbook.engineering.bean.LoginBean;
 
 import java.io.*;
@@ -8,9 +9,9 @@ public class LoginDAOCSV {
 
     private static final int EMAIL_POSITION=0;
     private static final int PASSWORD_POSITION=1;
-    private static final String CSV_LOGIN_NAME = "src/main/res/Login.csv";
-    private static final String CSV_USER_NAME = "src/main/res/User.csv";
-    private static final String CSV_BOOK_SHOP_NAME = "src/main/res/BookShop.csv";
+    private static final String CSV_LOGIN_PATH = "Login.csv";
+    private static final String CSV_USER_PATH = "User.csv";
+    private static final String CSV_BOOK_SHOP_PATH = "BookShop.csv";
 
     private LoginDAOCSV(){}
 
@@ -20,8 +21,7 @@ public class LoginDAOCSV {
 
          int x=0;
          boolean flag=false;
-         File file = findFile(CSV_LOGIN_NAME);
-         try(BufferedReader bufferedReader = new BufferedReader(new FileReader(file));){
+         try(BufferedReader bufferedReader = new BufferedReader( new InputStreamReader(findFile(CSV_LOGIN_PATH)))){
 
              String row;
              String[] data;
@@ -47,8 +47,7 @@ public class LoginDAOCSV {
 
     private static int foundUserType(LoginBean loginBean)
     {
-        File file = findFile(CSV_USER_NAME);
-        try(BufferedReader bufferedReader = new BufferedReader(new FileReader(file))) {
+        try(BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(findFile(CSV_USER_PATH)))) {
 
             String row;
             String[] data;
@@ -59,7 +58,7 @@ public class LoginDAOCSV {
                         return 1;
             }
 
-        } catch (IOException e) {
+        }catch (IOException e) {
             e.printStackTrace();
         }
         return 0;
@@ -67,9 +66,7 @@ public class LoginDAOCSV {
 
     private static int foundBookShopType(LoginBean loginBean)
     {
-        File file = findFile(CSV_BOOK_SHOP_NAME);
-
-        try(BufferedReader bufferedReader = new BufferedReader(new FileReader(file));) {
+        try(BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(findFile(CSV_BOOK_SHOP_PATH)))) {
 
             String row;
             String[] data;
@@ -86,9 +83,8 @@ public class LoginDAOCSV {
         return 0;
     }
 
-    private static File findFile(String path)
-    {
-            return new File(path);
+    private static InputStream findFile(String path) throws IOException {
+            return Main.class.getClassLoader().getResourceAsStream(path);
     }
 
 

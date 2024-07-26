@@ -1,6 +1,7 @@
 package com.ispw.circularbook.engineering.state.cli;
 
 import com.ispw.circularbook.controller.graficcontroller.cli.*;
+import com.ispw.circularbook.engineering.enums.Account;
 import com.ispw.circularbook.engineering.exception.CommandNotFoundException;
 import com.ispw.circularbook.view.cli.CLIHomepageBookShopView;
 
@@ -67,7 +68,7 @@ public class CLIHomepageBookShopState implements CLIHomepageState{
     public void manageLibrary()
     {
         CLIManageController cliManageController = new CLIManageController(context);
-        cliManageController.startManage(2);
+        cliManageController.startManage(Account.BOOKSHOP);
     }
 
     @Override

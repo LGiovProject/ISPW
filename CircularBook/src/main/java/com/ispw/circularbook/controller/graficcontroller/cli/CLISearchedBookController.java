@@ -74,7 +74,7 @@ public class CLISearchedBookController {
         for(BookBean bookBean: bookBeanList)
         {
             if(bookBean.getId()==i){
-                return new TakenBookBean(bookBean.getId(), bookBean.getAccountType(), bookBean.getTypeOfBookInt(),bookBean.getEmail(),sessionEmail,LocalDate.now());
+                return new TakenBookBean(bookBean.getId(), bookBean.isUser(), bookBean.getTypeOfBookInt(),bookBean.getEmail(),sessionEmail,LocalDate.now());
             }
         }
         throw new NoBookFoundException();

@@ -10,11 +10,11 @@ public class TakenBookBean {
     private String emailTaker;
     private String dateStart;
     private String dateFinish;
-    private int accountTypeGiver;
+    private boolean user;
 
-    public TakenBookBean(int id, int accountTypeGiver, int typeOfDisponibility , String emailGiver, String emailTaker, LocalDate dateStart) {
+    public TakenBookBean(int id, boolean aUser, int typeOfDisponibility , String emailGiver, String emailTaker, LocalDate dateStart) {
         this.id = id;
-        this.accountTypeGiver = accountTypeGiver;
+        this.user = aUser;
         this.typeOfDisponibility= typeOfDisponibility;
         this.emailGiver = emailGiver;
         this.emailTaker=emailTaker;
@@ -75,11 +75,12 @@ public class TakenBookBean {
         this.dateFinish = dateFinishTemp.toString();
     }
 
-    public int getAccountTypeGiver() {
-        return accountTypeGiver;
+    public boolean isUser() {
+        return user;
     }
 
-    public void setAccountTypeGiver(int accountTypeGiver) {
-        this.accountTypeGiver = accountTypeGiver;
+    public void setUser(int user) {
+        this.user = (user==1);
     }
 }
+

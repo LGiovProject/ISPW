@@ -27,13 +27,14 @@ public class UserDAO {
                 throw new SQLException("errore");
             }
              resultSet.first();
-             userModel = new UserModel();
              userModel.setEmail(resultSet.getString(1));
              userModel.setAccountName(resultSet.getString(2));
              userModel.setName(resultSet.getString(3));
              userModel.setSurname(resultSet.getString(4));
              userModel.setCity(resultSet.getString(5));
-            resultSet.close();
+
+             System.out.println("UserDAO.searchUserByEmail  "+userModel.getName());
+             resultSet.close();
 
         }catch (SQLException | ErrorConnectionDbException e) {
             e.printStackTrace();

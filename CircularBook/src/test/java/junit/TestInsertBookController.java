@@ -41,7 +41,7 @@ private final String email ="testInsertBook@gmail.com";
             registrationBookBean.setEmail(email);
             registrationBookBean.setTitle("title");
             registrationBookBean.setTypeOfBook(TypeOfBook.LEND);
-            registrationBookBean.setAccountType(1);
+            registrationBookBean.setAUser(1);
             registrationBookBean.setAuthor("author");
             registrationBookBean.setArgument(Arguments.ADVENTURE);
             registrationBookBean.setPublisher("publisher");

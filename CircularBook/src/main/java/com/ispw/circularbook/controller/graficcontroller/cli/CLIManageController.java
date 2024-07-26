@@ -1,5 +1,6 @@
 package com.ispw.circularbook.controller.graficcontroller.cli;
 
+import com.ispw.circularbook.engineering.enums.Account;
 import com.ispw.circularbook.engineering.state.cli.CLIManageBookShopLibraryState;
 import com.ispw.circularbook.engineering.state.cli.CLIManageState;
 import com.ispw.circularbook.engineering.state.cli.CLIManageUserLibraryState;
@@ -14,12 +15,12 @@ public class CLIManageController {
 
     public void setState(CLIManageState cliManageState){this.currentState = cliManageState;}
 
-    public void startManage(int type)
+    public void startManage(Account type)
     {
-        if(type==1)
+        if(type==Account.USER)
         {
             this.setState(new CLIManageUserLibraryState(this));
-        } else if (type==2) {
+        } else{
             this.setState(new CLIManageBookShopLibraryState(this));
         }
         start();

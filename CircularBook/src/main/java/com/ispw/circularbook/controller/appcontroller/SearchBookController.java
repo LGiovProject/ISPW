@@ -127,7 +127,7 @@ public class SearchBookController {
                 return bookBean;
             case AVAILABLE_BOOK:
                 bookBean.setId(bookModel.getId());
-                bookBean.setAccountType(bookModel.getAccountTypePutter());
+                bookBean.setUser(bookModel.getaUser());
                 bookBean.setEmail(bookModel.getGenericAccountModelPutter().getEmail());
                 bookBean.setUsername(bookModel.getGenericAccountModelPutter().getAccountName());
                 bookBean.setTypeOfBook(bookModel.getTypeOfDisponibility());

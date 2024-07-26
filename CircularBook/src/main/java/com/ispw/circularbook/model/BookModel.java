@@ -19,7 +19,7 @@ public class BookModel {
 
 
     private GenericAccountModel genericAccountModelPutter;
-    private int accountTypePutter;
+    private boolean aUser;
     private UserModel userModelTaker;
 
 
@@ -47,13 +47,15 @@ public class BookModel {
         this.genericAccountModelPutter = genericAccountModelPutter;
     }
 
-    public int getAccountTypePutter() {
-        return accountTypePutter;
+    public boolean getaUser() {
+        return aUser;
     }
 
-    public void setAccountTypePutter(int accountTypePutter) {
-        this.accountTypePutter = accountTypePutter;
+    public void isAUser(int aUser) {
+        this.aUser = (aUser==1);
     }
+
+    public void isAUser(boolean aUser){this.aUser = aUser;}
 
     public int getTypeOfDisponibility() { return typeOfDisponibility; }
 

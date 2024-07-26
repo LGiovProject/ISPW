@@ -47,8 +47,8 @@ public class SearchBookDAO {
                     bookModel.setTitle(resultSet.getString(8));
                     bookModel.setNPage(resultSet.getInt(9));
                     bookModel.setComment(resultSet.getString(10));
-                    bookModel.setAccountTypePutter(resultSet.getInt(11));
-                    if(bookModel.getAccountTypePutter()==1) {
+                    bookModel.isAUser(resultSet.getInt(11));
+                    if(bookModel.getaUser()) {
                         UserModel userModel = new UserModel(emailTemp);
                         userModel.setAccountName(usernameTemp);
                         bookModel.setGenericAccountModelPutter(userModel);
@@ -140,8 +140,8 @@ public class SearchBookDAO {
                 do {
                     BookModel bookModel = new BookModel();
                     bookModel.setId(resultSet.getInt(1));
-                    bookModel.setAccountTypePutter(resultSet.getInt(2));
-                    if(bookModel.getAccountTypePutter()==1){
+                    bookModel.isAUser(resultSet.getInt(2));
+                    if(bookModel.getaUser()){
                         UserModel userModel = new UserModel();
                         userModel.setAccountName(resultSet.getString(3));
                         bookModel.setGenericAccountModelPutter(userModel);

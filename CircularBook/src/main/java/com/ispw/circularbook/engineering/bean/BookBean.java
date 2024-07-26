@@ -13,7 +13,7 @@ import java.util.regex.Pattern;
 public class BookBean {
     private int id;
     private String email;
-    private int accountType;
+    private boolean user;
     private String username;
     private TypeOfBook typeOfBook;
     private String title;
@@ -45,13 +45,15 @@ public class BookBean {
         this.email = email;
     }
 
-    public int getAccountType() {
-        return accountType;
+    public boolean isUser() {
+        return user;
     }
 
-    public void setAccountType(int accountType) {
-        this.accountType = accountType;
+    public void setUser(int user) {
+        this.user = (user==1);
     }
+
+    public void setUser(boolean user){this.user = user;}
 
     public String getUsername() {
         return username;
