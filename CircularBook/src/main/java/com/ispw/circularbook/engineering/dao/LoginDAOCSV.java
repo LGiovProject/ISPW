@@ -83,7 +83,7 @@ public class LoginDAOCSV {
         return 0;
     }
 
-    private static InputStream findFile(String path) throws IOException {
+    private static InputStream findFile(String path){
             return Main.class.getClassLoader().getResourceAsStream(path);
     }
 

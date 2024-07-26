@@ -32,8 +32,7 @@ public class UserDAO {
              userModel.setName(resultSet.getString(3));
              userModel.setSurname(resultSet.getString(4));
              userModel.setCity(resultSet.getString(5));
-
-             System.out.println("UserDAO.searchUserByEmail  "+userModel.getName());
+             
              resultSet.close();
 
         }catch (SQLException | ErrorConnectionDbException e) {

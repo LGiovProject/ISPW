@@ -16,11 +16,11 @@ public class LoginController {
 
     public void checkLogin(LoginBean loginBean) {
 
-//        if (LocalTime.now().getMinute() % 2 == 0) {
-//            loginBean.setType(LoginDAO.checkLogin(loginBean));
-//        } else {
+        if (LocalTime.now().getMinute() % 2 == 0) {
+            loginBean.setType(LoginDAO.checkLogin(loginBean));
+        } else {
             loginBean.setType(LoginDAOCSV.checkLogin(loginBean));
-//        }
+        }
 
     }
 
